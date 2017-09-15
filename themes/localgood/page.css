@@ -1,0 +1,323 @@
+/*--------------------------------------------------
+Earth View
+--------------------------------------------------*/
+.area_wrapper_title{
+    position: relative;
+    top: -10px;
+    margin: 0;
+    padding-left: 40px;
+    color: #00a0ca;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 70px;
+    background: url('images/cnt_ttl_bk.png') #ffffff no-repeat 20px 48%;
+    border-bottom: 1px dashed #cccccc;
+}
+body.page .earth_view .area_wrapper{
+    position: relative;
+    bottom: -10px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 0 20px;
+}
+
+body.page .earth_view .area_desc{
+    float:left;
+    width:510px;
+    margin: 20px 20px 0 0;
+    padding-left: 40px;
+    font-size: 14px;
+}
+
+body.page .earth_view .theme_box{
+    padding:0 0 0 0;
+    font-size: 14px;
+}
+
+
+body.page .earth_view .area_list{
+    float:left;
+    width:370px;
+    /*margin-bottom: 20px;*/
+}
+
+body.page .earth_view .area_list img{
+    width: 350px;
+    height: auto;
+}
+
+body.page .earth_view .area_list td{
+    padding:0 20px 5px;
+    font-size:20px;
+}
+
+body.page .earth_view .key_visual {
+    padding: 0 0 30px;
+    background-color: inherit;
+}
+
+body.page .earth_view .area_wrapper ul{
+    overflow: hidden;
+    zoom:1;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+body.page .earth_view .area_wrapper li{
+    float:left;
+    width:200px;
+    padding:7px 0 7px 20px;
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: bolder;
+    background:url('images/arrow_circle_r.png') no-repeat left 50%;
+}
+body.page .earth_view .area_wrapper ul li a:link,
+body.page .earth_view .area_wrapper ul li a:visited {
+    color: #666666;
+}
+
+/*.earth_view .topic_pic_wrapper {*/
+/*height: auto;*/
+/*}*/
+
+/*--------------------------------------------------
+.submit_subject
+--------------------------------------------------*/
+body.submit_subject .content .inner {
+    padding:0 25px 15px;
+    position:relative;
+    bottom:-10px;
+    width:auto;
+    background: #fff;
+}
+
+body.submit_subject .list_pic_wrapper .list_pic p {
+    font-size: 1em;
+}
+
+body.submit_subject .list_pic_wrapper .list_pic p.hl {
+    color: #666666;
+    margin: 10px 0 20px;
+    clear: both;
+    line-height: 1.4em;
+    font-size: 1.7em;
+}
+
+
+body.submit_subject .form_block {
+    margin-bottom: 20px;
+}
+
+body.submit_subject .form_block p {
+    margin:0 0 10px;
+}
+
+body.submit_subject .form_block p.form_parts {
+    margin-bottom:20px;
+}
+
+
+body.submit_subject .form_block label {
+    margin-right: 15px;
+}
+
+body.submit_subject .form_block {
+}
+
+body.submit_subject .form_block dl dt {
+    clear: both;
+    float:left;
+    width:128px;
+}
+
+body.submit_subject.confirm-subject .form_block dl dt {
+    width:150px;
+}
+
+body.submit_subject .form_block dl dd {
+    float:left;
+    width:150px;
+    margin-left: 0;
+}
+
+body.submit_subject .form_block dl dd.wide {
+    width:700px;
+}
+
+body.submit_subject .form_block dl dd.prev_img {
+    width:400px;
+}
+
+body.submit_subject .form_block dl dd.prev_img img {
+    max-width: 100%;
+}
+
+body.submit_subject .content .desc {
+    margin-bottom: 30px;
+}
+
+body.submit_subject .content .desc p {
+    margin:0;
+}
+
+body.submit_subject textarea,
+body.submit_subject input[type=text] {
+    padding: 5px 10px;
+}
+
+body.submit_subject textarea#subject_content,
+body.submit_subject textarea#tweet_content
+{
+    width:640px;
+    height:125px;
+}
+
+.submit_subject #subject_gmap,
+.submit_subject .preview_gmap
+{
+    border:1px solid #ccc;
+    width:888px;
+    height:500px;
+}
+
+.submit_subject span.button {
+    margin-right:30px;
+    display: block;
+    float: left;
+}
+
+
+.submit_subject .list_pic_wrapper .list_pic p.lets_tweet {
+    font-size:1.2em;
+}
+
+p.tweet_post {
+    background: url('images/tw_btn.png') no-repeat left 50%;
+    padding-left:25px;
+}
+
+.submit_subject .invalid {
+    background-color:#F2DEDE;
+    border-radius: 4px;
+    padding:5px 11px;
+    color:#B94A48;
+    width:640px;
+}
+
+.submit_subject .invalid.inline {
+    width:auto;
+    margin-left:15px;
+}
+
+span.required {
+    color:#f00;
+}
+
+
+/*--------------------------------------------------
+    .post-type-archive-subject
+--------------------------------------------------*/
+.post-type-archive-subject #subjects_view {
+    width:888px;
+    height:500px;
+    border:solid 1px #999;
+    margin:30px auto;
+}
+
+.post-type-archive-subject .subject_map {
+    overflow: hidden;
+    border-bottom: 1px dashed #ccc;
+    position: relative;
+    /*top:-10px;*/
+    padding-bottom: 10px;
+}
+
+.post-type-archive-subject .subject_map .desc {
+    width:890px;
+    margin:30px auto 0;
+}
+
+.post-type-archive-subject .list_pic_wrapper .list_pic .thumbnail {
+    min-height: 0;
+}
+
+.post-type-archive-subject .list_pic_wrapper .list_pic_layout .article_box .list_inner {
+    /*min-height:150px;*/
+    min-height:96px;
+    bottom:0;
+}
+
+.post-type-archive-subject .list_pic_wrapper .list_pic .article_box {
+    margin-top:0;
+}
+
+.confirm_text {
+    font-size: 1.2em;
+}
+
+
+.post-type-archive-subject .subject_map #subject_point {
+}
+
+.post-type-archive-subject .subject_map .gm-style-iw ul {
+    padding:0;
+    margin:0;
+}
+
+.post-type-archive-subject .subject_map .gm-style-iw ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+/*
+    tweet_subject
+*/
+
+.tweet_subject .content {
+    padding:20px 0;
+}
+
+.tweet_subject .content iframe.twitter-tweet {
+    margin:10px auto!important;
+}
+
+/*--------------------------------------------------
+page user_guide
+--------------------------------------------------*/
+body.page div.user_guide h2 {
+    margin: 48px 0 32px;
+}
+
+body.page div.user_guide .user_guide_box {
+    margin: 0 24px 24px;
+}
+
+body.page div.user_guide h3 {
+    margin: 32px 0 16px;
+}
+
+body.page div.user_guide ol {
+    padding-left: 32px;
+}
+body.page div.user_guide ol li {
+    margin-bottom: 8px;
+}
+body.page div.user_guide ol li span {
+    display: block;
+    font-weight: bolder;
+}
+
+/*--------------------------------------------------
+page-syotorihikihou
+--------------------------------------------------*/
+table.syotori_tb th,
+table.syotori_tb td {
+    padding: 15px 25px;
+    border: 1px solid #666666;
+    border-collapse: collapse;
+}
+
+table.syotori_tb th {
+    width: 128px;
+}

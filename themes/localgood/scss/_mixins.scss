@@ -1,0 +1,206 @@
+@import "palette";
+@mixin disp_ib() {
+  letter-spacing: -0.4em;
+  > * {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+  }
+}
+
+@mixin li_reset() {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+@mixin dl_reset() {
+  margin: 0;
+
+  > dd {
+    margin-left: 0;
+  }
+}
+
+@mixin white_box() {
+  background-color: #fff;
+  box-shadow: 0 1px 0 0 $grayCol01;
+}
+
+@mixin title_border_bottom() {
+  margin-bottom: 24px;
+  padding-bottom: 11px;
+  border-bottom: solid 1px $grayCol01;
+}
+
+@mixin remove_appearance() {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@mixin white_box_shadow() {
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin common_single_information_heading {
+  padding: 21px 33px 25px;
+  margin: 0 0 30px 0;
+  background: #FFF;
+}
+
+@mixin common_single_information_heading__base_info{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center; /* Safari */
+  align-items: center;
+}
+
+@mixin circle_icon($size){
+  display: inline-block;
+  width: $size;
+  height: $size;
+}
+
+@mixin circle_thumbnail($size){
+  position: relative;
+  width: $size;
+  height: $size;
+  text-align: center;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+@mixin circle_thumbnail__image($max_size,$min_size){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  max-width: $max_size;
+  max-height: $max_size;
+  min-width: $min_size;
+  min-height: $min_size;
+  height: auto;
+  z-index: 1;
+}
+
+@mixin flex{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+
+@mixin form_flame($width){
+  display: block;
+  width: $width;
+  padding: 10px;
+  border: 1px solid $grayCol01;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin checkbox($checked_bk,$checked_col) {
+  .checkbox {
+    display: none;
+  }
+  .parts {
+    position: relative;
+    padding: 0 15px 0 0;
+    margin: 0 10px 0 0;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid $grayCol01;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+    }
+  }
+  .checkbox:checked + .parts::before {
+    color: $grayCol03;
+    background: $checked_bk;
+  }
+  .checkbox:checked + .parts::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    transform: rotate(40deg);
+    border-bottom: 1px solid $checked_col;
+    border-right: 1px solid $checked_col;
+  }
+}
+
+@mixin knows_map__filter($padding,$margin_b,$bk_col){
+  -webkit-justify-content: space-between; /* Safari */
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  padding: $padding;
+  margin-bottom: $margin_b;
+  background: $bk_col;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin knows_map__filter--labels($padding,$margin){
+  display: inline-block;
+  height: 100%;
+  margin: $margin;
+  padding: $padding;
+}
+
+@mixin knows_map__filter--label($col,$bk){
+  color: $col;
+  background: $bk;
+}
+@mixin inp_tex($width,$height,$padding,$margin){
+  width: $width;
+  height: $height;
+  padding: $padding;
+  margin: $margin;
+  border:solid 1px $grayCol01;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin cat_tag{
+  display: inline-block;
+  height: 20px;
+  color: $grayCol03;
+  font-size: 10px;
+  padding: 0 10px;
+  margin: 0 5px 5px 0;
+  line-height: 20px;
+  border: 1px solid $grayCol01;
+  background: #FFF;
+}

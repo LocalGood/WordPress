@@ -1,0 +1,113 @@
+.input_text_fullsize {
+   width: 100%;
+}
+
+.input_text_70p {
+   width: 70%;
+}
+
+
+#configSection {
+   margin-bottom: 30px;
+   padding-bottom: 60px;
+}
+
+.media-preview {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   margin-bottom: 20px;
+}
+
+.color-picker-window {
+   box-shadow: 5px 5px 3px rgba(30, 30, 30, .1);
+}
+
+.palette_label {
+   width: 120px;
+   text-align: right;
+   padding: 5px;
+   display: inline-block;
+}
+
+.api_setting_tree label {
+   width: 300px;
+   display: inline-block;
+   text-align: right;
+   padding: 10px;
+}
+
+.api_setting_tree input {
+   width: 500px;
+   font-size: 16px;
+   padding: 10px;
+}
+
+.lg_cfg_msgbox {
+   position: fixed;
+   top: 50px;
+   right: 50px;
+   z-index: 99099;
+}
+
+.bannerset_box {
+   border:1px solid #c0c0c0;
+   padding: 10px;
+   margin: 5px 0;
+   display: flex;
+}
+
+.bannerset_box .bannerset_id {
+   padding: 2px 5px;
+}
+
+.bannerset_box .bannerset_id span {
+   background-color: #dddddd;
+   padding: 3px;
+   color: #737373;
+}
+
+.bannerset_box .del {
+   margin-left: auto;
+   cursor: pointer;
+}
+
+.bannerset_box.removing {
+   border-color: #ff3333;
+}
+
+.hce_section {
+   display: none;
+}
+
+.hce_navigation li {
+   padding: 3px;
+}
+
+.hce_navigation .isActive {
+   font-weight: bold;
+   color: #FF9A19;
+   position: relative;
+}
+
+.hce_navigation .isActive:before {
+   content: '>';
+   position: absolute;
+   right: 100%;
+   top: 0;
+   margin-right: 3px;
+   font-weight: normal;
+}
+
+dt {
+   clear: left;
+   float: left;
+   width: 12em;
+   padding: 5px;
+}
+
+dd {
+   margin-left: 14em;
+   border-left:3px solid #00a0d2;
+   padding: 5px;
+}
