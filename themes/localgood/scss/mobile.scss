@@ -573,9 +573,31 @@ dl, dd, ul{
     height: 100vh;
     font-size: 0 !important;
     text-align: center;
-    background: url("../images/sm/s-main_bg.jpg") no-repeat;
+    //background: url("../images/sm/s-main_bg.jpg") no-repeat;
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
+
+    &__updates{
+      width: 256px;
+      color: $grayCol03;
+      font-size: 10px;
+      padding: 10px;
+      margin: 20px auto;
+      text-align: left;
+      background: #FFF;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      h3{
+        font-size: 13px;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+      }
+      p{
+        margin: 5px 0;
+      }
+    }
 
     img{
       width: 80% !important;

@@ -1,8 +1,12 @@
 <?php get_header(); ?>
     <div class="contents_wrapper" id="top_page">
 
-        <div class="key_visual pr">
+        <div class="key_visual pr" style="background-image:url(<?php echo esc_attr( get_option( 'lg_config__home_wallpaper' ) ); ?>);">
             <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-main_text.png" alt="LOCAL GOODとは"/>
+			<div class="key_visual__updates">
+				<h3>更新情報</h3>
+		        <?php echo wpautop( get_option( 'home_updates' ) ); ?>
+			</div>
 
             <div class="nav_menu-button pa">
                 <span></span>

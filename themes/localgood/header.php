@@ -113,7 +113,7 @@ elseif(DEVICE == 'pc'):
     <header id="header" class="normal_header header clearfix">
 
         <h1 class="header__logo">
-            <a href="<?= home_url(); ?>"><img src="<?php echo esc_attr(get_option('lg_config__header_logo_1')) ?>" alt="<?php bloginfo('name'); ?>"/></a>
+            <a href="<?= home_url(); ?>"><img src="<?php echo esc_attr(get_option('lg_config__header_logo_2')) ?>" alt="<?php bloginfo('name'); ?>"/></a>
         </h1>
 
         <div class="header__right">
@@ -168,6 +168,9 @@ elseif(DEVICE == 'pc'):
                         echo $a;
                     } ?>><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
                     </li>
+	                <li >
+		                <a href="<?php echo home_url('/about/'); ?>">Local Good YOKOHAMAについて</a>
+	                </li>
                     <li class="gnav_goteo">
                         <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login">新規登録/ログイン</a>
                     </li>

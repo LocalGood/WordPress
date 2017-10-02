@@ -55,9 +55,25 @@
   background: url('../images/key_visual.jpg') 50% 50%;
   background-size: cover;
 }
+.key_visual__updates {
+  position: absolute;
+  top: calc(75vh - 139.5px);
+  left: 50%;
+  padding: 10px;
+  margin-left: -595px;
+  width: 1190px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.key_visual__updates h3 {
+  font-weight: bold;
+  margin: 0 0 30px 0;
+}
 .key_visual__word {
   position: absolute;
-  top: calc(50vh - 139.5px);
+  top: calc(40vh - 139.5px);
   left: 50%;
   margin-left: -595px;
 }

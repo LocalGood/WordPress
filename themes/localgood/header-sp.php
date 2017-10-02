@@ -180,6 +180,9 @@
                             3Dマップ
                         </a>
                     </li>
+					<li>
+						<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+					</li>
                     <li>
                         <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
                             新規登録/ログイン
@@ -257,6 +260,9 @@
                         3Dマップ
                     </a>
                 </li>
+				<li>
+					<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+				</li>
                 <li>
                     <a href="http://cf.yokohama.localgood.jp/user/login" class="list01__text">
                         新規登録/ログイン
@@ -343,6 +349,9 @@
                         3Dマップ
                     </a>
                 </li>
+				<li>
+					<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+				</li>
                 <li>
                     <a href="http://cf.yokohama.localgood.jp/user/login" class="list01__text">
                         新規登録/ログイン

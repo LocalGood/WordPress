@@ -396,8 +396,10 @@ function shorten( $text, $width = null ) {
 
 function localgood_option_page_content() {
 	$opt_name = 'event_participants';
+	$opt_name2 = 'home_updates';
 	if ( isset( $_POST['event_participants_hidden'] ) == 'Y' ) {
 		update_option( $opt_name, $_POST[ $opt_name ] );
+		update_option( $opt_name2, $_POST[ $opt_name2 ] );
 		?>
 		<div class="updated"><p><strong>更新しました。</strong></p></div>
 		<?php
@@ -405,10 +407,22 @@ function localgood_option_page_content() {
 	$opt_val = get_option( $opt_name );
 	?>
 	<div class="wrap">
-		<h2>イベントへの参加者</h2>
 		<form name="form1" method="post" action="">
+			<h2>イベントへの参加者</h2>
 			<input type="hidden" name="event_participants_hidden" value="Y">
 			<input type="text" name="<?php echo $opt_name; ?>" value="<?php echo $opt_val; ?>" size="80">
+
+
+			<h2>トップページ更新情報</h2>
+			<?php
+			global $wp_editor_default_options;
+			$wp_editor_options  = array_merge( $wp_editor_default_options, array(
+				'media_buttons' => false,
+				'textarea_rows' => 10,
+			) );
+			$home_about_content = get_option( $opt_name2 );
+			wp_editor( $home_about_content, $opt_name2, $wp_editor_options );
+			?>
 
 			<p class="submit">
 				<input type="submit" name="Submit" value="更新"/>

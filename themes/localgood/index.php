@@ -66,6 +66,9 @@ else:
 						echo $a;
 					} ?>><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
 					</li>
+					<li >
+						<a href="<?php echo home_url('/about/'); ?>">Local Good YOKOHAMAについて</a>
+					</li>
 					<li class="gnav_goteo">
 						<a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
 							echo LG_GOTEO_BASE_URL;
@@ -79,11 +82,16 @@ else:
 	<!--.header-->
 	<!-- end top absolute header -->
 
-	<div id="key_visual" class="key_visual">
+	<div id="key_visual" class="key_visual"
+		 style="background-image:url(<?php echo esc_attr( get_option( 'lg_config__home_wallpaper' ) ); ?>);">
 		<h2 class="key_visual__word">
 			<img src="<?php bloginfo( 'template_directory' ); ?>/images/key_visual__logo.png"
-				 alt="LOCAL GOOD YOKOHAMA あなたのまちで、あなたにもできることがきっとある。">
+				 alt="<?php bloginfo( 'name' ); ?>">
 		</h2>
+		<div class="key_visual__updates">
+			<h3>更新情報</h3>
+			<?php echo wpautop( get_option( 'home_updates' ) ); ?>
+		</div>
 		<a class="key_visual__down_button c-link01" href="#contents">詳しくはこちら</a>
 	</div>
 
@@ -189,6 +197,7 @@ else:
 			<h3 class="index_sec04__title c-title_cmn c-title03">クラウドファンディング</h3>
 			<div class="index_sec04__inner_wrap">
 				<div class="project_box c-clearfix">
+					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 					<?php
 					$_promotes = get_pickup_projects();
 					if ( ! empty( $_promotes ) ) {
