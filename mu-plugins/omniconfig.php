@@ -8,7 +8,7 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.2.2
+Version: 0.3.2
 */
 
 add_action( 'init', function () {
