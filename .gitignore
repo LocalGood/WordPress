@@ -1,0 +1,9 @@
+index.php
+languages/
+uploads/
+plugins/
+!advanced-custom-fields/
+!custom-field-suite/
+!rich-text-tags/
+!simple-local-avatars/
+!wp-multibyte-patch/
