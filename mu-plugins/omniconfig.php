@@ -11,6 +11,16 @@ Author: #7
 Version: 0.2.2
 */
 
+add_action( 'init', function () {
+	/**
+	 * 強制的に LocalGoodテーマを適用
+	 */
+	$current_theme = wp_get_theme();
+	if ( 'localgood' !== $current_theme ) {
+		switch_theme( 'localgood' );
+	}
+} );
+
 $lgoc_settings = array(
 	'export_path' => ABSPATH . '/omniconfig',
 	'file_name'   => array(
