@@ -15,7 +15,7 @@ function lg_add_config_cpt() {
 			'show_in_menu'        => false,
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
-			'taxonomies'          => array('lg_config_type'),
+			'taxonomies'          => array( 'lg_config_type' ),
 			'has_archive'         => false,
 			'exclude_from_search' => true,
 		)
