@@ -14,7 +14,6 @@ function render_export_page() {
 	</p>
 
 	<h4>_palette.scss の再構築</h4>
-	<p>未実装</p>
 	<ul>
 		<li>
 			<p>
@@ -22,9 +21,13 @@ function render_export_page() {
 			</p>
 		</li>
 
+		<h4>SCSSファイルのコンパイル（スタイルシートの更新）</h4>
 		<li>
 			<p>
-				<button class="exec_scss_compile button">SCSS を再コンパイルする</button>
+				<button class="exec_scss_compile_wp button">WordPress</button>
+				<button class="exec_scss_compile_goteo button"
+						data-compile-key="<?php echo hash( 'md5', 'hogehoge' ); ?>">Goteo（まだエラーでます）
+				</button>
 			</p>
 		</li>
 	</ul>
@@ -36,8 +39,6 @@ function render_export_page() {
 
 	<?php
 }// End render_export_page.
-
-
 
 
 add_action( 'wp_ajax_lgc_regenerate_footer_html', '_lgc_regenerate_footer_html' );
@@ -85,7 +86,6 @@ function _lgc_regenerate_palette_scss() {
 	}
 	wp_die();
 }
-
 
 
 add_action( 'wp_ajax_lgc_regenerate_apikeys_json', '_lgc_regenerate_apikeys_json' );

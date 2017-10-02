@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
       };
       $.ajax({
         type: 'POST',
-        url: LGJSCONFIG.endpoint,
+        url: LGJSCONFIG.endpoint.wp_ajax,
         data: postData,
         beforeSend: function () {
           $('#omniconfigMsgBox').fadeIn(500);
@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
 
       $.ajax({
         type: 'POST',
-        url: LGJSCONFIG.endpoint,
+        url: LGJSCONFIG.endpoint.wp_ajax,
         data: postData,
         beforeSend: function () {
           $('#omniconfigMsgBox').fadeIn(500);
@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
 
   });
 
-  $('.regenerate_footer_html').click(function(e){
+  $('.regenerate_footer_html').click(function (e) {
 
     e.preventDefault();
 
@@ -77,7 +77,7 @@ jQuery(document).ready(function ($) {
 
     $.ajax({
       type: 'POST',
-      url: LGJSCONFIG.endpoint,
+      url: LGJSCONFIG.endpoint.wp_ajax,
       data: postData,
       beforeSend: function () {
         $('#omniconfigMsgBox').fadeIn(500);
@@ -95,7 +95,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-  $('.regenerate_apikeys_json').click(function(e){
+  $('.regenerate_apikeys_json').click(function (e) {
     e.preventDefault();
 
     var postData = {
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
 
     $.ajax({
       type: 'POST',
-      url: LGJSCONFIG.endpoint,
+      url: LGJSCONFIG.endpoint.wp_ajax,
       data: postData,
       beforeSend: function () {
         $('#omniconfigMsgBox').fadeIn(500);
@@ -122,8 +122,7 @@ jQuery(document).ready(function ($) {
   })
 
 
-
-  $('.regenerate_palette_scss').click(function(e){
+  $('.regenerate_palette_scss').click(function (e) {
     e.preventDefault();
 
     var postData = {
@@ -132,7 +131,7 @@ jQuery(document).ready(function ($) {
 
     $.ajax({
       type: 'POST',
-      url: LGJSCONFIG.endpoint,
+      url: LGJSCONFIG.endpoint.wp_ajax,
       data: postData,
       beforeSend: function () {
         $('#omniconfigMsgBox').fadeIn(500);
@@ -147,6 +146,73 @@ jQuery(document).ready(function ($) {
         }, 500);
       });
 
-  })
+  });
+
+  $('.exec_scss_compile_wp').click(function (e) {
+    e.preventDefault();
+
+    var postData = {
+      'scss': 'true'
+    };
+
+    $.ajax({
+      type: 'GET',
+      url: LGJSCONFIG.endpoint.wp_home,
+      data: postData,
+      beforeSend: function () {
+        $('#omniconfigMsgBox').fadeIn(500);
+      }
+    })
+      .done(function (res, textStatus, xhr) {
+        if (xhr.status === 200) {
+          alert('完了しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+        } else {
+          alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+        }
+      })
+      .fail(function(xhr, textStatus, errorThrown) {
+        alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+      })
+      .always(function () {
+        setTimeout(function () {
+          $('#omniconfigMsgBox').fadeOut(500);
+        }, 500);
+      });
+
+  });
+
+  $('.exec_scss_compile_goteo').click(function (e) {
+    e.preventDefault();
+
+    var postData = {
+      'scss': $(this).data('compile-key')
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: LGJSCONFIG.endpoint.goteo_home,
+      data: postData,
+      beforeSend: function () {
+        $('#omniconfigMsgBox').fadeIn(500);
+      }
+    })
+      .done(function (res, textStatus, xhr) {
+        if (xhr.status === 200) {
+          alert('完了しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+        } else {
+          alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+        }
+      })
+      .fail(function(xhr, textStatus, errorThrown) {
+        alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
+      })
+      .always(function () {
+        setTimeout(function () {
+          $('#omniconfigMsgBox').fadeOut(500);
+        }, 500);
+      });
+
+  });
+
 
 });

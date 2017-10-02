@@ -9,12 +9,10 @@ function render_color_editor() {
 	$option_value = get_option( 'lg_config__color_palette', false );
 
 	$form_setting = array(
-		'color1' => '色１',
-		'color2' => '色２',
-		'color3' => '色３',
-		'color4' => '色４',
-		'color5' => '色５',
-		'color6' => '色６',
+		'mainCol01' => 'メインカラー1',
+		'mainCol02' => 'メインカラー2',
+		'subCol01' => 'サブカラー1',
+		'subCol02' => 'サブカラー2',
 	);
 
 	?>

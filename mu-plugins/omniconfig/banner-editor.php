@@ -27,7 +27,6 @@ function render_banner_editor() {
 					<span class="num"><?php echo get_post_meta( $set->ID, 'order', true ); ?>：</span>
 					<a href="<?php echo $edit_link; ?>"><?php echo $set->post_title; ?></a>
 				<p class="bannerset_id">（bannerset_id: <span><?php echo $set->post_name; ?></span>）</p>
-				</p>
 				<p class="del" data-id="<?php echo $set->ID; ?>">[x]</p>
 			</div>
 		<?php endforeach; ?>

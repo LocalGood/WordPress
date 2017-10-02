@@ -8,7 +8,7 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.1.0
+Version: 0.2.2
 */
 
 $lgoc_settings = array(
@@ -20,7 +20,7 @@ $lgoc_settings = array(
 	),
 );
 
-define( 'OMNICONFIG_LG_VERSION', '0.1.0' );
+define( 'OMNICONFIG_LG_VERSION', '0.2.2' );
 define( 'OMNICONFIG_HOME_URL', add_query_arg( 'page', 'omniconfig', admin_url( 'admin.php' ) ) );
 
 $lgoc_labels = array(
@@ -68,8 +68,13 @@ function omniconfig_admin_init() {
 		'jq_spectrum',
 	), null, 'all' );
 
+
 	wp_localize_script( 'lgoc_common', 'LGJSCONFIG', array(
-		'endpoint' => admin_url( 'admin-ajax.php' ),
+		'endpoint' => array(
+			'wp_ajax'    => admin_url( 'admin-ajax.php' ),
+			'wp_home'    => home_url(),
+			'goteo_home' => LG_GOTEO_BASE_URL,
+		),
 		'action'   => array(
 			'add_new_bannerset'       => 'lgc_add_new_bannerset',
 			'remove_config_post'      => 'lgc_remove_configpost',
