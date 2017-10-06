@@ -48,7 +48,7 @@
                     <span class="footer__upper_second_title">応援する</span>
                     <ul>
                         <li><a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>">プロジェクト一覧</a></li>
-                        <li><a href="<?php echo home_url('/challenge'); ?>">プロジェクトを立てる</a></li>
+                        <li><a href="<?php echo home_url('/challenge'); ?>">プロジェクトを立ち上げる</a></li>
                     </ul>
 					<span class="footer__upper_second_title">CSVダウンロード</span>
 					<ul>

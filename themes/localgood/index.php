@@ -56,7 +56,9 @@ else:
 									<li><span><a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
 												echo LG_GOTEO_BASE_URL;
 											} ?>/discover/">プロジェクト一覧</a></span></li>
-									<li><span><a href="<?php echo home_url( '/challenge/' ); ?>">プロジェクトを立ち上げる</a></span>
+									<li><span><a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
+												echo LG_GOTEO_BASE_URL;
+											} ?>/challenge/">プロジェクトを立ち上げる</a></span>
 									</li>
 								</ul>
 							</div>
@@ -64,10 +66,12 @@ else:
 					</li>
 					<li <?php if ( is_page( 'earth_view' ) || is_tax( 'project_area' ) || is_tax( 'project_theme' ) ) {
 						echo $a;
-					} ?>><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+					} ?>><a href="<?php if ( defined( 'LG_EARTHVIEW' ) ) {
+							echo LG_EARTHVIEW;
+						} ?>" target="_blank">3Dマップ</a>
 					</li>
-					<li >
-						<a href="<?php echo home_url('/about/'); ?>">Local Good YOKOHAMAについて</a>
+					<li>
+						<a href="<?php echo home_url( '/about/' ); ?>"><?php bloginfo( 'name' ); ?>について</a>
 					</li>
 					<li class="gnav_goteo">
 						<a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
@@ -85,13 +89,18 @@ else:
 	<div id="key_visual" class="key_visual"
 		 style="background-image:url(<?php echo esc_attr( get_option( 'lg_config__home_wallpaper' ) ); ?>);">
 		<h2 class="key_visual__word">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/key_visual__logo.png"
+			<?php if ( get_option( 'lg_config__main_logo', false ) ) : ?>
+				<img src="<?php echo get_option( 'lg_config__main_logo' ); ?>"
 				 alt="<?php bloginfo( 'name' ); ?>">
+			<?php else : ?><?php bloginfo( 'name' ); ?>
+			<?php endif; ?>
 		</h2>
+		<?php if (get_option('home_updates',false)): ?>
 		<div class="key_visual__updates">
 			<h3>更新情報</h3>
 			<?php echo wpautop( get_option( 'home_updates' ) ); ?>
 		</div>
+		<?php endif; ?>
 		<a class="key_visual__down_button c-link01" href="#contents">詳しくはこちら</a>
 	</div>
 

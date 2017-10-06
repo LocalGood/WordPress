@@ -1,4 +1,5 @@
 @import "mixins";
+@import "colors";
 @import "palette";
 @import url('http://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
 
@@ -674,7 +675,7 @@ img {
     margin: 0;
   }
 
-  ul&--right{
+  &--right{
     display: none;
     width: 35%;
     -webkit-justify-content: center; /* Safari */
@@ -1279,14 +1280,14 @@ img {
     font-size: 13px;
     line-height: 1;
     a {
-      color: $color35;
+      color: $mainCol02;
     }
   }
 
   &__post_body * {
     color: $grayCol03;
     .place_link{
-      color: $color35;
+      color: $mainCol02;
       padding: 0 20px 0 0;
       background: url("../images/flag_icon.png") no-repeat right;
     }

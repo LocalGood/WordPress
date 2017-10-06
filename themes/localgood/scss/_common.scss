@@ -1,6 +1,8 @@
 @charset "utf-8";
+@import "colors";
 @import "palette";
 @import "mixins";
+
 /*----------------------------------------------------------------------
  header.css
 ----------------------------------------------------------------------*/
@@ -410,7 +412,7 @@ body{
 
   &__upper {
     padding: 45px 0 52px;
-    background-color: $color01;
+    background-color: $mainCol01;
     &_left {
       float: left;
       width: 25%;

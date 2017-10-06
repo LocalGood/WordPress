@@ -40,7 +40,7 @@ get_header(); ?>
         <div class="list_pic">
             <div class="list_pic_layout">
                 <h2 class="area_wrapper_title"><?= LG_KANJI; ?>を読む</h2>
-                <div class="area_wrapper read_yokohama cf">
+                <div class="area_wrapper cf">
                     <div class="theme_box content">
                         <?php echo get_post_meta($post->ID , LG_ES . '_read' ,true) ?>
                     </div><!--.theme_box-->

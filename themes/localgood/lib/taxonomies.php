@@ -105,30 +105,3 @@ function create_custom_taxonomies(){
 
 }
 add_action('init', 'create_custom_taxonomies',0);
-
-
-function get_yokohama_locations()
-{
-    $_terms = array(
-        'city_yokohama' => array('name' => '横浜市', 'lat' => 35.443972, 'long' => 139.63825),
-        'naka' => array('name' => '中区', 'lat' => 35.444722, 'long' => 139.642139),
-        'hodogaya' => array('name' => '保土ケ谷区', 'lat' => 35.459917, 'long' => 139.596028),
-        'minami' => array('name' => '南区', 'lat' => 35.431306, 'long' => 139.608806),
-        'totsuka' => array('name' => '戸塚区', 'lat' => 35.396472, 'long' => 139.532333),
-        'asahi' => array('name' => '旭区', 'lat' => 35.474667, 'long' => 139.544778),
-        'sakae' => array('name' => '栄区', 'lat' => 35.364306, 'long' => 139.554083),
-        'izumi' => array('name' => '泉区', 'lat' => 35.417861, 'long' => 139.488722),
-        'kohoku' => array('name' => '港北区', 'lat' => 35.519, 'long' => 139.633028),
-        'konan' => array('name' => '港南区', 'lat' => 35.400722, 'long' => 139.591222),
-        'seya' => array('name' => '瀬谷区', 'lat' => 35.466028, 'long' => 139.498778),
-        'isogo' => array('name' => '磯子区', 'lat' => 35.402333, 'long' => 139.618333),
-        'kanagawa' => array('name' => '神奈川区', 'lat' => 35.477056, 'long' => 139.629278),
-        'midori' => array('name' => '緑区', 'lat' => 35.512361, 'long' => 139.538028),
-        'nishi' => array('name' => '西区', 'lat' => 35.453639, 'long' => 139.616917),
-        'tsuzuki' => array('name' => '都筑区', 'lat' => 35.544778, 'long' => 139.570722),
-        'kanazawa' => array('name' => '金沢区', 'lat' => 35.337278, 'long' => 139.6245),
-        'aoba' => array('name' => '青葉区', 'lat' => 35.552778, 'long' => 139.537),
-        'tsurumi' => array('name' => '鶴見区', 'lat' => 35.508306, 'long' => 139.682417)
-    );
-    return $_terms;
-}

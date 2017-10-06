@@ -159,44 +159,21 @@ elseif(DEVICE == 'pc'):
                             <div class="header__right__snav__inner">
                                 <ul>
                                     <li><span><a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover/">プロジェクト一覧</a></span></li>
-                                    <li><span><a href="<?php echo home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span></li>
+                                    <li><span><a href="<?= home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li <?php if (is_page('earth_view') || is_tax('project_area') || is_tax('project_theme')) {
                         echo $a;
-                    } ?>><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+                    } ?>><a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank">3Dマップ</a>
                     </li>
 	                <li >
-		                <a href="<?php echo home_url('/about/'); ?>">Local Good YOKOHAMAについて</a>
+		                <a href="<?php echo home_url('/about/'); ?>"><?php bloginfo('name'); ?>について</a>
 	                </li>
                     <li class="gnav_goteo">
                         <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login">新規登録/ログイン</a>
                     </li>
-                    <?php /*
-                    <li class="gnav_goteo">
-                        <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login">新規登録/ログイン</a>
-                        <div id="goteo_menu" class="goteo_menu">
-                            <ul>
-                                <li class="dashboard"><a href="/dashboard"><span>マイページ</span><img src="https://static.localgood.jp/data/cache/28x28c/130502-l_1.jpg"></a>
-                                    <div>
-                                        <ul>
-                                            <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>
-                                            <li><a href="/dashboard/profile"><span>プロフィール</span></a></li>
-                                            <li><a href="/dashboard/projects"><span>マイプロジェクト</span></a></li>
-                                            <li><a href="/community/sharemates"><span>みんなの興味</span></a></li>
-                                            <li><a href="/translate"><span>翻訳メインパネル</span></a></li>
-                                            <li><a href="/review"><span>レビュー管理</span></a></li>
-                                            <li><a href="/admin"><span>管理者パネル</span></a></li>
-                                            <li class="logout"><a href="/user/logout"><span>ログアウト</span></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
- */ ?>
                 </ul>
             </nav>
         </div>
