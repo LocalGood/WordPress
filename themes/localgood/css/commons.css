@@ -1,5 +1,5 @@
 @import url('http://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
-/* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//*WordPress Core --------------------------------------------------------------*/.db {
+/* Gray Color *//* Alert Color*//* Other Color *//*WordPress Core --------------------------------------------------------------*/.db {
   display: block;
   width: 100%;
   height: 100%;
@@ -163,19 +163,19 @@ img {
 }
 .c-pager .tablenav .current {
   color: #fff;
-  background-color: #255b7f;
+  background-color: #7f2525;
 }
 /*---------- titles ----------*/.c-title_cmn {
   margin: 0;
   text-align: center;
 }
 .c-title01 {
-  color: #255b7f;
+  color: #7f2525;
   font-size: 45px;
   line-height: 66px;
 }
 .c-title02 {
-  color: #009acb;
+  color: #cb0079;
   font-size: 36px;
   line-height: 54px;
 }
@@ -184,7 +184,7 @@ img {
   font-size: 36px;
 }
 .c-title04 {
-  color: #255b7f;
+  color: #7f2525;
   font-size: 30px;
 }
 .c-title05 {
@@ -313,7 +313,7 @@ img {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9;
 }
 .c-event_status {
@@ -422,7 +422,7 @@ img {
 }
 .knows_tab ul li.active a, .knows_tab ul li:hover a {
   color: #fff;
-  background-color: #009acb;
+  background-color: #cb0079;
   transition: background-color 0.2s ease;
 }
 .knows_tab ul li.active a:before, .knows_tab ul li:hover a:before {
@@ -434,7 +434,7 @@ img {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top: 10px solid #009acb;
+  border-top: 10px solid #cb0079;
   margin-left: -8px;
 }
 .knows_tab ul li.active:nth-child(1n) span, .knows_tab ul li:hover:nth-child(1n) span {
@@ -550,7 +550,7 @@ img {
   display: block;
 }
 .knows_map__bar__reset_button {
-  color: #009acb;
+  color: #cb0079;
   font-size: 12px;
   text-decoration: underline;
 }
@@ -598,7 +598,7 @@ img {
 }
 .knows_map__filter .checkbox:checked + .parts::before {
   color: #454545;
-  background: #255b7f;
+  background: #7f2525;
 }
 .knows_map__filter .checkbox:checked + .parts::after {
   content: '';
@@ -623,7 +623,7 @@ img {
   padding: 10px 0;
   margin: 0;
 }
-ul.knows_map__filter--right {
+.knows_map__filter--right {
   display: none;
   width: 35%;
   -webkit-justify-content: center;
@@ -661,10 +661,10 @@ ul.knows_map__filter--right {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #255b7f;
+  background: #7f2525;
 }
 .knows_map__filter--link {
-  color: #009acb;
+  color: #cb0079;
 }
 .knows_map__filter--link .icon {
   display: inline-block;
@@ -673,7 +673,7 @@ ul.knows_map__filter--right {
   margin: 0 5px 0 0;
   text-align: center;
   line-height: 15px;
-  border: 1px solid #009acb;
+  border: 1px solid #cb0079;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -773,7 +773,7 @@ ul.knows_map__filter--right {
   font-size: 14px;
   line-height: 34px;
   border-radius: 4px;
-  background-color: #255b7f;
+  background-color: #7f2525;
 }
 .news_theme__pop_wrapper .news_theme li.choice {
   opacity: 1;
@@ -803,7 +803,7 @@ ul.knows_map__filter--right {
   padding: 8px 20px;
   color: #fff;
   border-radius: 4px;
-  background-color: #255b7f;
+  background-color: #7f2525;
 }
 .news_theme__pop_wrapper .news_theme button.select {
   opacity: 1;
@@ -835,7 +835,7 @@ ul.knows_map__filter--right {
   line-height: 60px;
   text-align: center;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
 }
 .select_themes_bar {
   margin-top: 10px;
@@ -860,7 +860,7 @@ ul.knows_map__filter--right {
   font-size: 14px;
   line-height: 34px;
   border-radius: 4px;
-  background-color: #255b7f;
+  background-color: #7f2525;
   margin-bottom: 10px;
 }
 .select_themes_bar li:last-child {
@@ -917,7 +917,7 @@ ul.knows_map__filter--right {
   padding: 8px 20px;
   color: #fff;
   border-radius: 4px;
-  background-color: #255b7f;
+  background-color: #7f2525;
   margin-bottom: 5px;
   cursor: pointer;
 }
@@ -959,7 +959,7 @@ ul.knows_map__filter--right {
   color: #fff;
   font-size: 16px;
   border-radius: 4px;
-  background-color: #255b7f;
+  background-color: #7f2525;
 }
 .post_finish {
   margin: 0 0 20px;
@@ -986,7 +986,7 @@ ul.knows_map__filter--right {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9;
 }
 .fix_button {
@@ -1033,7 +1033,7 @@ ul.knows_map__filter--right {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9;
 }
 .see_subject_button {
@@ -1128,7 +1128,7 @@ ul.knows_map__filter--right {
   text-align: right;
 }
 .writer_prof__texts .writer_prof__archives_link a {
-  color: #255b7f;
+  color: #7f2525;
   font-size: 12px;
   line-height: 2;
 }
@@ -1287,13 +1287,13 @@ ul.knows_map__filter--right {
   line-height: 1;
 }
 .single__tags a {
-  color: ;
+  color: #cb0079;
 }
 .single__post_body * {
   color: #454545;
 }
 .single__post_body * .place_link {
-  color: ;
+  color: #cb0079;
   padding: 0 20px 0 0;
   background: url("../images/flag_icon.png") no-repeat right;
 }
@@ -1416,7 +1416,7 @@ body.single .single__title_area .c-social_bookmark {
   text-align: center;
   line-height: 43px;
   color: #fff;
-  background: #009480;
+  background: #889400;
   cursor: pointer;
 }
 .event_search__left {
@@ -1524,7 +1524,7 @@ body.single .single__title_area .c-social_bookmark {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #009480;
+  background: #889400;
 }
 .event_search__button[disabled='disabled'] {
   cursor: default;
@@ -1567,7 +1567,7 @@ body.single .single__title_area .c-social_bookmark {
 }
 .event_search_tabs li.active {
   top: 1px;
-  border-top: solid 2px #009480;
+  border-top: solid 2px #889400;
   border-bottom: none;
   z-index: 10;
 }
@@ -1794,7 +1794,7 @@ body.single .single__title_area .c-social_bookmark {
   margin: 0 0 10px 0;
 }
 .common_single_parts_info--link {
-  color: #009acb;
+  color: #cb0079;
   font-size: 12px;
 }
 .common_single_parts_info--description {

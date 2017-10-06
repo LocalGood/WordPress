@@ -6,7 +6,7 @@
         <ul>
             <li>
                 <a href="/about/">
-                    LOCAL GOOD YOKOHAMAについて
+	                <?php bloginfo('name'); ?>について
                 </a>
             </li>
             <li>
@@ -95,13 +95,13 @@
         </div>
         <ul>
             <li>
-                <a href="https://cf.yokohama.localgood.jp/discover">
+                <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
             <li>
-                <a href="<?php echo home_url('/challenge'); ?>">
-                    プロジェクトを立てる
+                <a href="<?= home_url('/challenge/'); ?>">
+					プロジェクトを立ち上げる
                 </a>
             </li>
         </ul>
@@ -110,27 +110,27 @@
     <section class="footer_bottom">
         <div class="footer_logo">
             <a href="/">
-                <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-logo.png" alt="LOCAL GOOD">
+                <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-logo.png" alt="<?php bloginfo('name'); ?>">
             </a>
         </div>
         <ul class="sns-area">
            <li>
-               <a href="http://yokohama.localgood.jp/feed/" target="_blank">
-                 <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon01.jpg" alt="">
+               <a href="<?php echo home_url('/feed'); ?>" target="_blank">
+                 <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon01.png" alt="">
                </a>
            </li>
             <li>
-                <a href="https://plus.google.com/112981975493826894716/posts" target="_blank">
-                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.jpg" alt="">
+                <a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank">
+                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
-                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.jpg" alt="">
+                <a href="<?= LG_TWITTER; ?>" target="_blank">
+                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
+                <a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank">
                     <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon04.png" alt="">
                 </a>
             </li>
@@ -147,7 +147,7 @@
 
     <?php if(is_home()):?>
     <div class="cw">
-        COPYRIGHT© LOCAL GOOD YOKOHAMA. Some rights reserved.
+        COPYRIGHT© <?php bloginfo('name'); ?>. Some rights reserved.
     </div>
     <?php endif;?>
 </footer>
@@ -197,7 +197,7 @@
         </li>
     </ul>
     <div class="cw">
-        COPYRIGHT© LOCAL GOOD YOKOHAMA. Some rights reserved.
+        COPYRIGHT© <?php bloginfo('name'); ?>. Some rights reserved.
     </div>
 </div>
 <?php endif;?>

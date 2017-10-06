@@ -16,14 +16,14 @@ if(strpos($_SERVER['HTTP_HOST'], '.il3c.' ) > 0){
     // 池twitterアカウント使用
     define('CONSUMER_KEY', 'wpKsn4bNdaw8owop3WNtVPu2O');
     define('CONSUMER_SECRET', 'wBcHpxYFTY1HrfXkmTvzIUofLClyZkyZUkjsCezTR0Ff4qtNwP');
-    define('OAUTH_CALLBACK', 'http://yokohama.localgood.jp.il3c.com/tweet_callback/');
-    define('TWEET_SEARCH_QUERY', '#yokohama');
+    define('OAUTH_CALLBACK', home_url().'/tweet_callback/');
+    define('TWEET_SEARCH_QUERY', '#'.LG_ES);
 //    define('TWEET_SEARCH_QUERY', 'instagram');
 } else {
     // 本番用
     define('CONSUMER_KEY', 'HE41SbC59Ln6iIFArJHrYYAT1');
     define('CONSUMER_SECRET', 'B8Sk8U2VuFaznk7MjF8jA1OImrMSPCYy0RwWFmV81phUuOLIJJ');
-    define('OAUTH_CALLBACK', 'http://yokohama.localgood.jp/tweet_callback/');
+    define('OAUTH_CALLBACK',  home_url().'/tweet_callback/');
     define('TWEET_SEARCH_QUERY', '#cocohama');
 }
 

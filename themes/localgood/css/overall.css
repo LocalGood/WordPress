@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//*----------------------------------------------------------------------
+/* Gray Color *//* Alert Color*//* Other Color *//* Gray Color *//* Alert Color*//* Other Color *//*----------------------------------------------------------------------
  header.css
  ----------------------------------------------------------------------*/body {
   background: #f2f2f2;
@@ -52,8 +52,8 @@
   }
 }
 .header__right__nav__gnav > li:hover > a, .header__right__nav__gnav > li.active > a {
-  color: #255b7f;
-  border-bottom: 3px solid #009acb;
+  color: #7f2525;
+  border-bottom: 3px solid #cb0079;
 }
 .header__right__nav__gnav > li:hover .header__right__snav, .header__right__nav__gnav > li.active .header__right__snav {
   opacity: 1;
@@ -98,7 +98,7 @@
   line-height: 1.5em;
 }
 .header__right__nav__gnav > li:hover .header__right__snav__inner ul a:hover, .header__right__nav__gnav > li.active .header__right__snav__inner ul a:hover {
-  color: #009acb;
+  color: #cb0079;
 }
 .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__second_title, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__second_title {
   opacity: 0.5;
@@ -135,7 +135,7 @@
 }
 .header__right__nav__gnav > li .header.common_header > li.gnav_goteo > a {
   color: #fff;
-  background-color: #255b7f;
+  background-color: #7f2525;
   border-radius: 4px;
 }
 .header__right__nav__gnav > li .header.common_header > li.gnav_goteo.active > a, .header__right__nav__gnav > li .header.common_header > li.gnav_goteo:hover > a {
@@ -202,8 +202,8 @@
   display: none;
 }
 .header__right__nav__gnav > li.active > a, .header__right__nav__gnav > li:hover > a {
-  color: #255b7f;
-  border-bottom: 3px solid #255b7f;
+  color: #7f2525;
+  border-bottom: 3px solid #7f2525;
 }
 .header__right__nav__gnav > li:hover .header__right__snav {
   display: block;
@@ -225,7 +225,7 @@
 }
 .header__right__nav__gnav > li .header.common_header .header__right__nav__gnav > li.gnav_goteo > a {
   color: #fff;
-  background-color: #255b7f;
+  background-color: #7f2525;
   border-radius: 4px;
 }
 .header__right__nav__gnav > li .header.common_header .header__right__nav__gnav > li.gnav_goteo.active > a, .header__right__nav__gnav > li .header.common_header .header__right__nav__gnav > li.gnav_goteo:hover > a {
@@ -283,7 +283,7 @@
   line-height: 1.5em;
 }
 .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__inner ul > li a:hover, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__inner ul > li a:hover {
-  color: #009acb;
+  color: #cb0079;
 }
 .header__right__search_box {
   padding-right: 2vw;
@@ -341,7 +341,7 @@
   color: #fff;
   line-height: 36px;
   border-radius: 2px;
-  background-color: #255b7f;
+  background-color: #7f2525;
 }
 .normal_header .header__right__search_box {
   padding-top: 16px;
@@ -362,7 +362,7 @@
 }
 .footer__upper {
   padding: 45px 0 52px;
-  background-color: #2f6f92;
+  background-color: #7f2525;
 }
 .footer__upper_left {
   float: left;
@@ -658,7 +658,7 @@
 }
 .article_area .event_box__texts .event_box__excerpt .status {
   color: #fff;
-  background-color: #009480;
+  background-color: #889400;
   padding: 1px 1px 1px 6px;
 }
 .article_area .event_box__texts .event_box__excerpt .status.end {
@@ -751,7 +751,7 @@
   vertical-align: top;
 }
 .post-type-archive-subject .article_area .atricle_box__texts a:hover {
-  color: #009acb;
+  color: #cb0079;
   transition: 0.2s ease;
 }
 .post-type-archive-subject .article_area .atricle_box__texts .article_box__title {
@@ -964,7 +964,7 @@ body.submit_subject .form_block__title {
   font-weight: bold;
   color: #454545;
   line-height: 29px;
-  border-left: 7px solid #009acb;
+  border-left: 7px solid #cb0079;
 }
 body.submit_subject .form_block__title_sup {
   margin: 0;

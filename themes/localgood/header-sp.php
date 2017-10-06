@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="keywords" content="<?php bloginfo('name'); ?>,<?php if(defined('LG_KANA')){echo LG_KANA;} ?>,コミュニティ,コミュニティ経済,<?php if(defined('LG_KAN')){echo LG_KAN;} ?>,地域"/>
+    <meta name="keywords" content="<?php bloginfo('name'); ?>,<?php if(defined('LG_KANA')){echo LG_KANA;} ?>,コミュニティ,コミュニティ経済,<?php if(defined('LG_KANJI')){echo LG_KANJI;} ?>,地域"/>
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
     <meta property="og:title" content="<?php generate_share_message(); ?>"/>
 
@@ -164,27 +164,27 @@
                         <dl class="list02">
                             <dt></dt>
                             <dd>
-                                <a href="https://cf.yokohama.localgood.jp/discover/">
+                                <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover/">
                                     プロジェクト一覧
                                 </a>
                             </dd>
                             <dd>
-                                <a href="https://cf.yokohama.localgood.jp/challenge/">
-                                    プロジェクトを立てる
+                                <a href="<?php echo home_url('/challenge/'); ?>">
+                                    プロジェクトを立ちあげる
                                 </a>
                             </dd>
                         </dl>
                     </li>
                     <li>
-                        <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                        <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
                             3Dマップ
                         </a>
                     </li>
 					<li>
-						<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+						<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 					</li>
                     <li>
-                        <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                        <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login" class="list01__text">
                             新規登録/ログイン
                         </a>
                     </li>
@@ -244,27 +244,27 @@
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="https://cf.yokohama.localgood.jp/discover">
+                            <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
                                 プロジェクト一覧
                             </a>
                         </dd>
                         <dd>
-                            <a href="https://cf.yokohama.localgood.jp/challenge/">
-                                プロジェクトを立てる
+                            <a href="<?= home_url('/challenge/'); ?>">
+								プロジェクトを立ち上げる
                             </a>
                         </dd>
                     </dl>
                 </li>
                 <li>
-                    <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                    <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
                         3Dマップ
                     </a>
                 </li>
 				<li>
-					<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>
                 <li>
-                    <a href="http://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                    <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
@@ -333,27 +333,27 @@
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="https://cf.yokohama.localgood.jp/discover">
+                            <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
                                 プロジェクト一覧
                             </a>
                         </dd>
                         <dd>
-                            <a href="https://cf.yokohama.localgood.jp/challenge/">
-                                プロジェクトを立てる
+                            <a href="<?= home_url('/challenge/'); ?>">
+								プロジェクトを立ち上げる
                             </a>
                         </dd>
                     </dl>
                 </li>
                 <li>
-                    <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                    <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
                         3Dマップ
                     </a>
                 </li>
 				<li>
-					<a href="/about/" class="list01__text">Local Good YOKOHAMAについて</a>
+					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>
                 <li>
-                    <a href="http://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                    <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>

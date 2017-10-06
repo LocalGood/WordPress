@@ -1,4 +1,4 @@
-/* Main Color *//* Gray Color *//* Alert Color*//* Other Color *//* Main Color *//* Gray Color *//* Alert Color*//* Other Color */.home .c-page_wrapper {
+/* Gray Color *//* Alert Color*//* Other Color */.home .c-page_wrapper {
   background-color: #fff;
 }
 /*-- top absolute header --*/.home .normal_header {
@@ -128,7 +128,7 @@
 }
 .index_sec02__know_area {
   padding-left: 60%;
-  background: url('../images/index_sec02__know_area_bk.jpg') #2f6f92 no-repeat left 50%;
+  background: url('../images/index_sec02__know_area_bk.jpg') #7f2525 no-repeat left 50%;
   background-size: 60%;
 }
 .index_sec02__know_area dl {
@@ -140,7 +140,7 @@
 }
 .index_sec02__join_area {
   padding-right: 60%;
-  background: url('../images/index_sec02__join_area_bk.jpg') #2f6f92 no-repeat right 50%;
+  background: url('../images/index_sec02__join_area_bk.jpg') #7f2525 no-repeat right 50%;
   background-size: 60%;
 }
 .index_sec02__join_area dl {
@@ -227,7 +227,7 @@
 }
 .index_sec04 {
   padding-bottom: 58px;
-  background-color: #2f6f92;
+  background-color: #7f2525;
 }
 .index_sec04__inner_wrap {
   position: relative;
@@ -247,6 +247,7 @@
 }
 .project_box__part iframe {
   width: 100%;
+  border-radius: 4px;
 }
 .project_box__part:last-child {
   margin-right: 0;

@@ -3,7 +3,7 @@ function social_buttons( $permalink = false, $comment = false ) {
 	global $post;
 	if ( ! $permalink ) {
 //        $permalink = get_permalink();
-		$permalink = 'http://yokohama.localgood.jp' . $_SERVER['REQUEST_URI'];
+		$permalink = home_url() . $_SERVER['REQUEST_URI'];
 	}
 	?>
 	<?php if ( DEVICE == 'pc' ): ?>
@@ -1726,6 +1726,3 @@ function get_place_metas( $post = false ) {
 
 	return $place_meta;
 }
-
-?>
-

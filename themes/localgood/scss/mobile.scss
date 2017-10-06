@@ -1,4 +1,6 @@
 @import "mixins";
+@import "colors";
+@import "palette";
 /*========= COMMON -共通箇所- =========*/
 html,
 body{
@@ -285,6 +287,7 @@ a{
       border-bottom: solid 1px $grayCol01;
 
       a{
+        display: block;
         font-size: 120%;
       }
     }
@@ -652,7 +655,7 @@ dl, dd, ul{
       .text_wrapper {
         color: #FFF;
         padding: 38px 0 27px;
-        background: url("../images/sm/s-top-point-icon01.png") no-repeat center 12px, $mainCol01;
+        background: url("../images/sm/s-top-point-icon01.png") no-repeat center 30px, $mainCol01;
         -webkit-background-size: 14px;
         background-size: 14px;
       }
@@ -660,7 +663,7 @@ dl, dd, ul{
       .text_wrapper02 {
         color: #FFF;
         padding: 38px 0 27px;
-        background: url("../images/sm/s-top-point-icon02.png") no-repeat center 12px, $mainCol01;
+        background: url("../images/sm/s-top-point-icon02.png") no-repeat center 30px, $mainCol01;
         -webkit-background-size: 20px;
         background-size: 20px;
       }
@@ -670,9 +673,21 @@ dl, dd, ul{
       }
 
       .arrow {
+        position: relative;
         font-size: 0 !important;
         margin-top: -24px;
         text-align: center;
+        &:before{
+          content: '';
+          position: absolute;
+          bottom: -25px;
+          left: calc(50% - 24px);
+          display: block;
+          width: 0;
+          height: 0;
+          border: 24px solid transparent;
+          border-bottom: 24px solid $mainCol01;
+        }
       }
     }
 
@@ -771,6 +786,10 @@ dl, dd, ul{
     .project_box__part{
       max-width: 400px;
       margin: 0 auto 35px;
+      iframe {
+        min-height: 520px;
+        border-radius: 4px;
+      }
     }
   }
 
@@ -805,11 +824,32 @@ dl, dd, ul{
       }
 
       dd {
-        color: $gray04;
+        color: $grayCol03;
         font-size: 14px;
         padding-bottom: 27px;
         margin: 0 !important;
         text-align: center;
+        ul{
+          display: -webkit-flex;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
+          li{
+            width: 50%;
+            margin: 0 0 20px 0;
+          }
+        }
+        a{
+          display: block;
+          width: 100%;
+          padding: 0 16px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          img{
+            max-width: 100%;
+          }
+        }
       }
     }
 

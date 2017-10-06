@@ -2,7 +2,7 @@ var map;
 
 var markers = [];
 
-function mapInit() {
+function mapInit(){
     var latlng = [35.4441638, 139.6358449];
     var zoom = 15;
     var myOptions = {

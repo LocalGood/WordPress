@@ -47,13 +47,23 @@ add_action( 'wp_ajax_lgc_regenerate_footer_html', '_lgc_regenerate_footer_html' 
  */
 function _lgc_regenerate_footer_html() {
 	global $lgoc_settings;
-	$out = $lgoc_settings['export_path'] . '/' . $lgoc_settings['file_name']['footer'];
+	$out    = $lgoc_settings['export_path'] . '/' . $lgoc_settings['file_name']['footer'];
+	$result = array();
 	ob_start();
 	get_footer();
-	$result = file_put_contents( $out, ob_get_clean() );
+	$result['pc'] = file_put_contents( $out, ob_get_clean() );
 
-	if ( $result ) {
-		echo '完了しました。';
+	$out = $lgoc_settings['export_path'] . '/' . $lgoc_settings['file_name']['footer_sp'];
+	ob_start();
+	get_template_part( 'footer', 'sp' );
+	$result['sp'] = file_put_contents( $out, ob_get_clean() );
+
+
+	if ( ! empty( $result ) ) {
+		$msg = ( $result['pc'] ) ? 'PC -> OK' : 'PC -> ERROR';
+		$msg .= '\n';
+		$msg .= ( $result['sp'] ) ? 'SP -> OK' : 'SP -> ERROR';
+		echo $msg;
 	} else {
 		echo '失敗しました。';
 	}
@@ -99,20 +109,38 @@ function _lgc_regenerate_apikeys_json() {
 	$result = array();
 
 	if ( ! empty( get_option( 'lg_config__apikey_googlemap' ) ) ) {
-		$result['googlemap'] = get_option( 'lg_config__apikey_googlemap' );
+		$result['apikey']['googlemap'] = get_option( 'lg_config__apikey_googlemap' );
 	}
 
 	if ( ! empty( get_option( 'lg_config__apikey_facebook' ) ) ) {
-		$result['facebook'] = get_option( 'lg_config__apikey_facebook' );
+		$result['apikey']['facebook'] = get_option( 'lg_config__apikey_facebook' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__coordinate_longitude' ) ) ) {
+		$result['coordinate']['longitude'] = get_option( 'lg_config__coordinate_longitude' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__coordinate_latitude' ) ) ) {
+		$result['coordinate']['latitude'] = get_option( 'lg_config__coordinate_latitude' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__header_logo_1' ) ) ) {
+		$result['imagaes']['header_logo_1'] = get_option( 'lg_config__header_logo_1' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__header_logo_2' ) ) ) {
+		$result['imagaes']['header_logo_2'] = get_option( 'lg_config__header_logo_2' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__favicon' ) ) ) {
+		$result['imagaes']['favicon'] = get_option( 'lg_config__favicon' );
 	}
 
 
 	add_filter( 'lgcongif_apikey_json', $result );
 
 	ob_start();
-
 	echo json_encode( $result );
-
 	$result = file_put_contents( $out, ob_get_clean() );
 
 	if ( $result ) {

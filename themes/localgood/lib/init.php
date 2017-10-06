@@ -21,21 +21,6 @@ add_image_size('related-posts', 210, 168, array('center', 'center'));
 add_theme_support('automatic-feed-links');
 
 
-// session
-add_action('init', 'myStartSession', 1);
-add_action('wp_logout', 'myEndSession');
-add_action('wp_login', 'myEndSession');
-
-function myStartSession() {
-    if(!session_id()) {
-        session_start();
-    }
-}
-
-function myEndSession() {
-    session_destroy();
-}
-
 if (isset($_SERVER['HTTP_USER_AGENT'])){
     $ua = $_SERVER['HTTP_USER_AGENT'];
     //iPad, AndroidタブレットはPCビュー
