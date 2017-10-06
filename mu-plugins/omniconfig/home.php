@@ -27,7 +27,23 @@ if ( 'update' === $postdata['mode'] ) {
 			}
 		}
 	}
-	echo '<div class="message updated"><p>設定を保存しました。</p></div>';
+
+	// シンボリックリンク作成
+	$symlink_cfg = array(
+		array(
+			'target' => ABSPATH . preg_replace( '/^\//', '', parse_url( get_option( 'lg_config__page_ttl_prefix', false ) )['path'] ),
+			'link'  => TEMPLATEPATH . '/images/page_title_icon.png',
+		),
+		array(
+			'target' => ABSPATH . preg_replace( '/^\//', '', parse_url( get_option( 'lg_config__group_ttl_prefix', false ) )['path'] ),
+			'link'  => TEMPLATEPATH . '/images/group_title_icon.png',
+		),
+	);
+
+	foreach ( $symlink_cfg as $cfg ) {
+		// TODO : どうしてもうまくシンボリックリンクが貼れない
+	}
+	echo '<div class="message updated"><p> 設定を保存しました。</p></div> ';
 }
 //var_dump( $postdata );
 
@@ -47,7 +63,7 @@ if ( 'update' === $postdata['mode'] ) {
 			<li><a href="#imageUpload">画像設定</a></li>
 			<li><a href="#banner">バナー設定</a></li>
 			<li><a href="#color">カラー設定</a></li>
-			<li><a href="#apisetting">APIキー設定</a></li>
+			<li><a href="#apisetting">その他の設定</a></li>
 			<li><a href="#fileExport">エクスポート</a></li>
 		</ul>
 
@@ -71,12 +87,16 @@ if ( 'update' === $postdata['mode'] ) {
 		</section>
 
 		<section id="apisetting" class="config_section">
-			<h2>APIキー設定</h2>
+			<h2>APIキーの設定</h2>
 			<?php render_key_editor(); ?>
+			<h2>埋め込み地図のデフォルト地点設定</h2>
+			<?php render_map_coordinate_editor(); ?>
+
 		</section>
 
 		<section id="fileExport" class="config_section">
 			<h2>ファイルのエクスポート</h2>
+			<p><strong>！注意！</strong>エクスポートするまえにそれぞれのファイルを保存しておいてください</p>
 			<?php render_export_page(); ?>
 		</section>
 	</div>
@@ -85,3 +105,4 @@ if ( 'update' === $postdata['mode'] ) {
 	<input type="submit" value="保存" class="button button-primary">
 
 </form>
+

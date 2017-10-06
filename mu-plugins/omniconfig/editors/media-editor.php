@@ -34,6 +34,33 @@ function render_media_editor() {
 		<button class="remove-image button" data-target="footer_logo">画像を削除</button>
 	</div>
 
+	<div>
+		<p>ページタイトルアイコン</p>
+		<img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>" class="media-preview media-preview_page_ttl_prefix">
+		<input type="text" name="lg_config__page_ttl_prefix"
+			   value="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>" class="media-url_page_ttl_prefix input_text_70p">
+		<button class="select-media button" data-media-target="page_ttl_prefix">画像を追加</button>
+		<button class="remove-image button" data-target="page_ttl_prefix">画像を削除</button>
+	</div>
 
-<?php
+	<div>
+		<p>グループタイトルアイコン</p>
+		<img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" class="media-preview media-preview_group_ttl_prefix">
+		<input type="text" name="lg_config__group_ttl_prefix"
+			   value="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" class="media-url_group_ttl_prefix input_text_70p">
+		<button class="select-media button" data-media-target="group_ttl_prefix">画像を追加</button>
+		<button class="remove-image button" data-target="group_ttl_prefix">画像を削除</button>
+	</div>
+
+	<div>
+		<p>favicon</p>
+		<img src="<?php echo get_option( 'lg_config__favicon' ); ?>" class="media-preview media-preview_favicon">
+		<input type="text" name="lg_config__favicon"
+			   value="<?php echo get_option( 'lg_config__favicon' ); ?>" class="media-url_favicon input_text_70p">
+		<button class="select-media button" data-media-target="favicon">画像を追加</button>
+		<button class="remove-image button" data-target="favicon">画像を削除</button>
+	</div>
+
+
+	<?php
 } // End render_media_editor().

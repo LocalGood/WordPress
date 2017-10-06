@@ -8,7 +8,7 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.3.2
+Version: 0.4.0
 */
 
 add_action( 'init', function () {
@@ -24,13 +24,14 @@ add_action( 'init', function () {
 $lgoc_settings = array(
 	'export_path' => ABSPATH . '/omniconfig',
 	'file_name'   => array(
-		'footer'  => 'footer.html',
-		'palette' => '_palette.scss',
-		'apikeys' => 'apikeys.json',
+		'footer'    => 'footer.html',
+		'footer_sp' => 'footer-sp.html',
+		'palette'   => '_palette.scss',
+		'apikeys'   => 'apikeys.json',
 	),
 );
 
-define( 'OMNICONFIG_LG_VERSION', '0.2.2' );
+define( 'OMNICONFIG_LG_VERSION', '0.4.0' );
 define( 'OMNICONFIG_HOME_URL', add_query_arg( 'page', 'omniconfig', admin_url( 'admin.php' ) ) );
 
 $lgoc_labels = array(
@@ -108,4 +109,5 @@ require_once( 'omniconfig/editors/media-editor.php' );
 require_once( 'omniconfig/editors/banner-editor.php' );
 require_once( 'omniconfig/editors/color-editor.php' );
 require_once( 'omniconfig/editors/key-editor.php' );
+require_once( 'omniconfig/editors/map-coordinate.php' );
 require_once( 'omniconfig/editors/exporter.php' );
