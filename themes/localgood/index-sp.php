@@ -3,14 +3,17 @@
 
 	<div class="key_visual pr"
 		 style="background-image:url(<?php echo esc_attr( get_option( 'lg_config__home_wallpaper' ) ); ?>);">
-		<?php /*<img src="<?php bloginfo('template_directory'); ?>/images/sm/s-main_text.png" alt="LOCAL GOODとは"/>*/ ?>
-		<img
-			src="<?php echo esc_attr( get_option( 'lg_config__header_logo_1' ) ) ?>"
-			alt="<?php bloginfo( 'name' ); ?>"/>
-		<div class="key_visual__updates">
-			<h3>更新情報</h3>
-			<?php echo wpautop( get_option( 'home_updates' ) ); ?>
-		</div>
+		<?php if ( get_option( 'lg_config__main_logo', false ) ) : ?>
+			<img src="<?php echo get_option( 'lg_config__main_logo' ); ?>"
+			     alt="<?php bloginfo( 'name' ); ?>">
+		<?php else : ?><?php bloginfo( 'name' ); ?>
+		<?php endif; ?>
+		<?php if (get_option('home_updates',false)): ?>
+			<div class="key_visual__updates">
+				<h3>更新情報</h3>
+				<?php echo wpautop( get_option( 'home_updates' ) ); ?>
+			</div>
+		<?php endif; ?>
 
 		<div class="nav_menu-button pa">
 			<span></span>
