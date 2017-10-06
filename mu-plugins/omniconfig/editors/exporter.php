@@ -125,15 +125,15 @@ function _lgc_regenerate_apikeys_json() {
 	}
 
 	if ( ! empty( get_option( 'lg_config__header_logo_1' ) ) ) {
-		$result['imagaes']['header_logo_1'] = get_option( 'lg_config__header_logo_1' );
+		$result['images']['header_logo_1'] = get_option( 'lg_config__header_logo_1' );
 	}
 
 	if ( ! empty( get_option( 'lg_config__header_logo_2' ) ) ) {
-		$result['imagaes']['header_logo_2'] = get_option( 'lg_config__header_logo_2' );
+		$result['images']['header_logo_2'] = get_option( 'lg_config__header_logo_2' );
 	}
 
 	if ( ! empty( get_option( 'lg_config__favicon' ) ) ) {
-		$result['imagaes']['favicon'] = get_option( 'lg_config__favicon' );
+		$result['images']['favicon'] = get_option( 'lg_config__favicon' );
 	}
 
 
