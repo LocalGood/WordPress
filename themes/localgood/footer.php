@@ -8,47 +8,47 @@
 						 alt="<?php bloginfo( 'name' ); ?>ロゴ">
 				</div>
                 <ul class="footer__sns_link">
-                    <li class="rss"><a href="<?= home_url('feed'); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/rss_btn.png" alt="rss" /></a></li>
-                    <li class="g_plus"><a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/gplus_btn.png" alt="google plus" /></a></li>
-                    <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/tw_btn.png" alt="twitter" /></a></li>
-                    <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/fb_btn.png" alt="facebook" /></a></li>
+                    <li class="rss"><a href="<?php echo home_url('feed'); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/rss_btn.png" alt="rss" /></a></li>
+                    <li class="g_plus"><a href="<?php echo LG_GOOGLE_PLUS; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/gplus_btn.png" alt="google plus" /></a></li>
+                    <li class="tw_btn"><a href="<?php echo LG_TWITTER; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/tw_btn.png" alt="twitter" /></a></li>
+                    <li class="fb_btn"><a href="<?php echo LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/fb_btn.png" alt="facebook" /></a></li>
                 </ul>
-                <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL ?>/">LOCAL GOOD 地域課題プラットフォーム</a>
+                <a class="footer__integration_site" href="<?php echo LG_INTEGRATION_URL ?>/">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>
             <ul class="footer__upper_right">
                 <li>
                     <span class="footer__upper_second_title">ご利用にあたって</span>
                     <ul>
-                        <li class="about"><a href="<?= home_url('about'); ?>"><?php bloginfo('name'); ?>について</a></li>
-                        <li><a href="<?= home_url('mailnews'); ?>">メルマガ登録</a></li>
-                        <li class="syoutorihikihou"><a href="<?= home_url('syoutorihikihou'); ?>">特定商取引法に基づく表記</a></li>
-                        <li><a href="<?= home_url('privacypolicy'); ?>">プライバシーポリシー</a></li>
-                        <li><a href="<?= home_url('user_guide'); ?>">ユーザーガイド</a></li>
-                        <li><a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu">利用規約</a></li>
-                        <li><a href="<?= home_url('contact'); ?>">お問い合わせ</a></li>
-                        <li><a href="<?= home_url('authors'); ?>">記者一覧</a></li>
+                        <li class="about"><a href="<?php echo home_url('about'); ?>"><?php bloginfo('name'); ?>について</a></li>
+                        <li><a href="<?php echo home_url('mailnews'); ?>">メルマガ登録</a></li>
+                        <li class="syoutorihikihou"><a href="<?php echo home_url('syoutorihikihou'); ?>">特定商取引法に基づく表記</a></li>
+                        <li><a href="<?php echo home_url('privacypolicy'); ?>">プライバシーポリシー</a></li>
+                        <li><a href="<?php echo home_url('user_guide'); ?>">ユーザーガイド</a></li>
+                        <li><a href="<?php echo LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu">利用規約</a></li>
+                        <li><a href="<?php echo home_url('contact'); ?>">お問い合わせ</a></li>
+                        <li><a href="<?php echo home_url('authors'); ?>">記者一覧</a></li>
                     </ul>
                 </li>
                 <li>
                     <span class="footer__upper_second_title">地域を知る</span>
                     <span class="footer__upper__third_title">記事</span>
                     <ul>
-                        <li><a href="<?= home_url('lgnews'); ?>">ニュース</a></li>
-                        <li><a href="<?= home_url('event'); ?>">みんなの拠点/イベント</a></li>
-                        <li><a href="<?= home_url('lgplayer'); ?>">人/団体</a></li>
-                        <li><a href="<?= home_url('data'); ?>">データ</a></li>
+                        <li><a href="<?php echo home_url('lgnews'); ?>">ニュース</a></li>
+                        <li><a href="<?php echo home_url('event'); ?>">みんなの拠点/イベント</a></li>
+                        <li><a href="<?php echo home_url('lgplayer'); ?>">人/団体</a></li>
+                        <li><a href="<?php echo home_url('data'); ?>">データ</a></li>
                     </ul>
                     <span class="footer__upper__third_title">みんなの声</span>
                     <ul>
-                        <li><a href="<?= home_url('subject'); ?>">投稿一覧</a></li>
-                        <li><a href="<?= home_url('submit_subject'); ?>">あなたの声を投稿する</a></li>
+                        <li><a href="<?php echo home_url('subject'); ?>">投稿一覧</a></li>
+                        <li><a href="<?php echo home_url('submit_subject'); ?>">あなたの声を投稿する</a></li>
                     </ul>
                 </li>
                 <li>
                     <span class="footer__upper_second_title">応援する</span>
                     <ul>
                         <li><a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>">プロジェクト一覧</a></li>
-                        <li><a href="<?php echo home_url('/challenge'); ?>">プロジェクトを立ち上げる</a></li>
+                        <li><a href="<?php echo home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></li>
                     </ul>
 					<span class="footer__upper_second_title">CSVダウンロード</span>
 					<ul>

@@ -12,7 +12,7 @@ else:
         <?php knows_head_tab( $post ); ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05">データ</h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">データ</h2>
             <p class="c-page_title_subtext">地域のデータを見やすい形でまとめました。</p>
         </div>
 
@@ -78,7 +78,7 @@ else:
                     $i = 0;
                     ?>
                     <section class="pickup_area c-clearfix">
-                        <h2 class="c-group_title01">PICK UP!</h2>
+                        <h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >PICK UP!</h2>
 						<section class="topic_box__wrapper">
 							<?php
 							foreach ($feature_posts as $post):

@@ -193,10 +193,11 @@ img {
 }
 /*---------- page title ----------*/.c-page_title {
   font-weight: bold;
-  padding-left: 50px;
   margin: 0;
   line-height: 33px;
-  background: url("../images/page_title_icon.png") no-repeat left 50%;
+}
+.c-page_title img {
+  margin: 0 10px 0 0;
 }
 .c-page_title_wrapper {
   background-color: #fff;
@@ -215,9 +216,7 @@ img {
   font-size: 20px;
   font-weight: bold;
   margin: 0 0 18px;
-  padding-left: 30px;
   line-height: 29px;
-  background: url("../images/group_title_icon.png") no-repeat left 50%;
 }
 /*---------- social bookmark ----------*/.c-social_bookmark {
   height: 20px;

@@ -56,26 +56,26 @@ if ( have_posts() ): the_post();
 				foreach ( $child_skills as $s ):
 					$_skillinfo = get_skill_info( $s->id );
 					?>
-					<li class="single_skills--list__item"><?= $_skillinfo[0]->name; ?></li>
+					<li class="single_skills--list__item"><?php echo $_skillinfo[0]->name; ?></li>
 					<?php
 				endforeach;
 				?>
 			</ul>
 			<div class="c-clearfix">
 				<div class="single_skills--thumbnail">
-					<?= wp_get_attachment_image( $thumb_id, 'thumbnail' ); ?>
+					<?php echo wp_get_attachment_image( $thumb_id, 'thumbnail' ); ?>
 				</div>
 				<div class="single_skills--text topix_right">
-					<h2 class="single_skills--title--h2"><?= $ss_infos['ssGuideName']; ?></h2>
+					<h2 class="single_skills--title--h2"><?php echo $ss_infos['ssGuideName']; ?></h2>
 					<div class="cnt_text">
-						<?= $ss_infos['ssGuideDesc']; ?>
+						<?php echo $ss_infos['ssGuideDesc']; ?>
 					</div>
 					<?php if ( ! empty( $ss_infos['ssUserID'] ) ):
 						$ss_profile_url = LG_GOTEO_BASE_URL . '/user/profile/' . esc_html( $ss_infos['ssUserID'] ) . '/';
 						?>
 						<ul class="contact">
 							<li class="profile">
-								<a href="<?= $ss_profile_url; ?>">
+								<a href="<?php echo $ss_profile_url; ?>">
 									プロフィールを見る
 								</a>
 							</li>
@@ -112,7 +112,7 @@ if ( have_posts() ): the_post();
 							$_iframe_src = '<iframe class="skills" frameborder="0" height="350px" src="' . $_proj_url . '" width="280px" scrolling="no"></iframe>';
 							?>
 							<section class="article_box">
-								<?= $_iframe_src; ?>
+								<?php echo $_iframe_src; ?>
 							</section>
 							<?php
 						}
@@ -163,12 +163,12 @@ if ( have_posts() ): the_post();
 								echo ' noborder';
 							} ?>">
 								<div class="thumbnail">
-									<a href="<?= $_ru_profile_url; ?>">
-										<img src="<?= $_ru_thumbnail[0] ?>" alt="<?= $_ru_name ?>"/>
+									<a href="<?php echo $_ru_profile_url; ?>">
+										<img src="<?php echo $_ru_thumbnail[0] ?>" alt="<?php echo $_ru_name ?>"/>
 									</a>
 								</div>
 								<div class="holder_right">
-									<h2 class="title"><a href="<?= $_ru_thumbnail ?>"><?= $_ru_name ?></a></h2>
+									<h2 class="title"><a href="<?php echo $_ru_thumbnail ?>"><?php echo $_ru_name ?></a></h2>
 									<p class="excerpt">
 										<?php
 										if ( ! empty( $_ru_desc ) ) {
@@ -177,7 +177,7 @@ if ( have_posts() ): the_post();
 										?>
 									</p>
 									<ul class="contact">
-										<li class="profile"><a href="<?= $_ru_profile_url; ?>">プロフィールを見る</a></li>
+										<li class="profile"><a href="<?php echo $_ru_profile_url; ?>">プロフィールを見る</a></li>
 									</ul>
 								</div>
 							</div>

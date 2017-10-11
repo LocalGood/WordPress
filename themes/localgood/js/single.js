@@ -2,12 +2,11 @@ var map;
 
 var markers = [];
 
-function mapInit(){
-    var latlng = [35.4441638, 139.6358449];
+function mapInit(coordinate) {
     var zoom = 15;
     var myOptions = {
         zoom: zoom,
-        center: new google.maps.LatLng(latlng[0], latlng[1]),
+        center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
         mapTypeControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -46,19 +45,21 @@ function addMarker(latlng, content, type) {
         });
     }
     markers.push(marker);
-    map.setCenter(new google.maps.LatLng(latlng['lat'], latlng['lng']));
 }
 
-$(function () {
-    mapInit();
-    $gmap = $('#gmap')
-    var long = $gmap.data('long');
-    var lat = $gmap.data('lat');
-    var title = $gmap.data('title')
-    var type = ($gmap.data('type') !== undefined) ? $gmap.data('type') : 'default'
-    if (long && lat) {
-        var latlng = {lat: parseFloat(lat), lng: parseFloat(long)};
-        addMarker(latlng, title, type);
-    }
-});
+
+
+$.getJSON('/omniconfig/apikeys.json', function (data) {
+  mapInit(data.coordinate)
+  $gmap = $('#gmap')
+  var long = $gmap.data('long');
+  var lat = $gmap.data('lat');
+  var title = $gmap.data('title')
+  var type = ($gmap.data('type') !== undefined) ? $gmap.data('type') : 'default'
+  if (long && lat) {
+    var latlng = {lat: parseFloat(lat), lng: parseFloat(long)};
+    addMarker(latlng, title, type);
+  }
+  google.maps.event.trigger($('#gmap')[0], 'resize');
+})
 

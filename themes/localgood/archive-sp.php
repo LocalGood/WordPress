@@ -8,7 +8,7 @@
             </h3>
             <div class="common_underlayer_title-h2__sub_title text">
                 あなたの身の回りの良い所や気になっていることを教えてください。
-                <a class="subject_post_box__submit_button" href="<?= home_url( '/submit_subject/' ); ?>">
+                <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
                     投稿する
                 </a>
             </div>
@@ -40,7 +40,7 @@
                     </h3>
                     <div class="common_underlayer_title-h2__sub_title text">
                         あなたの身の回りの良い所や気になっていることを教えてください。
-                        <a class="subject_post_box__submit_button" href="<?= home_url( '/submit_subject/' ); ?>">
+                        <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
                             投稿する
                         </a>
                     </div>

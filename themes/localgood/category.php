@@ -16,7 +16,7 @@ else:
         ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><?= $page_value['title']; ?></h2>
+            <h2 class="c-page_title c-title05"><?php echo $page_value['title']; ?></h2>
         </div>
 
         <div class="article_area">

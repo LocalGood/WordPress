@@ -19,9 +19,9 @@ get_header();
             //var_dump($custom_fields);
             ?>
             <div class="skill_guide_box clearfix">
-                <p class="thumb"><a href="<?php the_permalink(); ?>"><?= wp_get_attachment_image($custom_fields['ssGuideThumbnail'][0],array(100,100),true); ?></a></p>
+                <p class="thumb"><a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image($custom_fields['ssGuideThumbnail'][0],array(100,100),true); ?></a></p>
                 <p class="skill"><?php the_title() ?></p>
-                <p class="name"><a href="<?php the_permalink(); ?>"><?= $custom_fields['ssGuideName'][0]; ?></a></p>
+                <p class="name"><a href="<?php the_permalink(); ?>"><?php echo $custom_fields['ssGuideName'][0]; ?></a></p>
             </div>
         <?php endwhile; endif; ?>
     </div>

@@ -13,7 +13,7 @@ elseif(DEVICE == 'pc'):
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
 
     <meta property="og:title" content="<?php generate_share_message(); ?>"/>
-    <meta property="og:url" content="<?= 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
+    <meta property="og:url" content="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
     <?php
     if(is_single()):
         setup_postdata($post);
@@ -29,14 +29,14 @@ elseif(DEVICE == 'pc'):
                     $_imgurl .= '/';
             };
             ?>
-            <meta property="og:image" content="<?= $_imgurl ?>"/>
+            <meta property="og:image" content="<?php echo $_imgurl ?>"/>
         <?php  else: ?>
-            <meta property="og:image" content="<?= get_template_directory_uri(); ?>/images/ogimg.png" />
+            <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
         <?php endif; ?>
-        <meta property="og:description" content="<?= get_the_excerpt(); ?>"/>
+        <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
     <?php else: ?>
-        <meta property="og:description" content="<?= get_bloginfo('description'); ?>" />
-        <meta property="og:image" content="<?= get_template_directory_uri(); ?>/images/ogimg.png" />
+        <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
+        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
     <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
     <meta property="fb:app_id" content="<?php if(defined('LG_FACEBOOK_APPID')){echo LG_FACEBOOK_APPID;} ?>" />
@@ -62,7 +62,7 @@ elseif(DEVICE == 'pc'):
         bloginfo('name');
 
         ?></title>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= get_stylesheet_uri(); ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_stylesheet_uri(); ?>"/>
     <?php
 
     remove_action('wp_head', 'rsd_link');
@@ -101,7 +101,7 @@ elseif(DEVICE == 'pc'):
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?= LG_FACEBOOK_APPID ?>&version=v2.9";
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?php echo LG_FACEBOOK_APPID ?>&version=v2.9";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -113,7 +113,7 @@ elseif(DEVICE == 'pc'):
     <header id="header" class="normal_header header clearfix">
 
         <h1 class="header__logo">
-            <a href="<?= home_url(); ?>"><img src="<?php echo esc_attr(get_option('lg_config__header_logo_2')) ?>" alt="<?php bloginfo('name'); ?>"/></a>
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo esc_attr(get_option('lg_config__header_logo_2')) ?>" alt="<?php bloginfo('name'); ?>"/></a>
         </h1>
 
         <div class="header__right">
@@ -131,22 +131,22 @@ elseif(DEVICE == 'pc'):
                     <li <?php if (is_category() || is_singular('post') || is_tag() || is_page('lgnews')) {
                         echo $a;
                     } ?>>
-                        <a href="<?= home_url('/lgnews/'); ?>">地域を知る</a>
+                        <a href="<?php echo home_url('/lgnews/'); ?>">地域を知る</a>
                         <div class="snav header__right__snav">
                             <div class="header__right__snav__inner">
                                 <span class="header__right__snav__second_title">記事</span>
                                 <ul>
-                                    <li><span><a href="<?= home_url('/lgnews/'); ?>">ニュース</a></span></li>
-                                    <li><span><a href="<?= home_url('/event/'); ?>">みんなの拠点/イベント</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/lgnews/'); ?>">ニュース</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/event/'); ?>">みんなの拠点/イベント</a></span></li>
                                     <li <?php if (is_tax('data_type') || is_singular('data') || is_post_type_archive('data')) {
                                         echo $a;
-                                    } ?>><span><a href="<?= home_url('/data/'); ?>">データ</a></span></li>
-                                    <li><span><a href="<?= home_url('/lgplayer/'); ?>">人/団体</a></span></li>
+                                    } ?>><span><a href="<?php echo home_url('/data/'); ?>">データ</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/lgplayer/'); ?>">人/団体</a></span></li>
                                 </ul>
                                 <span class="header__right__snav__second_title">みんなの声</span>
                                 <ul>
-                                    <li><span><a href="<?= home_url('/subject/'); ?>">投稿一覧</a></span></li>
-                                    <li><span><a href="<?= home_url('/submit_subject/'); ?>">あなたの声を投稿する</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/subject/'); ?>">投稿一覧</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/submit_subject/'); ?>">あなたの声を投稿する</a></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ elseif(DEVICE == 'pc'):
                             <div class="header__right__snav__inner">
                                 <ul>
                                     <li><span><a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover/">プロジェクト一覧</a></span></li>
-                                    <li><span><a href="<?= home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span></li>
+                                    <li><span><a href="<?php echo home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span></li>
                                 </ul>
                             </div>
                         </div>

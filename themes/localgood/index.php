@@ -10,7 +10,7 @@ else:
 	<header id="index_header" class="header index_header clearfix">
 
 		<h1 class="header__logo">
-			<a href="<?= home_url(); ?>"><img
+			<a href="<?php echo home_url(); ?>"><img
 					src="<?php echo esc_attr( get_option( 'lg_config__header_logo_1' ) ) ?>"
 					alt="<?php bloginfo( 'name' ); ?>"/></a>
 		</h1>
@@ -22,7 +22,7 @@ else:
 					<li <?php if ( is_category() || is_singular( 'post' ) || is_tag() || is_page( 'lgnews' ) ) {
 						echo $a;
 					} ?>>
-						<a href="<?= home_url( '/lgnews/' ); ?>">地域を知る</a>
+						<a href="<?php echo home_url( '/lgnews/' ); ?>">地域を知る</a>
 						<div class="snav header__right__snav">
 							<div class="header__right__snav__inner">
 								<span class="header__right__snav__second_title">記事</span>
@@ -119,7 +119,7 @@ else:
 					<dt><?php echo apply_filters( 'lg_home_element_label_sect2_1', '地域を知ろう' ); ?></dt>
 					<dd>
 						<span><?php echo get_option( 'lg_config__know_the_zone_msg' ); ?></span>
-						<a class="index_sec02__link c-link02" href="<?= home_url( '/lgnews/' ); ?>">地域を知る</a>
+						<a class="index_sec02__link c-link02" href="<?php echo home_url( '/lgnews/' ); ?>">地域を知る</a>
 					</dd>
 				</dl>
 			</div>

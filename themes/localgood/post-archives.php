@@ -17,7 +17,7 @@ else:
         <?php knows_head_tab( $post ); ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><?= get_the_title(); ?></h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?= get_the_title(); ?></h2>
             <p class="c-page_title_subtext"><?= $post->post_content; ?></p>
         </div>
 
@@ -33,7 +33,7 @@ else:
                 ob_start();
                 ?>
                 <section class="pickup_area c-clearfix">
-                    <h2 class="c-group_title01">PICK UP!</h2>
+                    <h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >PICK UP!</h2>
 					<section class="topic_box__wrapper">
 						<?php
 						while ($feature_post->have_posts()) :$feature_post->the_post();
@@ -53,7 +53,7 @@ else:
         ?>
         <div class="article_area">
             <h2 class="c-group_title01">
-                <?php the_title(); ?>
+				<img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" ><?php the_title(); ?>
             </h2>
             <div class="article_box__wrapper">
                 <?php

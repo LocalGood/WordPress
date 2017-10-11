@@ -11,10 +11,11 @@ get_template_part( 'header', 'sp' );
               enctype="multipart/form-data">
             <div class="underlayer_title_area">
                 <h2 class="common_underlayer_title-h2">
-                    <?= get_the_title(); ?>
+                    <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
+                    <?php echo get_the_title(); ?>
                 </h2>
                 <div class="common_underlayer_title-h2__sub_title">
-                    <?= $post->post_content; ?>
+                    <?php echo $post->post_content; ?>
                 </div>
             </div>
             <ul class="submit_subject_navi clearfix">
@@ -93,7 +94,7 @@ get_template_part( 'header', 'sp' );
                                         <h2 class="subject_title01">
                                             内容を記入
                                         </h2>
-                                        <p class="cap <?= $notice_class; ?>">
+                                        <p class="cap <?php echo $notice_class; ?>">
                                             課題の内容や発生場所を入力してください。
                                         </p>
                                         <div class="submit_button_sp">
@@ -137,7 +138,7 @@ get_template_part( 'header', 'sp' );
                                     <div class="form_block">
                                         <p class="cap">ピン</p>
                                         <div id="preview_gmap"
-                                             data-lonlat="<?= $_confirm['loc_position_lat'] ?>,<?= $_confirm['loc_position_lng'] ?>">
+                                             data-lonlat="<?php echo $_confirm['loc_position_lat'] ?>,<?php echo $_confirm['loc_position_lng'] ?>">
                                         </div>
                                     </div>
                                     <?php
@@ -164,7 +165,7 @@ get_template_part( 'header', 'sp' );
                                             <p class="hl">投稿完了しました</p>
                                             <div class="form_block">
                                                 <p class="see_subject">
-                                                    <a href="<?= home_url( '/subject/' ); ?>">投稿一覧へ戻る</a>
+                                                    <a href="<?php echo home_url( '/subject/' ); ?>">投稿一覧へ戻る</a>
                                                 </p>
                                             </div>
                                         </div><!-- /.complete -->

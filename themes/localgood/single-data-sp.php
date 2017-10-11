@@ -19,7 +19,7 @@ if (have_posts()): the_post();
             if($iframe_src && $iframe_width && $iframe_height):
                 ?>
                 <div class="main_visual">
-                    <iframe src="<?= esc_html($iframe_src); ?>" width="<?= esc_html($iframe_width); ?>" height="<?= esc_html($iframe_height); ?>"></iframe>
+                    <iframe src="<?php echo esc_html($iframe_src); ?>" width="<?php echo esc_html($iframe_width); ?>" height="<?php echo esc_html($iframe_height); ?>"></iframe>
                 </div>
             <?php
             elseif (has_post_thumbnail()):

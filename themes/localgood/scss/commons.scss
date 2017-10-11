@@ -235,10 +235,11 @@ img {
 
 .c-page_title {
   font-weight: bold;
-  padding-left: 50px;
   margin: 0;
   line-height: 33px;
-  background: url("../images/page_title_icon.png") no-repeat left 50%;
+  img{
+    margin: 0 10px 0 0;
+  }
   &_wrapper {
     @include white_box();
     padding: 13px 20px 16px;
@@ -259,9 +260,7 @@ img {
   font-size: 20px;
   font-weight: bold;
   margin: 0 0 18px;
-  padding-left: 30px;
   line-height: 29px;
-  background: url("../images/group_title_icon.png") no-repeat left 50%;
 }
 
 /*---------- social bookmark ----------*/

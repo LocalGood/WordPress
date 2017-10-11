@@ -58,6 +58,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 <?php if ( is_page( 'lgnews' ) ) : ?>
 	<div class="underlayer_title_area">
 		<h2 class="common_underlayer_title-h2">
+            <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
 			ニュース
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">
@@ -68,6 +69,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 <?php if ( is_page( 'lgplayer' ) ) : ?>
 	<div class="underlayer_title_area">
 		<h2 class="common_underlayer_title-h2">
+            <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
 			人/団体
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">
@@ -78,6 +80,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 <?php if ( is_post_type_archive( 'event' ) ) : ?>
 	<div class="underlayer_title_area">
 		<h2 class="common_underlayer_title-h2">
+            <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
 			みんなの拠点/イベント
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">
@@ -88,6 +91,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 <?php if ( is_post_type_archive( 'data' ) || is_singular( 'data' ) ): ?>
 	<div class="underlayer_title_area">
 		<h2 class="common_underlayer_title-h2">
+            <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
 			データ
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">
@@ -98,6 +102,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 <?php if ( is_post_type_archive( 'tweet' ) || is_singular( 'subject' ) ) : ?>
 	<div class="underlayer_title_area">
 		<h2 class="common_underlayer_title-h2">
+            <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
 			みんなの声
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">

@@ -57,7 +57,7 @@ $args = array(
 		writer_prof();
 		?>
 		<div class="article_area">
-			<h2 class="c-group_title01"><?php echo $user['display_name']; ?>さんの記事一覧</h2>
+			<h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" ><?php echo $user['display_name']; ?>さんの記事一覧</h2>
 			<div class="article_box__wrapper">
 				<?php
 				$aps_paged = absint( get_query_var( 'aps', 1 ) );
@@ -101,7 +101,7 @@ $args = array(
 		if ( $my_events->have_posts() ) :
 		?>
 		<div class="article_area">
-			<h2 class="c-group_title01"><?php echo $user['display_name']; ?>さんの登録したイベント一覧</h2>
+			<h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" ><?php echo $user['display_name']; ?>さんの登録したイベント一覧</h2>
 			<div class="article_box__wrapper">
 				<?php
 					while ( $my_events->have_posts() ) : $my_events->the_post();

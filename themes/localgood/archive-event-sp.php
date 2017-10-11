@@ -40,7 +40,10 @@ get_header(); ?>
 				$event_query = new WP_Query( get_event_args( $search_mode, $post_not ) );
 				if ( $event_query->have_posts() ) :
 					?>
-					<h3 class="c-group_title01">イベント</h3>
+					<h3 class="c-group_title01">
+                        <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                        イベント
+                    </h3>
 					<div class="list_pic">
 						<div class="list_pic_layout">
 							<?php
@@ -69,7 +72,10 @@ get_header(); ?>
 			endif; ?>
 
 			<?php if ( 'event' !== $search_mode ) : ?>
-				<h3 class="c-group_title01">みんなの拠点</h3>
+				<h3 class="c-group_title01">
+                    <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                    みんなの拠点
+                </h3>
 
 				<div class="list_pic">
 					<div class="list_pic_layout">
@@ -91,7 +97,10 @@ get_header(); ?>
 				<div class="list_pic">
 					<div class="list_pic_layout">
 						<section class="pickup_area c-clearfix">
-							<h2 class="c-group_title01">PICK UP!</h2>
+							<h2 class="c-group_title01">
+                                <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                                PICK UP!
+                            </h2>
 							<?php
 							foreach ( $feature_posts as $post ) :
 								setup_postdata( $post );
@@ -111,13 +120,13 @@ get_template_part( 'footer', 'sp' );
 ?>
 <div class="common_select_popup">
 	<div class="common_select_popup__item">
-		<a href="<?= home_url( '/event_search_sp/' ); ?>" class="image image--event"></a>
-		<a href="<?= home_url( '/event_search_sp/' ); ?>" class="text">イベント</a>
+		<a href="<?php echo home_url( '/event_search_sp/' ); ?>" class="image image--event"></a>
+		<a href="<?php echo home_url( '/event_search_sp/' ); ?>" class="text">イベント</a>
 	</div>
 
 	<div class="common_select_popup__item">
-		<a href="<?= home_url( '/spot_search_sp/' ); ?>" class="image image--spot"></a>
-		<a href="<?= home_url( '/spot_search_sp/' ); ?>" class="text">みんなの拠点</a>
+		<a href="<?php echo home_url( '/spot_search_sp/' ); ?>" class="image image--spot"></a>
+		<a href="<?php echo home_url( '/spot_search_sp/' ); ?>" class="text">みんなの拠点</a>
 	</div>
 	<a href="javascript:void(0);" id="selectPopupClose">×</a>
 </div>

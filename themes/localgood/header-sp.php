@@ -6,7 +6,7 @@
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
     <meta property="og:title" content="<?php generate_share_message(); ?>"/>
 
-    <meta property="og:url" content="<?= 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
+    <meta property="og:url" content="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
 <?php
     if(is_single()):
         setup_postdata($post);
@@ -22,14 +22,14 @@
                 $_imgurl .= '/';
             };
         ?>
-    <meta property="og:image" content="<?= $_imgurl ?>"/>
+    <meta property="og:image" content="<?php echo $_imgurl ?>"/>
 <?php  else: ?>
-    <meta property="og:image" content="<?= get_template_directory_uri(); ?>/images/ogimg.png" />
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
 <?php endif; ?>
-    <meta property="og:description" content="<?= get_the_excerpt(); ?>"/>
+    <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
 <?php else: ?>
-    <meta property="og:description" content="<?= get_bloginfo('description'); ?>" />
-    <meta property="og:image" content="<?= get_template_directory_uri(); ?>/images/ogimg.png" />
+    <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
 <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
     <meta property="fb:app_id" content="<?php if(defined('LG_FACEBOOK_APPID')){echo LG_FACEBOOK_APPID;} ?>" />
@@ -123,22 +123,22 @@
                                 記事
                             </dt>
                             <dd>
-                                <a href="/lgnews/">
+                                <a href="<?php echo home_url('/lgnews/'); ?>">
                                     ニュース
                                 </a>
                             </dd>
                             <dd>
-                                <a href="/event/">
+                                <a href="<?php echo home_url('/event/'); ?>">
                                   みんなの拠点/イベント
                                 </a>
                             </dd>
                             <dd>
-                                <a href="/data/">
+                                <a href="<?php echo home_url('/data/'); ?>">
                                     データ
                                 </a>
                             </dd>
                             <dd>
-                                <a href="/lgplayer/">
+                                <a href="<?php echo home_url('/lgplayer/'); ?>">
                                     人/団体
                                 </a>
                             </dd>
@@ -146,12 +146,12 @@
                                 みんなの声
                             </dt>
                             <dd>
-                                <a href="/subject/">
+                                <a href="<?php echo home_url('/subject/'); ?>">
                                     投稿一覧
                                 </a>
                             </dd>
                             <dd>
-                                <a href="/submit_subject/">
+                                <a href="<?php echo home_url('/submit_subject/'); ?>">
                                     あなたの声を投稿する
                                 </a>
                             </dd>
@@ -203,22 +203,22 @@
                             記事
                         </dt>
                         <dd>
-                            <a href="/lgnews/">
+                            <a href="<?php echo home_url('/lgnews/'); ?>">
                                 ニュース
                             </a>
                         </dd>
                         <dd>
-                            <a href="/event/">
+                            <a href="<?php echo home_url('/event/'); ?>">
 								みんなの拠点/イベント
                             </a>
                         </dd>
                         <dd>
-                            <a href="/data/">
+                            <a href="<?php echo home_url('/data/'); ?>">
                                 データ
                             </a>
                         </dd>
                         <dd>
-                            <a href="/lgplayer/">
+                            <a href="<?php echo home_url('/lgplayer/'); ?>">
                                 人/団体
                             </a>
                         </dd>
@@ -226,12 +226,12 @@
                             みんなの声
                         </dt>
                         <dd>
-                            <a href="/subject/">
+                            <a href="<?php echo home_url('/subject/'); ?>">
                                 投稿一覧
                             </a>
                         </dd>
                         <dd>
-                            <a href="/submit_subject/">
+                            <a href="<?php echo home_url('/submit_subject/'); ?>">
                                 あなたの声を投稿する
                             </a>
                         </dd>
@@ -249,7 +249,7 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="<?= home_url('/challenge/'); ?>">
+                            <a href="<?php echo home_url('/challenge/'); ?>">
 								プロジェクトを立ち上げる
                             </a>
                         </dd>
@@ -292,22 +292,22 @@
                             記事
                         </dt>
                         <dd>
-                            <a href="/lgnews/">
+                            <a href="<?php echo home_url('/lgnews/'); ?>">
                                 ニュース
                             </a>
                         </dd>
                         <dd>
-                            <a href="/event/">
+                            <a href="<?php echo home_url('/event/'); ?>">
 								みんなの拠点/イベント
                             </a>
                         </dd>
                         <dd>
-                            <a href="/data/">
+                            <a href="<?php echo home_url('/data/'); ?>">
                                 データ
                             </a>
                         </dd>
                         <dd>
-                            <a href="/lgplayer/">
+                            <a href="<?php echo home_url('/lgplayer/'); ?>">
                                 人/団体
                             </a>
                         </dd>
@@ -315,12 +315,12 @@
                             みんなの声
                         </dt>
                         <dd>
-                            <a href="/subject/">
+                            <a href="<?php echo home_url('/subject/'); ?>">
                                 投稿一覧
                             </a>
                         </dd>
                         <dd>
-                            <a href="/submit_subject/">
+                            <a href="<?php echo home_url('/submit_subject/'); ?>">
                                 あなたの声を投稿する
                             </a>
                         </dd>
@@ -338,7 +338,7 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="<?= home_url('/challenge/'); ?>">
+                            <a href="<?php echo home_url('/challenge/'); ?>">
 								プロジェクトを立ち上げる
                             </a>
                         </dd>

@@ -319,6 +319,7 @@ footer{
 
   a{
     color: #FFF !important;
+    display: block;
   }
 
   .footer_bottom{
@@ -401,7 +402,7 @@ footer{
 }
 
 .c-breadcrumb{
-  padding: 10px 0 0 0;
+  padding: 10px 8px 0 8px;
 }
 
 .sp_content{
@@ -444,10 +445,11 @@ dl, dd, ul{
 
 /* Title */
 .sp .c-group_title01{
-  padding: 0 5px 0 35px;
+  padding: 0 5px;
   margin: 10px 0 20px;
-  background-position: 5px center;
-  background-size: 24px;
+  img {
+    vertical-align: top;
+  }
 }
 
 .common_title-h2{
@@ -515,13 +517,14 @@ dl, dd, ul{
   .common_underlayer_title-h2 {
     font-size: 16px;
     font-weight: bold;
-    padding: 5px 0 5px 40px;
+    padding: 5px 0;
     margin-bottom: 5px !important;
-    background: url("../images/sm/s-title-icon01.png") no-repeat left;
-    -webkit-background-size: 33px;
-    background-size: 33px;
     &__sub_title {
       font-size: 11px;
+    }
+    img {
+      width: 33px;
+      height: auto;
     }
   }
 }
@@ -1380,11 +1383,12 @@ dl, dd, ul{
   .common_underlayer_title-h2 {
     font-size: 16px;
     font-weight: bold;
-    padding: 5px 0 5px 40px;
+    padding: 5px 0;
     margin-bottom: 5px !important;
-    background: url(../images/sm/s-title-icon01.png) no-repeat left;
-    -webkit-background-size: 33px;
-    background-size: 33px;
+    img {
+      width: 33px;
+      height: auto;
+    }
   }
 }
 

@@ -4,12 +4,13 @@ $(function () {
     if ($('#subject_gmap').length > 0) {
         // 投稿画面google map
 
+      $.getJSON('/omniconfig/apikeys.json',function(data){
         var map = new google.maps.Map(
-            document.getElementById("subject_gmap"), {
-                zoom: 13,
-                center: new google.maps.LatLng(35.443972, 139.63825),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
+          document.getElementById("subject_gmap"), {
+            zoom: 13,
+            center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
         );
 
         var marker = null;
@@ -18,27 +19,29 @@ $(function () {
         var _input_pos_lng = $('input#loc_position_lng');
 
         if (
-            ( parseFloat(_input_pos_lat.val()) > 0 ) &&
-            ( parseFloat(_input_pos_lng.val()) > 0 )
+          ( parseFloat(_input_pos_lat.val()) > 0 ) &&
+          ( parseFloat(_input_pos_lng.val()) > 0 )
         ) {
-            marker = setMarker(map, parseFloat(_input_pos_lat.val()), parseFloat(_input_pos_lng.val()), true);
-            map.setCenter(new google.maps.LatLng(parseFloat(_input_pos_lat.val()), parseFloat(_input_pos_lng.val())));
+          marker = setMarker(map, parseFloat(_input_pos_lat.val()), parseFloat(_input_pos_lng.val()), true);
+          map.setCenter(new google.maps.LatLng(parseFloat(_input_pos_lat.val()), parseFloat(_input_pos_lng.val())));
         }
 
         google.maps.event.addListener(map, "click", function (event) {
-            console.log(event);
-            var _latlng = event.latLng;
+          console.log(event);
+          var _latlng = event.latLng;
 
+          setLatlngtoInput(_latlng, 'input#loc_position_lat', 'input#loc_position_lng');
+
+          if (marker !== null) {
+            marker.setPosition(_latlng);
             setLatlngtoInput(_latlng, 'input#loc_position_lat', 'input#loc_position_lng');
-
-            if (marker !== null) {
-                marker.setPosition(_latlng);
-                setLatlngtoInput(_latlng, 'input#loc_position_lat', 'input#loc_position_lng');
-            } else {
-                marker = setMarker(map, _latlng.k, _latlng.B, true);
-                marker.setPosition(_latlng);
-            }
+          } else {
+            marker = setMarker(map, _latlng.k, _latlng.B, true);
+            marker.setPosition(_latlng);
+          }
         });
+      }
+
     } else if ($('#preview_gmap').length > 0) {
         // 確認画面google map
 

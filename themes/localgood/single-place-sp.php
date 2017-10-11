@@ -104,7 +104,10 @@ get_header();
 	<?php endif; ?>
 
 	<div class="common_single_gmap">
-		<h2 class="c-group_title01"><?php the_title(); ?>さんの場所</h2>
+		<h2 class="c-group_title01">
+            <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+            <?php the_title(); ?>さんの場所
+        </h2>
 		<div class="side_block gmap">
 			<?php
 			$data_lonlat = get_post_lonlat_attr();
@@ -136,7 +139,10 @@ $args = array(
 );
 query_posts( $args );
 if ( have_posts() ) :?>
-	<h2 class="c-group_title01"><?php the_title(); ?>さんで開催のイベント</h2>
+	<h2 class="c-group_title01">
+        <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+        <?php the_title(); ?>さんで開催のイベント
+    </h2>
 	<div class="list_pic_wrapper">
 		<div class="list_pic">
 			<div class="list_pic_layout">

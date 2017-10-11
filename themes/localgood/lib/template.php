@@ -1039,7 +1039,7 @@ function knows_head_tab( $post = null ) {
 	// pageアーカイブだったら$post->post_name, カスタム投稿タイプだったら$post->slugを出すように書き直す
 	// descriptionはどうするかちょっと考える。
 	//---------------------------------------------------------------------------------------
-	$page_value = '';
+	$page_value = array();
 	if ( is_page() ) {
 		$page_value['title']       = get_the_title();
 		$page_value['description'] = $post->post_content;

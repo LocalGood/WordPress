@@ -21,7 +21,7 @@ else :
 			<?php breadcrumbs(); ?>
 
 			<div class="c-page_title_wrapper">
-				<h2 class="c-page_title c-title05">みんなの拠点</h2>
+				<h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">みんなの拠点</h2>
 			</div>
 			<div class="common_single_info_heading_area">
 				<div class="common_single_info_heading_area__base_info">

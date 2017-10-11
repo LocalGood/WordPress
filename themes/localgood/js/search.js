@@ -31,9 +31,8 @@ var lonlatList = {
   'seibu': [35.44507164054968, 139.5125600099564],
 }
 
-function mapInit () {
+function mapInit (coordinate) {
   var area = location.href.split('?').pop().replace('project_area=', '')
-  var latlng = [35.4441638, 139.6358449]
   var zoom = 10
   if (area in lonlatList) {
     latlng = lonlatList[area]
@@ -41,7 +40,8 @@ function mapInit () {
   }
   var myOptions = {
     zoom: zoom,
-    center: new google.maps.LatLng(latlng[0], latlng[1]),
+    center: new google.maps.LatLng(coordinate.latitude, coordinate.longitude),
+
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
   }
@@ -127,7 +127,10 @@ $(function () {
         $('.knowsMapFilter').css('display', 'block')
       }
       if (!$('#gmap').html()) {
-        mapInit()
+        $.getJSON('/omniconfig/apikeys.json',function(data){
+          mapInit(data.coordinate)
+        })
+
         $('.event_box, .place_box, .article_box').each(parseMarkers)
       }
     } else {

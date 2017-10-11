@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "mixins";
 @import "colors";
 @import "palette";
@@ -517,7 +518,7 @@ body.submit_subject {
     line-height: 19px;
 
     &.red {
-      color: $color39;
+      color: $alertCol;
     }
   }
 

@@ -22,7 +22,7 @@
                             $data_lonlat = get_post_lonlat_attr();
                             if (!empty($data_lonlat)):
                             ?>
-                            <div id="gmap" <?= $data_lonlat; ?> style="height: 400px;margin-bottom:20px;"></div>
+                            <div id="gmap" <?php echo $data_lonlat; ?> style="height: 400px;margin-bottom:20px;"></div>
                             <?php
                             endif;
                             ?>

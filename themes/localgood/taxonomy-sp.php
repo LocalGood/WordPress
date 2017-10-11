@@ -5,8 +5,11 @@
 		</div>
 		<div class="archive_all">
 			<div class="post_title">
-				<h1 class="common_underlayer_title-h2"><?php single_term_title(); ?></h1>
-				<?= term_description(); ?>
+				<h1 class="common_underlayer_title-h2">
+                    <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
+                    <?php single_term_title(); ?>
+                </h1>
+				<?php echo term_description(); ?>
 			</div>
 		</div><!-- .archive_all -->
 		<?php if ( have_posts() ): ?>

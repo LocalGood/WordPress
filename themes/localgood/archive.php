@@ -12,7 +12,7 @@ else:
         <?php knows_head_tab(); ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05">みんなの声</h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">みんなの声</h2>
             <p class="c-page_title_subtext">地域について寄せられた声の一覧です。</p>
         </div>
 
@@ -22,7 +22,7 @@ else:
         <div class="subject_post_box">
             <p class="subject_post_box__title">あなたの声を投稿しましょう</p>
             <p class="subject_post_box__text">あなたの身の回りの良い所や気になっていることを教えてください。</p>
-            <a class="subject_post_box__submit_button" href="<?= home_url( '/submit_subject/' ); ?>">
+            <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
                 投稿する
             </a>
         </div>
@@ -40,7 +40,7 @@ else:
             <div class="subject_post_box">
                 <p class="subject_post_box__title">あなたの声を投稿しましょう</p>
                 <p class="subject_post_box__text">あなたの身の回りの良い所や気になっていることを教えてください。</p>
-                <a class="subject_post_box__submit_button" href="<?= home_url( '/submit_subject/' ); ?>">
+                <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
                     投稿する
                 </a>
             </div>
@@ -68,7 +68,7 @@ else:
         <div class="subject_post_box">
             <p class="subject_post_box__title">あなたの声を投稿しましょう</p>
             <p class="subject_post_box__text">あなたの身の回りの良い所や気になっていることを教えてください。</p>
-                <a class="subject_post_box__submit_button" href="<?= home_url( '/submit_subject/' ); ?>">
+                <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
                     投稿する
                 </a>
         </div>

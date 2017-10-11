@@ -35,7 +35,10 @@ get_header();
 			if ( ! empty( $twitter_account ) ):
 				?>
 				<div class="common_single_timeline">
-					<h2 class="c-group_title01"><?php the_title(); ?>さんの最新情報</h2>
+					<h2 class="c-group_title01">
+                        <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                        <?php the_title(); ?>さんの最新情報
+                    </h2>
 					<div class="common_single_timeline__inner">
 						<a class="twitter-timeline" data-height="380" href="https://twitter.com/<?php echo $twitter_account; ?>">Tweets
 							by <?php the_title(); ?></a>
@@ -61,7 +64,10 @@ get_header();
 		query_posts( $args );
 		if ( have_posts() ):?>
 			<div class="list_pic_wrapper">
-				<h2 class="c-group_title01"><?php the_title(); ?>さんが主催のイベント</h2>
+				<h2 class="c-group_title01">
+                    <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                    <?php the_title(); ?>さんが主催のイベント
+                </h2>
 				<div class="list_pic">
 					<div class="list_pic_layout">
 						<?php

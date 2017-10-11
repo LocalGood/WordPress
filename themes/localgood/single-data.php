@@ -13,7 +13,7 @@ else:
         <?php breadcrumbs(); ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05">データ</h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">データ</h2>
             <p class="c-page_title_subtext">地域のデータを見やすい形でまとめました。</p>
         </div>
 

@@ -11,7 +11,7 @@ else:
         <div class="static_page">
             <?php if(have_posts()): the_post(); ?>
                 <div class="c-page_title_wrapper">
-                    <h2 class="c-page_title c-title05"><?php the_title(); ?></h2>
+                    <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?php the_title(); ?></h2>
                 </div>
                 <div class="single_contents_box">
                     <?php the_content(); ?>

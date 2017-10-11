@@ -61,7 +61,7 @@
 						<div class="text">
 							　<?php echo get_option( 'lg_config__know_the_zone_msg' ); ?>
 						</div>
-						<a href="<?= home_url( '/lgnews/' ); ?>" class="link_button01">
+						<a href="<?php echo home_url( '/lgnews/' ); ?>" class="link_button01">
 							地域を知る
 						</a>
 					</div>
@@ -190,7 +190,7 @@
 					$_prj_url = LG_GOTEO_BASE_URL . '/widget/project/' . urlencode( $_promo->project ) . '?lang=ja';
 					?>
 					<div class="project_box__part">
-						<iframe class="autoHeight" frameborder="0" width="100%" height="480px" src="<?= $_prj_url; ?>"
+						<iframe class="autoHeight" frameborder="0" width="100%" height="480px" src="<?php echo $_prj_url; ?>"
 								scrolling="yes"></iframe>
 					</div>
 					<?php

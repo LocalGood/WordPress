@@ -25,7 +25,10 @@ get_header(); ?>
 						if ( $feature_post->have_posts() ):
 							ob_start();
 							?>
-							<h2 class="c-group_title01">PICK UP!</h2>
+							<h2 class="c-group_title01">
+                                <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                                PICK UP!
+                            </h2>
 							<?php
 							while ( $feature_post->have_posts() ):
 								$feature_post->the_post();
@@ -45,6 +48,7 @@ get_header(); ?>
 					if ( have_posts() ):
 						?>
 						<h2 class="c-group_title01">
+                            <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
 							<?php the_title(); ?>
 						</h2>
 						<div class="list_pic_wrapper">
