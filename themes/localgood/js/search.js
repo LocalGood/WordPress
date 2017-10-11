@@ -127,7 +127,7 @@ $(function () {
         $('.knowsMapFilter').css('display', 'block')
       }
       if (!$('#gmap').html()) {
-        $.getJSON('/omniconfig/apikeys.json',function(data){
+        $.getJSON('/wp-json/api/v1/apikeys',function(data){
           mapInit(data.coordinate)
         })
 

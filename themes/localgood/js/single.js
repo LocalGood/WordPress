@@ -49,7 +49,7 @@ function addMarker(latlng, content, type) {
 
 
 
-$.getJSON('/omniconfig/apikeys.json', function (data) {
+$.getJSON('/wp-json/api/v1/apikeys', function (data) {
   mapInit(data.coordinate)
   $gmap = $('#gmap')
   var long = $gmap.data('long');

@@ -10,7 +10,16 @@ add_action( 'rest_api_init', function () {
 		'methods'  => 'GET',
 		'callback' => 'get_search_items',
 	) );
+	register_rest_route( 'api/v1', '/apikeys/', array(
+		'methods'  => 'GET',
+		'callback' => 'get_apikeys',
+	) );
 } );
+
+function get_apikeys( WP_REST_Request $request ) {
+	$json = json_decode(file_get_contents( 'omniconfig/apikeys.json' ));
+	return $json;
+};
 
 function get_search_items( WP_REST_Request $request ) {
 	$form_data = $_GET['input_data'];

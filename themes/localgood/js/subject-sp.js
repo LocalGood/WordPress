@@ -4,7 +4,7 @@ $(function () {
     if ($('#subject_gmap').length > 0) {
         // 投稿画面google map
 
-      $.getJSON('/omniconfig/apikeys.json',function(data){
+      $.getJSON('/wp-json/api/v1/apikeys',function(data){
         var map = new google.maps.Map(
           document.getElementById("subject_gmap"), {
             zoom: 13,
