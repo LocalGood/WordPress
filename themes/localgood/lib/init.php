@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_GET['scss'])){
-    require_once __DIR__ . '/../../../../vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
     SassCompiler::run(__DIR__ . "/../scss/", __DIR__ . "/../css/");
 }
 
