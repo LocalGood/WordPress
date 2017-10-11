@@ -26,7 +26,7 @@ function render_export_page() {
 			<p>
 				<button class="exec_scss_compile_wp button">WordPress</button>
 				<button class="exec_scss_compile_goteo button"
-						data-compile-key="<?php echo hash( 'md5', 'hogehoge' ); ?>">Goteo
+						data-compile-key="<?php echo hash( 'md5', 'foobar' ); ?>">Goteo
 				</button>
 			</p>
 		</li>
