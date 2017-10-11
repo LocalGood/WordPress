@@ -129,9 +129,9 @@ $(function () {
       if (!$('#gmap').html()) {
         $.getJSON('/wp-json/api/v1/apikeys',function(data){
           mapInit(data.coordinate)
+          $('.event_box, .place_box, .article_box').each(parseMarkers)
         })
 
-        $('.event_box, .place_box, .article_box').each(parseMarkers)
       }
     } else {
       span.text(openText)
