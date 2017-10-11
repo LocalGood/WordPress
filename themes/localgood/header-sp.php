@@ -104,7 +104,7 @@
     <?php if(is_home()):?>
         <nav class="main_nav clearfix">
             <a href="<?php echo home_url(); ?>" class="nav_logo">
-                <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-header-logo.png" alt="LOCAL GOOD">
+	            <img src="<?php echo esc_attr(get_option('lg_config__header_logo_2')) ?>" alt="<?php bloginfo('name'); ?>"/>
             </a>
             <div class="nav_menu-button">
                 <span></span>
