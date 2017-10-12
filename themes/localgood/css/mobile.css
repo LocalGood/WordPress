@@ -11,8 +11,7 @@ body {
   background: #FFF;
   margin: 0;
   padding: 0;
-  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif  !important;
-  min-width: auto; }
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif  !important; }
 
 a {
   color: #7f2525; }
@@ -24,11 +23,11 @@ a {
   line-height: 16px; }
   .c-event_status.end {
     position: static;
-    height: 16px;
+    height: auto;
     font-size: 9px;
     padding: 0 10px;
     text-align: center;
-    line-height: 16px;
+    line-height: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
@@ -166,7 +165,8 @@ a {
   .main_nav02 .nav_logo {
     float: left; }
     .main_nav02 .nav_logo img {
-      width: 35%; }
+      margin-top: 4%;
+      width: 60%; }
   .main_nav02 .nav_menu-button {
     float: right;
     width: 21px;
@@ -406,11 +406,11 @@ dl, dd, ul {
 /* icon */
 .sp .c-cat {
   position: static;
-  height: 16px;
+  height: auto;
   font-size: 9px;
   padding: 0 10px;
   text-align: center;
-  line-height: 16px;
+  line-height: 14px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }

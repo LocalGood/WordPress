@@ -27,8 +27,8 @@ else:
         if ($iframe_src && $iframe_width && $iframe_height):
             ?>
             <div class="main_visual">
-                <iframe src="<?= esc_html( $iframe_src ); ?>" width="<?= esc_html( $iframe_width ); ?>"
-                        height="<?= esc_html( $iframe_height ); ?>"></iframe>
+                <iframe src="<?php echo esc_html( $iframe_src ); ?>" width="<?php echo esc_html( $iframe_width ); ?>"
+                        height="<?php echo esc_html( $iframe_height ); ?>"></iframe>
             </div>
             <?php
         elseif (has_post_thumbnail()):
@@ -45,7 +45,7 @@ else:
             <?php get_single_post(); ?>
         </div><!-- .single_contents_box -->
 
-        <a class="c-back_button" href="<?= home_url('/data/'); ?>">データ一覧へ戻る</a>
+        <a class="c-back_button" href="<?php echo home_url('/data/'); ?>">データ一覧へ戻る</a>
     <?php endif; ?>
 
     </div><!-- .c-contents_wrapper -->

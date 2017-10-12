@@ -39,11 +39,11 @@ function show_wp_template($_content){
                         <?php
 //                        var_dump($_SESSION);
                         ?>
-                        <?= $_content ?>
+                        <?php echo $_content ?>
 
                         <div class="form_block cf">
                             <span class="button">
-                                <a class="button reset" style="margin-left:0" href="<?= home_url(); ?>">ホームに戻る</a>
+                                <a class="button reset" style="margin-left:0" href="<?php echo home_url(); ?>">ホームに戻る</a>
                             </span>
                         </div>
 

@@ -25,7 +25,7 @@ function social_buttons( $permalink = false, $comment = false ) {
 				</script>
 			</div>
 			<div id="facebook">
-				<div class="fb-like" data-href="<?= $permalink; ?>" data-layout="button_count" data-action="like"
+				<div class="fb-like" data-href="<?php echo $permalink; ?>" data-layout="button_count" data-action="like"
 					 data-show-faces="false" data-share="true"></div>
 			</div>
 
@@ -46,7 +46,7 @@ function social_buttons( $permalink = false, $comment = false ) {
 		<!--  ▲　SNSアイコン　▲  -->
 		<?php if ( $comment ): ?>
 			<div class="fb_comment_box">
-				<div class="fb-comments" data-href="<?= $permalink; ?>" data-width="100%" data-numposts="5"></div>
+				<div class="fb-comments" data-href="<?php echo $permalink; ?>" data-width="100%" data-numposts="5"></div>
 			</div><!-- /.fb_comment_box -->
 		<?php endif;
 	else: ?>
@@ -68,7 +68,7 @@ function social_buttons( $permalink = false, $comment = false ) {
 				</script>
 			</div>
 			<div id="facebook">
-				<div class="fb-like" data-href="<?= $permalink; ?>" data-layout="button_count" data-action="like"
+				<div class="fb-like" data-href="<?php echo $permalink; ?>" data-layout="button_count" data-action="like"
 					 data-show-faces="false" data-share="true"></div>
 			</div>
 
@@ -89,7 +89,7 @@ function social_buttons( $permalink = false, $comment = false ) {
 		<?php if ( $comment ): ?>
 			<!--  ▲　SNSアイコン　▲  -->
 			<div class="fb_comment_box">
-				<div class="fb-comments" data-href="<?= $permalink; ?>" data-width="100%" data-numposts="5"></div>
+				<div class="fb-comments" data-href="<?php echo $permalink; ?>" data-width="100%" data-numposts="5"></div>
 			</div><!-- /.fb_comment_box -->
 		<?php endif; ?>
 	<?php endif; ?>
@@ -150,7 +150,7 @@ function get_single_post() {
 						<span class="subj_tw">tw</span>
 					<?php elseif ( $is_subject ): ?>
 						<span class="subj_wp">
-                            <?= $user['avatar']; ?>
+                            <?php echo $user['avatar']; ?>
                         </span>
 					<?php endif; ?>
 
@@ -158,13 +158,13 @@ function get_single_post() {
 						?>
 						<div class="post_info">
 							<p class="username">
-								<?php if ( ! empty( $user['link'] ) ): ?><a href="<?= $user['link']; ?>"
+								<?php if ( ! empty( $user['link'] ) ): ?><a href="<?php echo $user['link']; ?>"
 																			target="_blank"><?php endif; ?>
-									<?= $user['name']; ?>
+									<?php echo $user['name']; ?>
 									<?php if ( ! empty( $user['link'] ) ): ?></a><?php endif; ?>
 							</p>
 							<p class="postdate">
-								<?= $user['postdate']; ?>
+								<?php echo $user['postdate']; ?>
 							</p>
 						</div>
 						<?php
@@ -172,7 +172,7 @@ function get_single_post() {
 							$_origtweet = 'https://twitter.com/' . $cf['twScreenName'][0] . '/status/' . $cf['twTweetID'][0];
 							?>
 							<p class="tags">
-                                    <span class="original_tweet"><a href="<?= $_origtweet ?>"
+                                    <span class="original_tweet"><a href="<?php echo $_origtweet ?>"
 																	target="_blank">元のつぶやきを見る</a></span>
 							</p>
 							<?php
@@ -211,15 +211,15 @@ function get_single_post() {
 						<ul class="credit">
 							<?php
 							if ( $ig_source ):?>
-								<li><span class="meta"><label>出典:</label><?= $ig_source; ?></span></li>
+								<li><span class="meta"><label>出典:</label><?php echo $ig_source; ?></span></li>
 								<?php
 							endif;
 							if ( $ig_author ):?>
-								<li><span class="meta"><label>作成者:</label><?= $ig_author; ?></span></li>
+								<li><span class="meta"><label>作成者:</label><?php echo $ig_author; ?></span></li>
 								<?php
 							endif;
 							if ( $ig_license ):?>
-								<li><span class="meta"><label>ライセンス:</label><?= $ig_license; ?></span></li>
+								<li><span class="meta"><label>ライセンス:</label><?php echo $ig_license; ?></span></li>
 								<?php
 							endif;
 							?>
@@ -244,7 +244,7 @@ function get_single_post() {
 			<?php elseif ( $is_subject ):
 				?>
 				<span class="c-subj_wp">
-                            <?= $user['avatar']; ?>
+                            <?php echo $user['avatar']; ?>
                 </span>
 			<?php endif; ?>
 
@@ -263,14 +263,14 @@ function get_single_post() {
 				?>
 				<div class="single__post_info">
 					<p class="single__username">
-						<?php if ( ! empty( $user['link'] ) ): ?><a href="<?= $user['link']; ?>"
+						<?php if ( ! empty( $user['link'] ) ): ?><a href="<?php echo $user['link']; ?>"
 																	target="_blank"><?php endif; ?>
-							<?= $user['name']; ?>
+							<?php echo $user['name']; ?>
 							<?php if ( ! empty( $user['link'] ) ): ?></a><?php endif; ?>
 					</p>
 
 					<p class="single__postdate">
-						<?= $user['postdate']; ?>
+						<?php echo $user['postdate']; ?>
 					</p>
 				</div>
 				<?php
@@ -278,7 +278,7 @@ function get_single_post() {
 					$_origtweet = 'https://twitter.com/' . $cf['twScreenName'][0] . '/status/' . $cf['twTweetID'][0];
 					?>
 					<p class="single__tags">
-                            <span class="original_tweet"><a href="<?= $_origtweet ?>"
+                            <span class="original_tweet"><a href="<?php echo $_origtweet ?>"
 															target="_blank">元のつぶやきを見る</a></span>
 					</p>
 					<?php
@@ -315,15 +315,15 @@ function get_single_post() {
 					<ul class="single__credit">
 						<?php
 						if ( $ig_source ):?>
-							<li><span class="meta"><label>出典:</label><?= $ig_source; ?></span></li>
+							<li><span class="meta"><label>出典:</label><?php echo $ig_source; ?></span></li>
 							<?php
 						endif;
 						if ( $ig_author ):?>
-							<li><span class="meta"><label>作成者:</label><?= $ig_author; ?></span></li>
+							<li><span class="meta"><label>作成者:</label><?php echo $ig_author; ?></span></li>
 							<?php
 						endif;
 						if ( $ig_license ):?>
-							<li><span class="meta"><label>ライセンス:</label><?= $ig_license; ?></span></li>
+							<li><span class="meta"><label>ライセンス:</label><?php echo $ig_license; ?></span></li>
 							<?php
 						endif;
 						?>
@@ -373,7 +373,7 @@ function get_single_post() {
 					foreach ( $link_sets as $link ):
 						if ( $link['link_url'] != '' && $link['link_title'] != '' ):
 							?>
-							<li><a href="<?= $link['link_url']; ?>" target="_blank"><?= $link['link_title']; ?></a>
+							<li><a href="<?php echo $link['link_url']; ?>" target="_blank"><?php echo $link['link_title']; ?></a>
 							</li>
 							<?php
 						endif;
@@ -402,7 +402,7 @@ function topic_box( $cnt = null ) {
 			<div class="topic_box__thumbnail">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $thumb ); ?></a>
 			</div>
-			<?= get_term_atag( get_post_type() ); ?>
+			<?php echo get_term_atag( get_post_type() ); ?>
 			<div class="topic_box__title">
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			</div>
@@ -439,7 +439,7 @@ function article_box() {
 	}
 	$data_meta = get_post_meta_attr();
 	?>
-	<section class="article_box common_box" <?= $data_lonlat; ?>  <?= $data_meta; ?> data-type="<?php echo $post->post_type; ?>">
+	<section class="article_box common_box" <?php echo $data_lonlat; ?>  <?php echo $data_meta; ?> data-type="<?php echo $post->post_type; ?>">
 		<?php
 		if ( DEVICE == 'sp' ): ?>
 			<div class="list_inner">
@@ -457,9 +457,9 @@ function article_box() {
 				</div>
 				<div class="post_text-area">
 					<h2 class="title"><a
-							href="<?php the_permalink(); ?>"><?= shorten( get_the_title(), '34' ); ?></a></h2>
+							href="<?php the_permalink(); ?>"><?php echo shorten( get_the_title(), '34' ); ?></a></h2>
 
-					<?= get_term_atag( get_post_type() ); ?>
+					<?php echo get_term_atag( get_post_type() ); ?>
 					<?php
 					if ( $subj_types ):
 						?>
@@ -467,12 +467,12 @@ function article_box() {
 							<?php if ( $is_tweet ): ?>
 								<span class="subj_tw">
                                         <img
-											src="<?= get_template_directory_uri(); ?>/images/sm/s-archive-subject_twitter-icon.png"
+											src="<?php echo get_template_directory_uri(); ?>/images/sm/s-archive-subject_twitter-icon.png"
 											alt="Twitter"/>
                                     </span>
 							<?php elseif ( $is_subject ): ?>
 								<span class="subj_wp">
-                            <?= $subject_user_meta['avatar']; ?>
+                            <?php echo $subject_user_meta['avatar']; ?>
                                     </span>
 							<?php endif; ?>
 							<div class="post_info">
@@ -480,12 +480,12 @@ function article_box() {
 									<?php if ( empty( $subject_user_meta['name'] ) ): ?>
 										匿名
 									<?php else: ?>
-										<a href="<?= $subject_user_meta['link']; ?>"
-										   target="_blank"><?= $subject_user_meta['name']; ?></a>
+										<a href="<?php echo $subject_user_meta['link']; ?>"
+										   target="_blank"><?php echo $subject_user_meta['name']; ?></a>
 									<?php endif; ?>
 								</p>
 								<p class="postdate">
-									<?= $subject_user_meta['postdate']; ?>
+									<?php echo $subject_user_meta['postdate']; ?>
 								</p>
 							</div>
 						</div>
@@ -507,11 +507,11 @@ function article_box() {
 				<?php endif; ?>
 				<div class="article_box__texts">
 					<div class="article_box__title">
-						<h2><?= shorten( get_the_title(), '34' ); ?></h2>
+						<h2><?php echo shorten( get_the_title(), '34' ); ?></h2>
 					</div>
 					<div class="article_box__description">
 						<a href="<?php the_permalink(); ?>">
-							<p class="article_box__excerpt"><?= lg_post_excerpt(); ?></p>
+							<p class="article_box__excerpt"><?php echo lg_post_excerpt(); ?></p>
 						</a>
 					</div>
 					<div class="article_box__area">
@@ -526,7 +526,7 @@ function article_box() {
 								<span class="c-subj_tw">tw</span>
 							<?php elseif ( $is_subject ): ?>
 								<span class="c-subj_wp">
-                            <?= $subject_user_meta['avatar']; ?>
+                            <?php echo $subject_user_meta['avatar']; ?>
                         </span>
 							<?php endif; ?>
 							<div class="c-post_info">
@@ -534,12 +534,12 @@ function article_box() {
 									<?php if ( empty( $subject_user_meta['name'] ) ): ?>
 										匿名
 									<?php else: ?>
-										<a href="<?= $subject_user_meta['link']; ?>"
-										   target="_blank"><?= $subject_user_meta['name']; ?></a>
+										<a href="<?php echo $subject_user_meta['link']; ?>"
+										   target="_blank"><?php echo $subject_user_meta['name']; ?></a>
 									<?php endif; ?>
 								</p>
 								<p class="c-postdate">
-									<?= $subject_user_meta['postdate']; ?>
+									<?php echo $subject_user_meta['postdate']; ?>
 								</p>
 							</div>
 						</div>
@@ -578,7 +578,7 @@ function related_posts() {
 							   href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'archive-thumbnails' ); ?></a>
 							<a class="related_box__texts" href="<?php the_permalink(); ?>">
 								<h2 class="related_box__title"><?php the_title(); ?></h2>
-								<p class="related_box__excerpt"><?= lg_post_excerpt(); ?></p>
+								<p class="related_box__excerpt"><?php echo lg_post_excerpt(); ?></p>
 							</a>
 						</div>
 						<?php
@@ -602,7 +602,7 @@ function key_topic_box( $index = 0 ) {
 	?>
 	<section class="topic_box c-clearfix <?php if ( $index !== 0 ) {
 		echo 'second';
-	} ?>" <?= $data_lonlat; ?> <?= $data_meta; ?>>
+	} ?>" <?php echo $data_lonlat; ?> <?php echo $data_meta; ?>>
 		<a class="topic_box__thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $thumb ); ?></a>
 		<div class="topic_box__text_area">
 			<a class="topic_box__text_link" href="<?php the_permalink(); ?>">
@@ -755,10 +755,10 @@ function show_skill_tabs( $_post_id = 0 ) {
 		<?php if ( DEVICE == 'pc' ): ?>
 			<h2>スキル一覧</h2>
 		<?php endif; ?>
-		<div<?= $_viewport; ?>>
-			<ul<?= $_flipsnap; ?>>
+		<div<?php echo $_viewport; ?>>
+			<ul<?php echo $_flipsnap; ?>>
 				<?/*<li<?php if (is_post_type_archive('skills')): echo " class='show'"; endif; ?>>
-                <a href="<?= home_url('skills'); ?>">スキルについて</a>
+                <a href="<?php echo home_url('skills'); ?>">スキルについて</a>
             </li>*/
 				?>
 				<?php
@@ -933,9 +933,9 @@ function writers_archive() {
 				<div class="list_inner  heightLine-1">
 					<div class="article_box__heading">
 						<div class="authors_thumbnail">
-							<?= get_avatar( $uid, 100 ); ?>
+							<?php echo get_avatar( $uid, 100 ); ?>
 						</div>
-						<h3><a href="<?= $user_link; ?>"><span class="nickname"><?php the_author_meta( 'display_name',
+						<h3><a href="<?php echo $user_link; ?>"><span class="nickname"><?php the_author_meta( 'display_name',
 										$uid ); ?></span></a></h3>
 					</div>
 					<div class="cnt_text">
@@ -985,13 +985,13 @@ function writers_archive() {
 					?>
 					<div class="article_box">
 						<div class="article_box__thumbnail">
-							<a href="<?= $user_link; ?>"><?= get_avatar( $uid, 145 ); ?></a>
+							<a href="<?php echo $user_link; ?>"><?php echo get_avatar( $uid, 145 ); ?></a>
 						</div>
 						<div class="article_box__texts">
-							<h3 class="article_box__title"><a href="<?= $user_link; ?>"><span
+							<h3 class="article_box__title"><a href="<?php echo $user_link; ?>"><span
 										class="nickname"><?php the_author_meta( 'display_name', $uid ); ?></span></a>
 							</h3>
-							<p class="article_box__description"><a href="<?= $user_link; ?>"><?php the_author_meta( 'description', $uid ); ?></a></p>
+							<p class="article_box__description"><a href="<?php echo $user_link; ?>"><?php the_author_meta( 'description', $uid ); ?></a></p>
 
 							<ul class="article_box__sns">
 								<?php
@@ -1060,19 +1060,19 @@ function knows_head_tab( $post = null ) {
 		<ul>
 			<li class="<?php if ( is_page( 'lgnews' ) || in_category( array( 'news', 'report' ) ) ) {
 				echo $current;
-			} ?>"><a href="<?= home_url( '/lgnews/' ); ?>"><span>ニュース</span></a></li>
+			} ?>"><a href="<?php echo home_url( '/lgnews/' ); ?>"><span>ニュース</span></a></li>
 			<li class="<?php if ( is_post_type_archive( 'event' ) ) {
 				echo $current;
-			} ?>"><a href="<?= home_url( '/event/' ); ?>" class="small"><span>みんなの拠点/イベント</span></a></li>
+			} ?>"><a href="<?php echo home_url( '/event/' ); ?>" class="small"><span>みんなの拠点/イベント</span></a></li>
 			<li class="<?php if ( is_post_type_archive( 'data' ) ) {
 				echo $current;
-			} ?>"><a href="<?= home_url( '/data/' ); ?>"><span>データ</span></a></li>
+			} ?>"><a href="<?php echo home_url( '/data/' ); ?>"><span>データ</span></a></li>
 			<li class="<?php if ( is_page( 'lgplayer' ) || in_category( array( 'local_good_player', 'voice' ) ) ) {
 				echo $current;
-			} ?>"><a href="<?= home_url( '/lgplayer/' ); ?>"><span>人/団体</span></a></li>
+			} ?>"><a href="<?php echo home_url( '/lgplayer/' ); ?>"><span>人/団体</span></a></li>
 			<li class="<?php if ( strpos( $path, '/subject/' ) !== false ) {
 				echo $current;
-			} ?>"><a href="<?= home_url( '/subject/' ); ?>"><span>みんなの声</span></a></li>
+			} ?>"><a href="<?php echo home_url( '/subject/' ); ?>"><span>みんなの声</span></a></li>
 		</ul>
 	</div>
 	<?php
@@ -1111,7 +1111,7 @@ function knows_map_bar() { ?>
                                 }
                                 ?>
                                 <option
-                                    value="<?php echo $event_type->slug; ?>" <?= $selected; ?>><?php echo $event_type->name; ?></option>
+                                    value="<?php echo $event_type->slug; ?>" <?php echo $selected; ?>><?php echo $event_type->name; ?></option>
                                 <?php
                             }
                             ?>
@@ -1133,7 +1133,7 @@ function knows_map_bar() { ?>
 								}
 								?>
 								<option
-									value="<?php echo $area_term->slug; ?>" <?= $selected; ?>><?php echo $area_term->name; ?></option>
+									value="<?php echo $area_term->slug; ?>" <?php echo $selected; ?>><?php echo $area_term->name; ?></option>
 								<?php
 							}
 							?>
@@ -1206,6 +1206,7 @@ function knows_map_bar() { ?>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset( $_GET['theme'] ) && is_array( $_GET['theme'] ) ): ?>
+					<a href="<?php echo home_url( '/lgnews/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
 					<div class="select_themes_bar">
 						<ul class="clearfix">
 							<?php
@@ -1214,7 +1215,7 @@ function knows_map_bar() { ?>
 								if ( $term ):
 									?>
 									<li>
-										<a href="<?php echo home_url( '/project_theme/' . $term->slug ); ?>"><?= $term->name; ?></a>
+										<a href="<?php echo home_url( '/project_theme/' . $term->slug ); ?>"><?php echo $term->name; ?></a>
 									</li>
 									<?php
 								endif;
@@ -1222,7 +1223,7 @@ function knows_map_bar() { ?>
 							?>
 						</ul>
 					</div>
-				<?php elseif ( is_page( 'lgnews' ) ): ?>
+				<?php elseif ( is_page( 'lgnews' )): ?>
 					<a href="<?php echo home_url( '/lgnews/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
 				<?php endif; ?>
 				<input type="hidden" name="paged" value="1"/>
@@ -1367,12 +1368,12 @@ function event_box() {
 	$data_meta = get_post_meta_attr();
 	if ( DEVICE == 'pc' ):
 		?>
-		<section class="event_box common_box" <?= $data_lonlat; ?>  <?= $data_meta; ?>>
+		<section class="event_box common_box" <?php echo $data_lonlat; ?>  <?php echo $data_meta; ?>>
 			<a class="event_box__thumbnail"
 			   href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'archive-thumbnails' ); ?></a>
 			<div class="event_box__texts">
 				<a href="<?php the_permalink(); ?>">
-					<h2 class="event_box__title"><?= shorten( get_the_title(), '34' ); ?></h2>
+					<h2 class="event_box__title"><?php echo shorten( get_the_title(), '34' ); ?></h2>
 					<p class="event_box__excerpt">
 						<?php
 						if ( ! empty( $cf['event_sub_title'] ) && ! empty( $cf['event_sub_title'][0] ) ):
@@ -1423,21 +1424,21 @@ function event_box() {
 						}
 					endif;
 					?>
-					<?= get_term_atag( get_post_type() ); ?>
+					<?php echo get_term_atag( get_post_type() ); ?>
 				</div>
 			</div><!-- /.article_box__texts -->
 		</section><!-- /.event_box -->
 	<?php else: ?>
 
-		<section class="event_box event" <?= $data_lonlat; ?>  <?= $data_meta; ?>>
+		<section class="event_box event" <?php echo $data_lonlat; ?>  <?php echo $data_meta; ?>>
 			<div class="list_inner">
 				<div class="thumbnail">
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'single-main_visual' ); ?></a>
 				</div>
 				<div class="post_text-area">
-					<h2 class="title"><a href="<?php the_permalink(); ?>"><?= shorten( get_the_title(), '44' ); ?></a>
+					<h2 class="title"><a href="<?php the_permalink(); ?>"><?php echo shorten( get_the_title(), '44' ); ?></a>
 					</h2>
-					<?= get_term_atag( get_post_type() ); ?>
+					<?php echo get_term_atag( get_post_type() ); ?>
 					<p class="event_box__excerpt">
 						<?php
 						if ( ! empty( $cf['event_sub_title'] ) && ! empty( $cf['event_sub_title'][0] ) ):
@@ -1525,7 +1526,7 @@ function show_single_sns_icons( $class = '' ) {
 	);
 	if ( ! empty( $sns_accounts['facebook'] ) && ! empty( $sns_accounts['facebook'] ) ):
 		?>
-		<div class="<?= $class ? $class : 'common_single_info_heading_area__sns'; ?>">
+		<div class="<?php echo $class ? $class : 'common_single_info_heading_area__sns'; ?>">
 			<?php if ( ! empty( $sns_accounts['facebook'] ) ): ?><a href="<?php echo $sns_accounts['facebook']; ?>"
 																	class="fb"
 																	target="_blank"></a><?php endif; ?>
@@ -1548,7 +1549,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>日時</th>
-					<td><?= $cfs->get( 'event_display_date' ); ?></td>
+					<td><?php echo $cfs->get( 'event_display_date' ); ?></td>
 				</tr>
 				<?php
 			endif;
@@ -1574,7 +1575,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>場所</th>
-					<td><?= $cfs->get( 'event_place' ); ?></td>
+					<td><?php echo $cfs->get( 'event_place' ); ?></td>
 				</tr>
 				<?php
 			endif;
@@ -1582,7 +1583,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>対象</th>
-					<td><?= $cfs->get( 'event_target' ); ?></td>
+					<td><?php echo $cfs->get( 'event_target' ); ?></td>
 				</tr>
 				<?php
 			endif;
@@ -1590,7 +1591,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>費用</th>
-					<td><?= $cfs->get( 'event_fee' ); ?></td>
+					<td><?php echo $cfs->get( 'event_fee' ); ?></td>
 				</tr>
 				<?php
 			endif;
@@ -1598,8 +1599,8 @@ function event_meta() {
 				?>
 				<tr>
 					<th>URL</th>
-					<td><a href="<?= $cfs->get( 'event_url' ); ?>"
-						   target="_blank"><?= $cfs->get( 'event_url' ); ?></a></td>
+					<td><a href="<?php echo $cfs->get( 'event_url' ); ?>"
+						   target="_blank"><?php echo $cfs->get( 'event_url' ); ?></a></td>
 				</tr>
 				<?php
 			endif;
@@ -1607,8 +1608,8 @@ function event_meta() {
 				?>
 				<tr>
 					<th>Facebook</th>
-					<td><a href="<?= $cfs->get( 'event_facebook' ); ?>"
-						   target="_blank"><?= $cfs->get( 'event_facebook' ); ?></a></td>
+					<td><a href="<?php echo $cfs->get( 'event_facebook' ); ?>"
+						   target="_blank"><?php echo $cfs->get( 'event_facebook' ); ?></a></td>
 				</tr>
 				<?php
 			endif;
@@ -1616,8 +1617,8 @@ function event_meta() {
 				?>
 				<tr>
 					<th>twitter</th>
-					<td><a href="http://twitter.com/<?= $cfs->get( 'event_twitter' ); ?>"
-						   target="_blank">@<?= $cfs->get( 'event_twitter' ); ?></a></td>
+					<td><a href="http://twitter.com/<?php echo $cfs->get( 'event_twitter' ); ?>"
+						   target="_blank">@<?php echo $cfs->get( 'event_twitter' ); ?></a></td>
 				</tr>
 				<?php
 			endif;
@@ -1625,7 +1626,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>開催団体</th>
-					<td><?= $cfs->get( 'event_host' ); ?></td>
+					<td><?php echo $cfs->get( 'event_host' ); ?></td>
 				</tr>
 				<?php
 			endif;
@@ -1633,7 +1634,7 @@ function event_meta() {
 				?>
 				<tr>
 					<th>お申し込み・お問い合わせ</th>
-					<td><?= $cfs->get( 'event_contact' ); ?></td>
+					<td><?php echo $cfs->get( 'event_contact' ); ?></td>
 				</tr>
 				<?php
 			endif;

@@ -182,12 +182,12 @@ else:
                                         echo ' noborder';
                                     } ?>">
                                         <div class="thumbnail">
-                                            <a href="<?= $_ru_profile_url; ?>">
-                                                <img src="<?= $_ru_thumbnail[0] ?>" alt="<?= $_ru_name ?>"/>
+                                            <a href="<?php echo $_ru_profile_url; ?>">
+                                                <img src="<?php echo $_ru_thumbnail[0] ?>" alt="<?php echo $_ru_name ?>"/>
                                             </a>
                                         </div>
                                         <div class="holder_right">
-                                            <h2 class="title"><a href="<?= $_ru_thumbnail[0] ?>"><?= $_ru_name ?></a>
+                                            <h2 class="title"><a href="<?php echo $_ru_thumbnail[0] ?>"><?php echo $_ru_name ?></a>
                                             </h2>
                                             <p class="excerpt">
                                                 <?php
@@ -197,7 +197,7 @@ else:
                                                 ?>
                                             </p>
                                             <ul class="contact">
-                                                <li class="profile"><a href="<?= $_ru_profile_url; ?>">プロフィールを見る</a>
+                                                <li class="profile"><a href="<?php echo $_ru_profile_url; ?>">プロフィールを見る</a>
                                                 </li>
                                             </ul>
                                         </div>

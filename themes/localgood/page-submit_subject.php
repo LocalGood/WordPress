@@ -17,8 +17,8 @@ else:
             <?php breadcrumbs(); ?>
 
             <div class="c-page_title_wrapper">
-                <h2 class="c-page_title c-title05"><?= get_the_title(); ?></h2>
-                <p class="c-page_title_subtext"><?= $post->post_content; ?></p>
+                <h2 class="c-page_title c-title05"><?php echo get_the_title(); ?></h2>
+                <p class="c-page_title_subtext"><?php echo $post->post_content; ?></p>
             </div>
 
             <ul class="submit_subject__active">
@@ -87,7 +87,7 @@ else:
 
                     <section class="form_block">
                         <h2 class="form_block__title">内容を記入</h2>
-                        <p class="form_block__title_sup <?= $notice_class; ?>">
+                        <p class="form_block__title_sup <?php echo $notice_class; ?>">
                             課題の内容や発生場所を入力してください。
                         </p>
                         <span id="template_select_button"
@@ -130,7 +130,7 @@ else:
                                         if ($term):
                                             ?>
                                             <li>
-                                                <?= $term->name; ?>
+                                                <?php echo $term->name; ?>
                                             </li>
                                             <?php
                                         endif;
@@ -155,7 +155,7 @@ else:
                     <div class="form_block">
                         <p class="form_block__title">ピン</p>
                         <div id="preview_gmap"
-                             data-lonlat="<?= $_confirm['loc_position_lat'] ?>,<?= $_confirm['loc_position_lng'] ?>"
+                             data-lonlat="<?php echo $_confirm['loc_position_lat'] ?>,<?php echo $_confirm['loc_position_lng'] ?>"
                              style="height:400px">
                         </div>
                     </div>
@@ -167,7 +167,7 @@ else:
                         ?>
                         <p class="post_finish">投稿完了しました</p>
                         <div class="form_block">
-                            <a class="see_subject_button" href="<?= home_url( '/subject/' ); ?>">投稿一覧へ戻る</a>
+                            <a class="see_subject_button" href="<?php echo home_url( '/subject/' ); ?>">投稿一覧へ戻る</a>
                         </div>
                         <?php
                         save_subject_meta( $subject_id, $subject );

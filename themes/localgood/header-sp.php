@@ -65,6 +65,7 @@
 		bloginfo('name');
 
         ?></title>
+    <link rel="shortcut icon " type="image/vnd.microsoft.icon" href="<?php echo esc_attr( get_option( 'lg_config__favicon' ) ) ?>"/>
     <?php
 
     remove_action('wp_head', 'rsd_link');

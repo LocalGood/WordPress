@@ -116,12 +116,9 @@ get_header();
 				<div id="gmap" <?php echo $data_lonlat; ?> style="height: 400px;margin-bottom:20px;"
 					 data-type="<?php echo esc_html( $post->post_type ); ?>"
 					 data-title="<?php the_title(); ?>"></div>
-				<?php
-			endif;
-			?>
+			<?php endif;?>
+			</div>
 		</div>
-	</div>
-
 
 <?php endif; // end if have_posts(). ?>
 <?php

@@ -16,7 +16,7 @@ else:
         ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><?php echo $page_value['title']; ?></h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?= $page_value['title']; ?></h2>
         </div>
 
         <div class="article_area">
