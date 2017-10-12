@@ -112,6 +112,13 @@ function removeMarkers () {
 }
 
 $(function () {
+  if (!$('#gmap').html()) {
+    $.getJSON('/wp-json/api/v1/apikeys',function(data){
+      mapInit(data.coordinate)
+      $('.event_box, .place_box, .article_box').each(parseMarkers)
+    })
+
+  }
   $('.knows_map__toggle_button').click(function () {
     var span = $(this).find('span')
     var text = span.text()
@@ -126,13 +133,7 @@ $(function () {
       } else {
         $('.knowsMapFilter').css('display', 'block')
       }
-      if (!$('#gmap').html()) {
-        $.getJSON('/wp-json/api/v1/apikeys',function(data){
-          mapInit(data.coordinate)
-          $('.event_box, .place_box, .article_box').each(parseMarkers)
-        })
 
-      }
     } else {
       span.text(openText)
       $(this).toggleClass('close')

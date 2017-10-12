@@ -1081,8 +1081,8 @@ function knows_head_tab( $post = null ) {
 function knows_map_bar() { ?>
 
 	<div class="knows_map__bar c-clearfix">
-		<div class="knows_map__toggle_button">
-			<span>地図を開く</span>
+		<div class="knows_map__toggle_button close">
+			<span>地図を閉じる</span>
 		</div>
 		<?php
 		global $post;
