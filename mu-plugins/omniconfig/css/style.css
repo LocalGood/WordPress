@@ -1,3 +1,7 @@
+h3 {
+   font-size: 14px;
+}
+
 .input_text_fullsize {
    width: 100%;
 }
@@ -30,14 +34,16 @@
    display: inline-block;
 }
 
-.api_setting_tree label {
+.api_setting_tree label,
+.definition_setting_tree label {
    width: 300px;
    display: inline-block;
    text-align: right;
    padding: 10px;
 }
 
-.api_setting_tree input {
+.api_setting_tree input,
+.definition_setting_tree input {
    width: 500px;
    font-size: 16px;
    padding: 10px;

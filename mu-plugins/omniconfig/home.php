@@ -32,11 +32,11 @@ if ( 'update' === $postdata['mode'] ) {
 	$symlink_cfg = array(
 		array(
 			'target' => ABSPATH . preg_replace( '/^\//', '', parse_url( get_option( 'lg_config__page_ttl_prefix', false ) )['path'] ),
-			'link'  => TEMPLATEPATH . '/images/page_title_icon.png',
+			'link'   => TEMPLATEPATH . '/images/page_title_icon.png',
 		),
 		array(
 			'target' => ABSPATH . preg_replace( '/^\//', '', parse_url( get_option( 'lg_config__group_ttl_prefix', false ) )['path'] ),
-			'link'  => TEMPLATEPATH . '/images/group_title_icon.png',
+			'link'   => TEMPLATEPATH . '/images/group_title_icon.png',
 		),
 	);
 
@@ -91,6 +91,14 @@ if ( 'update' === $postdata['mode'] ) {
 			<?php render_key_editor(); ?>
 			<h2>埋め込み地図のデフォルト地点設定</h2>
 			<?php render_map_coordinate_editor(); ?>
+			<h2>定数設定</h2>
+			<p>サイト内のさまざまな箇所で使用される固定値を設定します</p>
+			<h3>名称</h3>
+			<?php render_definition_editor( 'names' ); ?>
+			<h3>SNSサイトURL</h3>
+			<?php render_definition_editor( 'sns' ); ?>
+			<h3>その他</h3>
+			<?php render_definition_editor( 'other' ); ?>
 
 		</section>
 

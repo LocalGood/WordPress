@@ -8,7 +8,7 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.4.0
+Version: 0.5.0
 */
 
 add_action( 'init', function () {
@@ -111,3 +111,4 @@ require_once( 'omniconfig/editors/color-editor.php' );
 require_once( 'omniconfig/editors/key-editor.php' );
 require_once( 'omniconfig/editors/map-coordinate.php' );
 require_once( 'omniconfig/editors/exporter.php' );
+require_once( 'omniconfig/editors/definition-editor.php' );
