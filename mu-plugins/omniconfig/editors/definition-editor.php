@@ -57,6 +57,10 @@ function render_definition_editor( $display = false ) {
 					'id'    => 'integration_url',
 					'label' => '総合TOP',
 				),
+				'lg_config__goteo_baseurl'   => array(
+					'id'    => 'goteo',
+					'label' => 'Goteo',
+				),
 			),
 		);
 		?>
