@@ -238,6 +238,8 @@ img {
   margin: 0;
   line-height: 33px;
   img{
+    width: auto;
+    max-height: 33px;
     margin: 0 10px 0 0;
   }
   &_wrapper {
@@ -261,6 +263,11 @@ img {
   font-weight: bold;
   margin: 0 0 18px;
   line-height: 29px;
+  img{
+    width: auto;
+    max-height: 30px;
+    margin: 0 10px 0 0;
+  }
 }
 
 /*---------- social bookmark ----------*/
