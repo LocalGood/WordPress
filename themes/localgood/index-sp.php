@@ -83,9 +83,7 @@
 						<div class="text">
 							　<?php echo get_option( 'lg_config__join_the_zone_msg' ); ?>
 						</div>
-						<a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-							echo LG_GOTEO_BASE_URL;
-						} ?>" class="link_button01">
+						<a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>" class="link_button01">
 							地域に参加する
 						</a>
 					</div>
@@ -112,7 +110,7 @@
 						</div>
 					</li>
 					<?php
-					$_url    = LG_GOTEO_BASE_URL . '/json/get_goteo_status';
+					$_url    = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_goteo_status';
 					$_params = array();
 					$statobj = request_api_curl( $_url, $_params );
 					?>
@@ -187,7 +185,7 @@
 			$_promotes = get_pickup_projects();
 			if ( ! empty( $_promotes ) ) {
 				foreach ( $_promotes as $_promo ) {
-					$_prj_url = LG_GOTEO_BASE_URL . '/widget/project/' . urlencode( $_promo->project ) . '?lang=ja';
+					$_prj_url = get_option( 'lg_config__goteo_baseurl', false ) . '/widget/project/' . urlencode( $_promo->project ) . '?lang=ja';
 					?>
 					<div class="project_box__part">
 						<iframe class="autoHeight" frameborder="0" width="100%" height="480px" src="<?php echo $_prj_url; ?>"

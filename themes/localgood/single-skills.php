@@ -58,26 +58,26 @@ else:
 						foreach ($child_skills as $s):
 							$_skillinfo = get_skill_info( $s->id );
 							?>
-							<li class="single_skills--list__item"><?= $_skillinfo[0]->name; ?></li>
+							<li class="single_skills--list__item"><?php echo $_skillinfo[0]->name; ?></li>
 							<?php
 						endforeach;
 						?>
 					</ul>
 					<div class="c-clearfix">
 						<div class="single_skills--thumbnail">
-							<?= wp_get_attachment_image( $thumb_id, 'thumbnail' ); ?>
+							<?php echo wp_get_attachment_image( $thumb_id, 'thumbnail' ); ?>
 						</div>
 						<div class="single_skills--text topix_right">
-							<h2><?= $ss_infos['ssGuideName']; ?></h2>
+							<h2><?php echo $ss_infos['ssGuideName']; ?></h2>
 							<div class="cnt_text">
-								<?= $ss_infos['ssGuideDesc']; ?>
+								<?php echo $ss_infos['ssGuideDesc']; ?>
 							</div>
 							<?php if ( ! empty( $ss_infos['ssUserID'] )):
-								$ss_profile_url = LG_GOTEO_BASE_URL . '/user/profile/' . esc_html( $ss_infos['ssUserID'] ) . '/';
+								$ss_profile_url = get_option( 'lg_config__goteo_baseurl', false ) . '/user/profile/' . esc_html( $ss_infos['ssUserID'] ) . '/';
 								?>
 								<ul class="contact">
 									<li class="profile">
-										<a href="<?= $ss_profile_url; ?>">
+										<a href="<?php echo $ss_profile_url; ?>">
 											プロフィールを見る
 										</a>
 									</li>
@@ -124,11 +124,11 @@ else:
 
                                 foreach ($_projects as $_proj) {
                                     $cnt ++;
-                                    $_proj_url   = LG_GOTEO_BASE_URL . '/widget/project/' . $_proj->id . '?lang=ja';
+                                    $_proj_url   = get_option( 'lg_config__goteo_baseurl', false ) . '/widget/project/' . $_proj->id . '?lang=ja';
                                     $_iframe_src = '<iframe class="skills" frameborder="0" height="480px" src="' . $_proj_url . '" width="280px" scrolling="no"></iframe>';
                                     ?>
                                     <section class="article_box">
-                                        <?= $_iframe_src; ?>
+                                        <?php echo $_iframe_src; ?>
                                     </section>
                                     <?php
                                     article_box( $_iframe_src );
@@ -163,7 +163,7 @@ else:
                                 // goteoユーザー名, ID, プロフィールURL取得
                                 $_ru_name        = $_recommuser[0]->name;
                                 $_ru_id          = $_recommuser[0]->id;
-                                $_ru_profile_url = LG_GOTEO_BASE_URL . '/user/profile/' . $_ru_id . '/';
+                                $_ru_profile_url = get_option( 'lg_config__goteo_baseurl', false ) . '/user/profile/' . $_ru_id . '/';
 
                                 // ユーザーavatarげっと
                                 $_ru_thumbnail = get_user_avatar( $_ru_id, 80 );

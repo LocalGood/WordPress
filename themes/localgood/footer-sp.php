@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu">
+                <a href="<?php echo esc_attr( get_option( 'lg_config__integration_url', false ) ); ?>/riyou_kiyaku_menu">
                     利用規約
                 </a>
             </li>
@@ -95,7 +95,7 @@
         </div>
         <ul>
             <li>
-                <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
+                <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
@@ -120,17 +120,17 @@
                </a>
            </li>
             <li>
-                <a href="<?php echo LG_GOOGLE_PLUS; ?>" target="_blank">
+                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank">
                     <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="<?php echo LG_TWITTER; ?>" target="_blank">
+                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank">
                     <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="<?php echo LG_FACEBOOK_PAGE; ?>" target="_blank">
+                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank">
                     <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon04.png" alt="">
                 </a>
             </li>

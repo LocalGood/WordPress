@@ -71,7 +71,7 @@ if ( have_posts() ): the_post();
 						<?php echo $ss_infos['ssGuideDesc']; ?>
 					</div>
 					<?php if ( ! empty( $ss_infos['ssUserID'] ) ):
-						$ss_profile_url = LG_GOTEO_BASE_URL . '/user/profile/' . esc_html( $ss_infos['ssUserID'] ) . '/';
+						$ss_profile_url = get_option( 'lg_config__goteo_baseurl', false ) . '/user/profile/' . esc_html( $ss_infos['ssUserID'] ) . '/';
 						?>
 						<ul class="contact">
 							<li class="profile">
@@ -108,7 +108,7 @@ if ( have_posts() ): the_post();
 
 						foreach ( $_projects as $_proj ) {
 							$cnt ++;
-							$_proj_url   = LG_GOTEO_BASE_URL . '/widget/project/' . $_proj->id . '?lang=ja';
+							$_proj_url   = get_option( 'lg_config__goteo_baseurl', false ) . '/widget/project/' . $_proj->id . '?lang=ja';
 							$_iframe_src = '<iframe class="skills" frameborder="0" height="350px" src="' . $_proj_url . '" width="280px" scrolling="no"></iframe>';
 							?>
 							<section class="article_box">
@@ -144,7 +144,7 @@ if ( have_posts() ): the_post();
 						// goteoユーザー名, ID, プロフィールURL取得
 						$_ru_name        = $_recommuser[0]->name;
 						$_ru_id          = $_recommuser[0]->id;
-						$_ru_profile_url = LG_GOTEO_BASE_URL . '/user/profile/' . $_ru_id . '/';
+						$_ru_profile_url = get_option( 'lg_config__goteo_baseurl', false ) . '/user/profile/' . $_ru_id . '/';
 
 						// ユーザーavatarげっと
 						$_ru_thumbnail = get_user_avatar( $_ru_id, 80 );

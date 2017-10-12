@@ -9,7 +9,17 @@ elseif(DEVICE == 'pc'):
 <head>
     <meta charset="UTF-8"/>
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="<?php bloginfo('name'); ?>,<?php if(defined('LG_KANA')){echo LG_KANA;} ?>,コミュニティ,コミュニティ経済,<?php if(defined('LG_KANJI')){echo LG_KANJI;} ?>,地域"/>
+	<?php
+	$meta_kwds = implode( ',', array(
+		get_bloginfo( 'name' ),
+		get_option( 'lg_config__appName_kana', false ),
+		'コミュニティ',
+		'コミュニティ経済',
+		get_option( 'lg_config__appName_kanji', false ),
+		'地域',
+	) );
+	?>
+	<meta name="keywords" content="<?php echo $meta_kwds; ?>"/>
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
 
     <meta property="og:title" content="<?php generate_share_message(); ?>"/>
@@ -39,7 +49,7 @@ elseif(DEVICE == 'pc'):
         <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
     <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
-    <meta property="fb:app_id" content="<?php if(defined('LG_FACEBOOK_APPID')){echo LG_FACEBOOK_APPID;} ?>" />
+    <meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>" />
     <meta property="og:locale" content="ja_JP" />
 
     <title><?php
@@ -88,7 +98,7 @@ elseif(DEVICE == 'pc'):
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', '<?php if(defined('LG_GOOGLE_ANALYTICS')){echo LG_GOOGLE_ANALYTICS;} ?>', 'localgood.jp');
+            ga('create', '<?php echo esc_attr( get_option( 'lg_config__analyticsId', false ) ); ?>', 'localgood.jp');
             ga('send', 'pageview');
 
         </script>
@@ -101,7 +111,7 @@ elseif(DEVICE == 'pc'):
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?php echo LG_FACEBOOK_APPID ?>&version=v2.9";
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>&version=v2.9";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -154,11 +164,11 @@ elseif(DEVICE == 'pc'):
                     <li <?php if (is_singular('skills') || is_post_type_archive('skills')) {
                         echo $a;
                     } ?>>
-                        <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>">応援する</a>
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>">応援する</a>
                         <div class="header__right__snav">
                             <div class="header__right__snav__inner">
                                 <ul>
-                                    <li><span><a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover/">プロジェクト一覧</a></span></li>
+                                    <li><span><a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover/">プロジェクト一覧</a></span></li>
                                     <li><span><a href="<?php echo home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span></li>
                                 </ul>
                             </div>
@@ -166,13 +176,13 @@ elseif(DEVICE == 'pc'):
                     </li>
                     <li <?php if (is_page('earth_view') || is_tax('project_area') || is_tax('project_theme')) {
                         echo $a;
-                    } ?>><a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank">3Dマップ</a>
+                    } ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
                     </li>
 	                <li >
 		                <a href="<?php echo home_url('/about/'); ?>"><?php bloginfo('name'); ?>について</a>
 	                </li>
                     <li class="gnav_goteo">
-                        <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login">新規登録/ログイン</a>
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/user/login">新規登録/ログイン</a>
                     </li>
                 </ul>
             </nav>

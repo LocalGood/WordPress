@@ -47,18 +47,12 @@ else:
 					<li <?php if ( is_singular( 'skills' ) || is_post_type_archive( 'skills' ) ) {
 						echo $a;
 					} ?>>
-						<a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-							echo LG_GOTEO_BASE_URL;
-						} ?>">応援する</a>
+						<a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>">応援する</a>
 						<div class="header__right__snav">
 							<div class="header__right__snav__inner">
 								<ul>
-									<li><span><a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-												echo LG_GOTEO_BASE_URL;
-											} ?>/discover/">プロジェクト一覧</a></span></li>
-									<li><span><a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-												echo LG_GOTEO_BASE_URL;
-											} ?>/challenge/">プロジェクトを立ち上げる</a></span>
+									<li><span><a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover/">プロジェクト一覧</a></span></li>
+									<li><span><a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/challenge/">プロジェクトを立ち上げる</a></span>
 									</li>
 								</ul>
 							</div>
@@ -66,17 +60,13 @@ else:
 					</li>
 					<li <?php if ( is_page( 'earth_view' ) || is_tax( 'project_area' ) || is_tax( 'project_theme' ) ) {
 						echo $a;
-					} ?>><a href="<?php if ( defined( 'LG_EARTHVIEW' ) ) {
-							echo LG_EARTHVIEW;
-						} ?>" target="_blank">3Dマップ</a>
+					} ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
 					</li>
 					<li>
 						<a href="<?php echo home_url( '/about/' ); ?>"><?php bloginfo( 'name' ); ?>について</a>
 					</li>
 					<li class="gnav_goteo">
-						<a href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-							echo LG_GOTEO_BASE_URL;
-						} ?>/user/login">新規登録/ログイン</a>
+						<a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/user/login">新規登録/ログイン</a>
 					</li>
 				</ul>
 			</nav>
@@ -128,9 +118,7 @@ else:
 					<dt><?php echo apply_filters( 'lg_home_element_label_sect2_2', '地域に参加しよう' ); ?></dt>
 					<dd>
 						<span><?php echo get_option( 'lg_config__join_the_zone_msg' ); ?></span>
-						<a class="index_sec02__link c-link02" href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-							echo LG_GOTEO_BASE_URL;
-						} ?>">地域に参加する</a>
+						<a class="index_sec02__link c-link02" href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>">地域に参加する</a>
 					</dd>
 				</dl>
 			</div>
@@ -150,7 +138,7 @@ else:
 					</dl>
 				</li>
 				<?php
-				$_url    = LG_GOTEO_BASE_URL . '/json/get_goteo_status';
+				$_url    = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_goteo_status';
 				$_params = array();
 				$statobj = request_api_curl( $_url, $_params );
 				?>
@@ -211,7 +199,7 @@ else:
 					$_promotes = get_pickup_projects();
 					if ( ! empty( $_promotes ) ) {
 						foreach ( $_promotes as $_promo ) {
-							$_prj_url = LG_GOTEO_BASE_URL . '/widget/project/' . urlencode( $_promo->project ) . '?lang=ja';
+							$_prj_url = get_option( 'lg_config__goteo_baseurl', false ) . '/widget/project/' . urlencode( $_promo->project ) . '?lang=ja';
 							?>
 							<div class="project_box__part">
 								<iframe frameborder="0" width="318px" height="560px" src="<?php echo $_prj_url; ?>"
@@ -222,9 +210,7 @@ else:
 					}
 					?>
 				</div>
-				<a class="index_sec04__more_btn c-link02" href="<?php if ( defined( 'LG_GOTEO_BASE_URL' ) ) {
-					echo LG_GOTEO_BASE_URL;
-				} ?>">もっと見る</a>
+				<a class="index_sec04__more_btn c-link02" href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>">もっと見る</a>
 			</div>
 		</section>
 

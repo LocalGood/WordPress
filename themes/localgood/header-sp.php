@@ -2,7 +2,17 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="keywords" content="<?php bloginfo('name'); ?>,<?php if(defined('LG_KANA')){echo LG_KANA;} ?>,コミュニティ,コミュニティ経済,<?php if(defined('LG_KANJI')){echo LG_KANJI;} ?>,地域"/>
+	<?php
+	$meta_kwds = implode( ',', array(
+		get_bloginfo( 'name' ),
+		get_option( 'lg_config__appName_kana', false ),
+		'コミュニティ',
+		'コミュニティ経済',
+		get_option( 'lg_config__appName_kanji', false ),
+		'地域',
+	) );
+	?>
+	<meta name="keywords" content="<?php echo $meta_kwds; ?>"/>
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
     <meta property="og:title" content="<?php generate_share_message(); ?>"/>
 
@@ -32,7 +42,7 @@
     <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
 <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
-    <meta property="fb:app_id" content="<?php if(defined('LG_FACEBOOK_APPID')){echo LG_FACEBOOK_APPID;} ?>" />
+    <meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title><?php
@@ -82,7 +92,7 @@
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', '<?php if(defined('LG_GOOGLE_ANALYTICS')){echo LG_GOOGLE_ANALYTICS;} ?>', 'localgood.jp');
+            ga('create', '<?php echo esc_attr( get_option( 'lg_config__analyticsId', false ) ); ?>', 'localgood.jp');
             ga('send', 'pageview');
 
         </script>
@@ -96,7 +106,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?php if(defined('LG_FACEBOOK_APPID')){echo LG_FACEBOOK_APPID;} ?>&version=v2.9";
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>&version=v2.9";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -164,7 +174,7 @@
                         <dl class="list02">
                             <dt></dt>
                             <dd>
-                                <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover/">
+                                <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover/">
                                     プロジェクト一覧
                                 </a>
                             </dd>
@@ -176,7 +186,7 @@
                         </dl>
                     </li>
                     <li>
-                        <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
                             3Dマップ
                         </a>
                     </li>
@@ -184,7 +194,7 @@
 						<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 					</li>
                     <li>
-                        <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login" class="list01__text">
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/user/login" class="list01__text">
                             新規登録/ログイン
                         </a>
                     </li>
@@ -244,7 +254,7 @@
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
+                            <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover">
                                 プロジェクト一覧
                             </a>
                         </dd>
@@ -256,7 +266,7 @@
                     </dl>
                 </li>
                 <li>
-                    <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
                         3Dマップ
                     </a>
                 </li>
@@ -264,7 +274,7 @@
 					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>
                 <li>
-                    <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/user/login" class="list01__text">
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/user/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
@@ -333,7 +343,7 @@
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/discover">
+                            <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover">
                                 プロジェクト一覧
                             </a>
                         </dd>
@@ -345,7 +355,7 @@
                     </dl>
                 </li>
                 <li>
-                    <a href="<?php if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank" class="list01__text">
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
                         3Dマップ
                     </a>
                 </li>
@@ -353,7 +363,7 @@
 					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>
                 <li>
-                    <a href="<?php if(defined('LG_GOTEO_BASE_URL')){echo LG_GOTEO_BASE_URL;} ?>/login" class="list01__text">
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>

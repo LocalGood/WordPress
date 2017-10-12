@@ -39,10 +39,10 @@ get_header(); ?>
     <div class="list_pic_wrapper">
         <div class="list_pic">
             <div class="list_pic_layout">
-                <h2 class="area_wrapper_title"><?php echo LG_KANJI; ?>を読む</h2>
+                <h2 class="area_wrapper_title"><?php echo get_option( 'lg_config__appName_kanji', false ); ?>を読む</h2>
                 <div class="area_wrapper cf">
                     <div class="theme_box content">
-                        <?php echo get_post_meta($post->ID , LG_ES . '_read' ,true) ?>
+                        <?php echo get_post_meta($post->ID , get_option( 'lg_config__appName_es', false ) . '_read' ,true) ?>
                     </div><!--.theme_box-->
                 </div>
             </div><!--.list_pic-->

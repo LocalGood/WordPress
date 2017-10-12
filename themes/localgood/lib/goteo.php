@@ -38,7 +38,7 @@ function request_api_curl($_url, $_params = array(), $_obj_out = true){
 
 // スキルからプロジェクト検索
 function get_projects_by_skill($_skillid = ''){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_projects_by_skill';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_projects_by_skill';
     $_params = array(
         'skillid' => $_skillid
     );
@@ -47,7 +47,7 @@ function get_projects_by_skill($_skillid = ''){
 
 // スキルからユーザー検索
 function get_user_by_skill($_skillid) {
-    $_url = LG_GOTEO_BASE_URL . '/json/get_users';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_users';
     $_params = array (
         'skillid' => $_skillid
     );
@@ -56,7 +56,7 @@ function get_user_by_skill($_skillid) {
 
 // スキルIDから子スキル取得
 function get_children_skill($_skillid){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_children';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_children';
     $_params = array (
         'parentid' => $_skillid
     );
@@ -65,7 +65,7 @@ function get_children_skill($_skillid){
 
 // スキルIDからスキル詳細取得
 function get_skill_info($_skillid){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_skill';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_skill';
     $_params = array (
         'skillid' => $_skillid
     );
@@ -74,7 +74,7 @@ function get_skill_info($_skillid){
 
 // ユーザーIDからユーザー詳細取得
 function get_user_info($_userid){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_user';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_user';
     $_params = array (
         'id' => $_userid
     );
@@ -82,7 +82,7 @@ function get_user_info($_userid){
 }
 
 function get_user_avatar($_userid, $_size = 80){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_user_avatar';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_user_avatar';
     $_params = array (
         'id' => $_userid,
         'size' => $_size
@@ -91,6 +91,6 @@ function get_user_avatar($_userid, $_size = 80){
 }
 
 function get_pickup_projects(){
-    $_url = LG_GOTEO_BASE_URL . '/json/get_pickup_projects';
+    $_url = get_option( 'lg_config__goteo_baseurl', false ) . '/json/get_pickup_projects';
     return request_api_curl($_url);
 }

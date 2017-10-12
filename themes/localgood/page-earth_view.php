@@ -35,10 +35,10 @@ else:
 			</div>
 
 			<div class="article_area">
-				<h2 class="c-group_title01"><?= LG_KANJI; ?>を読む</h2>
+				<h2 class="c-group_title01"><?php echo get_option( 'lg_config__appName_kanji', false ); ?>を読む</h2>
 				<div class="article_box__wrapper">
 					<div class="single_contents_box">
-						<?php echo get_post_meta( $post->ID, LG_ES . '_read', true ) ?>
+						<?php echo get_post_meta( $post->ID, get_option( 'lg_config__appName_es', false ) . '_read', true ) ?>
 					</div><!--.theme_box-->
 				</div>
 			</div>
