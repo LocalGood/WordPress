@@ -110,7 +110,8 @@
     <section class="footer_bottom">
         <div class="footer_logo">
             <a href="/">
-                <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-logo.png" alt="<?php bloginfo('name'); ?>">
+                <img src="<?php echo esc_attr( get_option( 'lg_config__footer_logo' ) ); ?>"
+                     alt="<?php bloginfo( 'name' ); ?>ロゴ">
             </a>
         </div>
         <ul class="sns-area">
