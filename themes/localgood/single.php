@@ -18,7 +18,7 @@ else:
         $page_value['description'] = $cat[0]->description;
         ?>
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?= $page_value['title']; ?></h2>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?php echo $page_value['title']; ?></h2>
         </div>
 
         <div class="single_contents_box">
@@ -30,7 +30,7 @@ else:
                 $data_lonlat = get_post_lonlat_attr();
                 if (!empty($data_lonlat)):
                 ?>
-                <div id="gmap" <?= $data_lonlat; ?> style="height: 400px;margin-bottom:20px;"></div>
+                <div id="gmap" <?php echo $data_lonlat; ?> style="height: 400px;margin-bottom:20px;"></div>
                 <?php
                 endif;
                 ?>
@@ -42,7 +42,7 @@ else:
 
         <?php writer_prof(); ?>
 
-        <a class="c-back_button" href="<?= home_url('/lgnews/'); ?>">ニュース一覧へ戻る</a>
+        <a class="c-back_button" href="<?php echo home_url('/lgnews/'); ?>">ニュース一覧へ戻る</a>
         <?php related_posts(); ?>
     <?php endif; ?>
 

@@ -62,7 +62,7 @@ elseif(DEVICE == 'pc'):
         bloginfo('name');
 
         ?></title>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_stylesheet_uri(); ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo esc_attr( get_option( 'lg_config__favicon' ) ) ?>"/>
     <?php
 
     remove_action('wp_head', 'rsd_link');

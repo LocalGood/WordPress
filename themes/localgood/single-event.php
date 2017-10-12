@@ -76,7 +76,7 @@ else:
 					$data_lonlat = get_post_lonlat_attr();
 					if ( ! empty( $data_lonlat ) ):
 						?>
-						<div id="gmap" <?= $data_lonlat; ?> style="height: 400px;margin-bottom:20px;" data-type="<?= esc_html( $post->post_type ); ?>"
+						<div id="gmap" <?php echo $data_lonlat; ?> style="height: 400px;margin-bottom:20px;" data-type="<?php echo esc_html( $post->post_type ); ?>"
 						     data-title="<?php the_title(); ?>"></div>
 						<?php
 					endif;
@@ -123,7 +123,7 @@ else:
 			?>
 
 
-			<a class="c-back_button" href="<?= home_url( '/event/' ); ?>">イベント一覧へ戻る</a>
+			<a class="c-back_button" href="<?php echo home_url( '/event/' ); ?>">イベント一覧へ戻る</a>
 		<?php endif; ?>
 
 	</div><!-- .c-contents_wrapper -->

@@ -17,8 +17,8 @@ else:
         <?php knows_head_tab( $post ); ?>
 
         <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?= get_the_title(); ?></h2>
-            <p class="c-page_title_subtext"><?= $post->post_content; ?></p>
+            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?php echo get_the_title(); ?></h2>
+            <p class="c-page_title_subtext"><?php echo $post->post_content; ?></p>
         </div>
 
         <?php knows_map_bar(); ?>

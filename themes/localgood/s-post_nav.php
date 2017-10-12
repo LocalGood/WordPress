@@ -73,7 +73,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 			人/団体
 		</h2>
 		<div class="common_underlayer_title-h2__sub_title">
-			<?= $post->post_content; ?>
+			<?php echo $post->post_content; ?>
 		</div>
 	</div>
 <?php endif; ?>

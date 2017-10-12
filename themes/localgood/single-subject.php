@@ -22,7 +22,7 @@ else:
                     $data_lonlat = get_post_lonlat_attr();
                     if (!empty($data_lonlat)):
                     ?>
-                    <div id="gmap" <?= $data_lonlat; ?> ></div>
+                    <div id="gmap" <?php echo $data_lonlat; ?> ></div>
                     <?php
                     endif;
                     ?>
@@ -30,7 +30,7 @@ else:
 
                 <?php social_buttons(false, true); ?>
 
-				<a class="c-back_button" href="<?= home_url( '/subject/' ); ?>">みんなの声へ戻る</a>
+				<a class="c-back_button" href="<?php echo home_url( '/subject/' ); ?>">みんなの声へ戻る</a>
 	            <?php related_posts(); ?>
             </div><!-- .single_contents_box -->
 

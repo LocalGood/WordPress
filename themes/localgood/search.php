@@ -16,7 +16,7 @@ get_header();
             if ( ! empty( $search_key )):
                 ?>
                 <div class="c-page_title_wrapper">
-                    <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">「<?= $search_key; ?>」の検索結果</h2>
+                    <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">「<?php echo $search_key; ?>」の検索結果</h2>
                 </div>
                 <?php
             endif;

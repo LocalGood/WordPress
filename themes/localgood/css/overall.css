@@ -929,7 +929,7 @@ body.single__post_body 2016.08.02公開後修正　追記
   body.single-event
 --------------------------------------------------*/
 body.single-event .c-event_status {
-  margin: 0; }
+  margin-right: 0; }
 body.single-event .event_meta {
   width: 800px;
   margin: 30px auto 40px; }

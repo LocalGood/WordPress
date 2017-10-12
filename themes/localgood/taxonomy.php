@@ -8,7 +8,7 @@ else:
 		<?php breadcrumbs(); ?>
 		<div class="c-page_title_wrapper">
 			<h2 class="c-page_title c-title05"><?php single_term_title(); ?></h2>
-			<p class="c-page_title_subtext"><?= term_description(); ?></p>
+			<p class="c-page_title_subtext"><?php echo term_description(); ?></p>
 		</div>
 		<?php
 		global $post;

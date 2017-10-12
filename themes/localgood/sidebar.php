@@ -9,7 +9,7 @@
         <script type="text/javascript">
             jQuery(function($){
                 var mapdiv = document.getElementById('gmap');
-                var point = new google.maps.LatLng(<?= $lat ?>, <?= $long ?>);
+                var point = new google.maps.LatLng(<?php echo $lat ?>, <?php echo $long ?>);
                 var myOptions = {
                     zoom: 16,
                     center: point,
@@ -69,7 +69,7 @@
                             continue;
                         $link = get_term_link($theme->slug, 'project_theme');
                         ?>
-                        <li><a href="<?= $link; ?>"><?= $theme->name ?></a></li>
+                        <li><a href="<?php echo $link; ?>"><?php echo $theme->name ?></a></li>
                     <?php
                     endforeach;
                     ?>
@@ -91,7 +91,7 @@
                                 continue;
                             $link = get_term_link($area->slug, 'project_area');
                             ?>
-                            <li><a href="<?= $link; ?>"><?= $area->name ?></a></li>
+                            <li><a href="<?php echo $link; ?>"><?php echo $area->name ?></a></li>
                         <?php
                         endforeach;
                         ?>
