@@ -35,14 +35,14 @@ function ajaxMapLoad(map, marker, iw_stat) {
 
     $.ajax({
         // 別ページでAPIを叩いてjsonを吐かせている
-        url: location.origin + '/_subject_locations',
+        url: location.origin + '/wp-json/api/v1/get-subjects',
         type: 'get',
         headers: {
             'X-LocalGood-UA': 'iOS',
             'X-LocalGood-AuthKey': 'jMCYynSCuxe4WH2NmjhKpcELpXNzZ24BjPsQZp9wL4t8bsupbJYmb4TFPyffFapK'
         },
         dataType: 'json',
-        success: function (json) {
+       success: function (json) {
             // マーカー配置
             $.each(
                 json,
@@ -117,23 +117,27 @@ function load_subjects(pageCount, init) {
     });
 }
 
-$(function () {
+$(function() {
+  if (!$('#gmap').html()) {
     var map;
-    // マップオプション
-    var mapOpt = {
+
+    $.getJSON('/wp-json/api/v1/apikeys', function (data) {
+      // マップオプション
+      var mapOpt = {
         zoom: 14,
-        // 横浜市役所を中心に
-        center: new google.maps.LatLng(35.443972, 139.63825),
+        // omniconfigの設定値から中心位置を決定
+        center: new google.maps.LatLng(data.coordinate.latitude, data.coordinate.longitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    map = new google.maps.Map(document.getElementById('subjects_view'), mapOpt);
+      };
+      map = new google.maps.Map(document.getElementById('gmap'), mapOpt);
 
-    var marker = [];
-    var iw_stat = null;
-    ajaxMapLoad(map, marker, iw_stat, '');
+      var marker = [];
+      var iw_stat = null;
+      ajaxMapLoad(map, marker, iw_stat, '');
 
-    if (getDeviceType() != 'pc') {
+      if (getDeviceType() != 'pc') {
         load_subjects(pCount, true);
-    }
-});
-
+      }
+    });
+  }
+})
