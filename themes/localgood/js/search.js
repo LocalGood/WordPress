@@ -40,7 +40,7 @@ function mapInit (coordinate) {
   }
   var myOptions = {
     zoom: zoom,
-    center: new google.maps.LatLng(coordinate.latitude, coordinate.longitude),
+    center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
 
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,

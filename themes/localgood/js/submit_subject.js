@@ -34,7 +34,7 @@ $(function () {
         var map = new google.maps.Map(
           document.getElementById("subject_gmap"), {
             zoom: 13,
-            center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
+            center: new google.maps.LatLng(parseFloat(data.coordinate.latitude), parseFloat(data.coordinate.longitude)),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
         );

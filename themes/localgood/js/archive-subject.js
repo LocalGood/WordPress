@@ -126,7 +126,7 @@ $(function() {
       var mapOpt = {
         zoom: 14,
         // omniconfigの設定値から中心位置を決定
-        center: new google.maps.LatLng(data.coordinate.latitude, data.coordinate.longitude),
+        center: new google.maps.LatLng(parseFloat(data.coordinate.latitude), parseFloat(data.coordinate.longitude)),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById('gmap'), mapOpt);
