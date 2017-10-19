@@ -52,7 +52,7 @@ else:
 							<div class="header__right__snav__inner">
 								<ul>
 									<li><span><a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover/">プロジェクト一覧</a></span></li>
-									<li><span><a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/challenge/">プロジェクトを立ち上げる</a></span>
+									<li><span><a href="<?php echo home_url('/challenge/'); ?>">プロジェクトを立ち上げる</a></span>
 									</li>
 								</ul>
 							</div>
