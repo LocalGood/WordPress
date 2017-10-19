@@ -31,16 +31,16 @@ var lonlatList = {
   'seibu': [35.44507164054968, 139.5125600099564],
 }
 
-function mapInit (coordinate) {
+function mapInit (data) {
   var area = location.href.split('?').pop().replace('project_area=', '')
   var zoom = 10
   if (area in lonlatList) {
     latlng = lonlatList[area]
-    zoom = 13
+    zoom = parseFloat(data.googlemaps.default_zoom_level)
   }
   var myOptions = {
     zoom: zoom,
-    center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
+    center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
 
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -114,7 +114,7 @@ function removeMarkers () {
 $(function () {
   if (!$('#gmap').html()) {
     $.getJSON('/wp-json/api/v1/apikeys',function(data){
-      mapInit(data.coordinate)
+      mapInit(data)
       $('.event_box, .place_box, .article_box').each(parseMarkers)
     })
 

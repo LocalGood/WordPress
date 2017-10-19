@@ -457,7 +457,9 @@ function article_box() {
 				</div>
 				<div class="post_text-area">
 					<h2 class="title"><a
-							href="<?php the_permalink(); ?>"><?php echo shorten( get_the_title(), '34' ); ?></a></h2>
+							href="<?php the_permalink(); ?>">
+							<img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+							<?php echo shorten( get_the_title(), '34' ); ?></a></h2>
 
 					<?php echo get_term_atag( get_post_type() ); ?>
 					<?php

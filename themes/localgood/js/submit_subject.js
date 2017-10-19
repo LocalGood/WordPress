@@ -33,8 +33,8 @@ $(function () {
       $.getJSON('/wp-json/api/v1/apikeys',function(data){
         var map = new google.maps.Map(
           document.getElementById("subject_gmap"), {
-            zoom: 13,
-            center: new google.maps.LatLng(parseFloat(data.coordinate.latitude), parseFloat(data.coordinate.longitude)),
+            zoom: parseFloat(data.googlemaps.default_zoom_level),
+            center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
         );

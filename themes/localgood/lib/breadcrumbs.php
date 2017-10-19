@@ -4,7 +4,7 @@ function breadcrumbs() {
 	?>
 	<div id="breadcrumb" class="c-breadcrumb">
 		<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-			<a href="<?= home_url(); ?>" itemprop="url">
+			<a href="<?php echo home_url(); ?>" itemprop="url">
 				<span itemprop="title">HOME</span>
 			</a>
 		</div>
@@ -28,13 +28,13 @@ function breadcrumbs() {
 				<?php
 				if ( in_category( array( 'news', 'report' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgnews' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgnews' ); ?>" itemprop="url">
 						<span itemprop="title">ニュース</span>
 					</a>
 					<?php
 				elseif ( in_category( array( 'local_good_player', 'voice' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgplayer' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgplayer' ); ?>" itemprop="url">
 						<span itemprop="title">人/団体</span>
 					</a>
 					<?php
@@ -44,8 +44,8 @@ function breadcrumbs() {
 				<?php foreach ( $allcats as $catid ): ?>
 				<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 					<span class="c-breadcrumb__separator">&rsaquo;</span>
-					<a href="<?= get_category_link( $catid ); ?>" itemprop="url">
-						<span itemprop="title"><?= get_cat_name( $catid ); ?></span>
+					<a href="<?php echo get_category_link( $catid ); ?>" itemprop="url">
+						<span itemprop="title"><?php echo get_cat_name( $catid ); ?></span>
 					</a>
 				</div>
 			<?php endforeach;
@@ -57,8 +57,8 @@ function breadcrumbs() {
 				?>
 				<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 					<span class="c-breadcrumb__separator">&rsaquo;</span>
-					<a href="<?= home_url( '/tag/' . $posttag->slug ); ?>" itemprop="url">
-						<span itemprop="title"><?= $posttag->name; ?></span>
+					<a href="<?php echo home_url( '/tag/' . $posttag->slug ); ?>" itemprop="url">
+						<span itemprop="title"><?php echo $posttag->name; ?></span>
 					</a>
 				</div>
 				<?php
@@ -69,7 +69,7 @@ function breadcrumbs() {
 			<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
 				<?php if ( is_singular( 'event' ) || is_singular( 'place' ) ): ?>
-				<a href="<?= home_url( '/event' ); ?>" itemprop="url">
+				<a href="<?php echo home_url( '/event' ); ?>" itemprop="url">
 					<?php endif; ?>
 					<span itemprop="title">みんなの拠点/イベント</span>
 					<?php if ( is_singular( 'event' ) ): ?>
@@ -90,8 +90,8 @@ function breadcrumbs() {
 			?>
 			<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
-				<a href="<?= home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
-					<span itemprop="title"><?= $term->name; ?></span>
+				<a href="<?php echo home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
+					<span itemprop="title"><?php echo $term->name; ?></span>
 				</a>
 			</div>
 			<?php
@@ -103,8 +103,8 @@ function breadcrumbs() {
 				?>
 				<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 					<span class="c-breadcrumb__separator">&rsaquo;</span>
-					<a href="<?= home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
-						<span itemprop="title"><?= $term->name; ?></span>
+					<a href="<?php echo home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
+						<span itemprop="title"><?php echo $term->name; ?></span>
 					</a>
 				</div>
 				<?php
@@ -119,13 +119,13 @@ function breadcrumbs() {
 				<?php
 				if ( in_category( array( 'news', 'report' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgnews' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgnews' ); ?>" itemprop="url">
 						<span itemprop="title">ニュース</span>
 					</a>
 					<?php
 				elseif ( in_category( array( 'local_good_player', 'voice' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgplayer' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgplayer' ); ?>" itemprop="url">
 						<span itemprop="title">人/団体</span>
 					</a>
 					<?php
@@ -134,8 +134,8 @@ function breadcrumbs() {
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
 				<span itemprop="title">エリア</span>
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
-				<a href="<?= home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
-					<span itemprop="title"><?= $term->name; ?></span>
+				<a href="<?php echo home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
+					<span itemprop="title"><?php echo $term->name; ?></span>
 				</a>
 			</div>
 			<?php
@@ -148,21 +148,21 @@ function breadcrumbs() {
 				<?php
 				if ( in_category( array( 'news', 'report' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgnews' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgnews' ); ?>" itemprop="url">
 						<span itemprop="title">ニュース</span>
 					</a>
 					<?php
 				elseif ( in_category( array( 'local_good_player', 'voice' ) ) ):
 					?>
-					<a href="<?= home_url( 'lgplayer' ); ?>" itemprop="url">
+					<a href="<?php echo home_url( 'lgplayer' ); ?>" itemprop="url">
 						<span itemprop="title">人/団体</span>
 					</a>
 					<?php
 				endif;
 				?>
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
-				<a href="<?= home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
-					<span itemprop="title"><?= $term->name; ?></span>
+				<a href="<?php echo home_url( $term->taxonomy . '/' . $term->slug ); ?>" itemprop="url">
+					<span itemprop="title"><?php echo $term->name; ?></span>
 				</a>
 			</div>
 			<?php
@@ -184,7 +184,7 @@ function breadcrumbs() {
 			?>
 			<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 				<span class="c-breadcrumb__separator">&rsaquo;</span>
-				<a href="<?= home_url( 'subject' ); ?>" itemprop="url">
+				<a href="<?php echo home_url( 'subject' ); ?>" itemprop="url">
 					<span itemprop="title">みんなの声</span>
 				</a>
 			</div>
@@ -203,7 +203,7 @@ function breadcrumbs() {
 				?>
 				<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 					<span class="c-breadcrumb__separator">&rsaquo;</span>
-					<span itemprop="title"><?= $_keyword; ?></span>
+					<span itemprop="title"><?php echo $_keyword; ?></span>
 				</div>
 				<?php
 			endif;
@@ -221,7 +221,7 @@ function breadcrumbs() {
 			}
 			?>
 			<span class="c-breadcrumb__separator">&rsaquo;</span>
-			<span><?= $_title; ?></span>
+			<span><?php echo $_title; ?></span>
 			<?php
 		endif;
 		?>

@@ -124,9 +124,9 @@ $(function() {
     $.getJSON('/wp-json/api/v1/apikeys', function (data) {
       // マップオプション
       var mapOpt = {
-        zoom: 14,
+        zoom: parseFloat(data.googlemaps.default_zoom_level),
         // omniconfigの設定値から中心位置を決定
-        center: new google.maps.LatLng(parseFloat(data.coordinate.latitude), parseFloat(data.coordinate.longitude)),
+        center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById('gmap'), mapOpt);

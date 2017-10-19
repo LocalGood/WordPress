@@ -34,7 +34,7 @@ get_header();
 										<li>
 											<label class="sp_event_search__inp_check__label">
 												<input type="checkbox" name="area[]" id="area_check_<?php echo $area->slug; ?>"
-													   class="checkbox">
+													   class="checkbox" value="<?php echo $area->slug; ?>">
 												<span class="sp_event_search__inp_check__parts parts"></span>
 												<?php echo $area->name; ?>
 											</label>
@@ -56,7 +56,7 @@ get_header();
 										?>
 										<li>
 											<label class="sp_event_search__inp_check__label">
-												<input type="checkbox" name="category[]" class="checkbox" id="area_check_<?php echo $area->slug; ?>">
+												<input type="checkbox" name="category[]" class="checkbox" id="area_check_<?php echo $area->slug; ?>" value="<?php echo $area->slug; ?>">
 												<span class="sp_event_search__inp_check__parts parts"></span>
 												<?php echo $area->name; ?>
 											</label>

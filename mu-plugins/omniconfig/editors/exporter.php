@@ -117,11 +117,15 @@ function _lgc_regenerate_apikeys_json() {
 	}
 
 	if ( ! empty( get_option( 'lg_config__coordinate_longitude' ) ) ) {
-		$result['coordinate']['longitude'] = get_option( 'lg_config__coordinate_longitude' );
+		$result['googlemaps']['coordinate']['longitude'] = get_option( 'lg_config__coordinate_longitude' );
 	}
 
 	if ( ! empty( get_option( 'lg_config__coordinate_latitude' ) ) ) {
-		$result['coordinate']['latitude'] = get_option( 'lg_config__coordinate_latitude' );
+		$result['googlemaps']['coordinate']['latitude'] = get_option( 'lg_config__coordinate_latitude' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__default_zoomlevel' ) ) ) {
+		$result['googlemaps']['default_zoom_level'] = get_option( 'lg_config__default_zoomlevel' );
 	}
 
 	if ( ! empty( get_option( 'lg_config__header_logo_1' ) ) ) {

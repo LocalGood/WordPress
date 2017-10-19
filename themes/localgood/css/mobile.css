@@ -232,9 +232,10 @@ footer {
   footer ul {
     margin-bottom: 30px;
     line-height: 2em; }
+    footer ul li a {
+      display: block; }
   footer a {
-    color: #FFF !important;
-    display: block; }
+    color: #FFF !important; }
   footer .footer_bottom .footer_logo {
     margin-left: -10px; }
     footer .footer_bottom .footer_logo a img {
@@ -253,18 +254,20 @@ footer {
     margin-bottom: 30px; }
     footer .footer_bottom .link span {
       display: inline-block;
-      width: 15px;
-      height: 15px;
       color: #7f2525;
       font-size: 80%;
       font-weight: bold;
       text-align: center;
-      vertical-align: top;
+      vertical-align: middle;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%; }
       footer .footer_bottom .link span img {
-        width: 100%; }
+        width: 15px;
+        height: 15px; }
+    footer .footer_bottom .link a {
+      display: inline-block;
+      vertical-align: middle; }
   footer .cw {
     font-size: 80% !important;
     text-align: center; }
@@ -996,6 +999,8 @@ dl, dd, ul {
       height: auto; }
 
 /* News */
+.single_news .single__post_body p, .single_news .single__post_body div {
+  word-break: break-all; }
 .single_news .post_wrapper {
   background: #FFF; }
 .single_news .post_title {
@@ -1749,6 +1754,12 @@ body.single__post_body 2016.08.02公開後修正　追記
 --------------------------------------------------*/
 .single__post_body a {
   text-decoration: underline !important; }
+
+/*--------------------------------------------------
+  body.single-post
+--------------------------------------------------*/
+body.single-post .single__post_body {
+  padding: 0 10px; }
 
 /*--------------------------------------------------
   body.single-event

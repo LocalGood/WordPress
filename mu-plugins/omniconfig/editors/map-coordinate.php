@@ -17,6 +17,10 @@ function render_map_coordinate_editor() {
 			'id'    => 'coordinate_latitude',
 			'label' => '緯度',
 		),
+		'lg_config__default_zoomlevel'  => array(
+			'id'    => 'default_zoomlevel',
+			'label' => '初期ズームレベル',
+		),
 	);
 	?>
 

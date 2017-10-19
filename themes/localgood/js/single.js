@@ -2,11 +2,11 @@ var map;
 
 var markers = [];
 
-function mapInit(coordinate) {
+function mapInit(data) {
     var zoom = 15;
     var myOptions = {
-        zoom: zoom,
-        center: new google.maps.LatLng(parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)),
+        zoom: parseFloat(data.googlemaps.default_zoom_level),
+        center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
         mapTypeControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -36,21 +36,21 @@ function addMarker(latlng, content, type) {
     icon: icon_path[type],
     animation: google.maps.Animation.DROP
   })
-    if (content) {
-        var infowindow = new google.maps.InfoWindow({
-            content: content
-        });
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
-    }
-    markers.push(marker);
+  if (content) {
+    var infowindow = new google.maps.InfoWindow({
+      content: content
+    });
+    google.maps.event.addListener(marker, 'click', function () {
+      infowindow.open(map, marker);
+    });
+  }
+  markers.push(marker);
 }
 
 
 
 $.getJSON('/wp-json/api/v1/apikeys', function (data) {
-  mapInit(data.coordinate)
+  mapInit(data)
   $gmap = $('#gmap')
   var long = $gmap.data('long');
   var lat = $gmap.data('lat');
@@ -59,6 +59,7 @@ $.getJSON('/wp-json/api/v1/apikeys', function (data) {
   if (long && lat) {
     var latlng = {lat: parseFloat(lat), lng: parseFloat(long)};
     addMarker(latlng, title, type);
+    map.setCenter(new google.maps.LatLng(latlng.lat, latlng.lng));
   }
   google.maps.event.trigger($('#gmap')[0], 'resize');
 })

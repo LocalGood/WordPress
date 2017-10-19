@@ -8,7 +8,7 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.5.1
+Version: 0.6.0
 */
 
 add_action( 'init', function () {
@@ -31,7 +31,7 @@ $lgoc_settings = array(
 	),
 );
 
-define( 'OMNICONFIG_LG_VERSION', '0.5.1' );
+define( 'OMNICONFIG_LG_VERSION', '0.6.0' );
 define( 'OMNICONFIG_HOME_URL', add_query_arg( 'page', 'omniconfig', admin_url( 'admin.php' ) ) );
 
 $lgoc_labels = array(

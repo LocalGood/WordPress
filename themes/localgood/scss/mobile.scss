@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "mixins";
 @import "colors";
 @import "palette";
@@ -11,7 +12,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif  !important;
-  min-width: auto;
+  //min-width: auto;
 }
 a{
   color: $mainCol01;
@@ -24,11 +25,11 @@ a{
   line-height: 16px;
   &.end{
     position: static;
-    height: 16px;
+    height: auto;
     font-size: 9px;
     padding: 0 10px;
     text-align: center;
-    line-height: 16px;
+    line-height: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -222,7 +223,8 @@ a{
   .nav_logo{
     float: left;
     img{
-      width: 35%;
+      margin-top: 4%;
+      width: 60%;
     }
   }
 
@@ -315,11 +317,15 @@ footer{
   ul{
     margin-bottom: 30px;
     line-height: 2em;
+    li {
+      a {
+        display: block;
+      }
+    }
   }
 
   a{
     color: #FFF !important;
-    display: block;
   }
 
   .footer_bottom{
@@ -351,19 +357,22 @@ footer{
       margin-bottom: 30px;
       span{
         display: inline-block;
-        width: 15px;
-        height: 15px;
         color: $mainCol01;
         font-size: 80%;
         font-weight: bold;
         text-align: center;
-        vertical-align: top;
+        vertical-align: middle;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
         img{
-          width: 100%;
+          width: 15px;
+          height: 15px;
         }
+      }
+      a {
+        display: inline-block;
+        vertical-align: middle;
       }
     }
   }
@@ -545,11 +554,11 @@ dl, dd, ul{
 .sp{
   .c-cat{
     position: static;
-    height: 16px;
+    height: auto;
     font-size: 9px;
     padding: 0 10px;
     text-align: center;
-    line-height:16px;
+    line-height:14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1394,6 +1403,11 @@ dl, dd, ul{
 
 /* News */
 .single_news {
+  .single__post_body{
+    p,div{
+      word-break: break-all;
+    }
+  }
   .post_wrapper{
     background: #FFF;
   }
@@ -2337,6 +2351,15 @@ body.single__post_body 2016.08.02公開後修正　追記
 .single__post_body{
   a{
     text-decoration: underline !important;
+  }
+}
+
+/*--------------------------------------------------
+  body.single-post
+--------------------------------------------------*/
+body.single-post{
+  .single__post_body {
+    padding: 0 10px;
   }
 }
 

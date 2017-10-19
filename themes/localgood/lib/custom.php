@@ -673,6 +673,7 @@ function get_subject_user_meta( $is_tweet, $cf = array(), $avatar_size = 40 ) {
 		return false;
 	}
 	$avatar = '';
+
 	if ( $is_tweet ) {
 		! empty( $cf['twUserName'][0] ) ? $name = $cf['twUserName'][0] : $name = 'twitter user';
 		! empty( $cf['twScreenName'][0] ) ? $user_link = 'https://twitter.com/' . $cf['twScreenName'][0] : $user_link = 'https://twitter.com/';

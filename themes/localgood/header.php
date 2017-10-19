@@ -138,7 +138,7 @@ elseif(DEVICE == 'pc'):
             <nav class="header__right__nav">
                 <ul id="gnav" class="header__right__nav__gnav">
                     <?php $a = 'class="active"'; ?>
-                    <li <?php if (is_category() || is_singular('post') || is_tag() || is_page('lgnews')) {
+                    <li <?php if (is_category() || is_singular('post') || is_tag() || is_page('lgnews') || is_tax('project_area') || is_tax('project_theme')) {
                         echo $a;
                     } ?>>
                         <a href="<?php echo home_url('/lgnews/'); ?>">地域を知る</a>
@@ -174,7 +174,7 @@ elseif(DEVICE == 'pc'):
                             </div>
                         </div>
                     </li>
-                    <li <?php if (is_page('earth_view') || is_tax('project_area') || is_tax('project_theme')) {
+                    <li <?php if (is_page('earth_view')) {
                         echo $a;
                     } ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
                     </li>
