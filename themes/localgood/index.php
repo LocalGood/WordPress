@@ -58,10 +58,12 @@ else:
 							</div>
 						</div>
 					</li>
-					<li <?php if ( is_page( 'earth_view' ) || is_tax( 'project_area' ) || is_tax( 'project_theme' ) ) {
-						echo $a;
-					} ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
-					</li>
+                    <?php if ( !empty(get_option( 'lg_config__earthViewUrl', false )) ){ ?>
+                        <li <?php if ( is_page( 'earth_view' ) || is_tax( 'project_area' ) || is_tax( 'project_theme' ) ) {
+                            echo $a;
+                        } ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
+                        </li>
+                    <?php } ?>
 					<li>
 						<a href="<?php echo home_url( '/about/' ); ?>"><?php bloginfo( 'name' ); ?>について</a>
 					</li>

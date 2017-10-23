@@ -186,11 +186,13 @@
                             </dd>
                         </dl>
                     </li>
-                    <li>
-                        <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
-                            3Dマップ
-                        </a>
-                    </li>
+                    <?php if ( !empty(get_option( 'lg_config__earthViewUrl', false )) ){ ?>
+                        <li>
+                            <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
+                                3Dマップ
+                            </a>
+                        </li>
+                    <?php } ?>
 					<li>
 						<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 					</li>
@@ -266,11 +268,13 @@
                         </dd>
                     </dl>
                 </li>
-                <li>
-                    <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
-                        3Dマップ
-                    </a>
-                </li>
+                <?php if ( !empty(get_option( 'lg_config__earthViewUrl', false )) ){ ?>
+                    <li>
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
+                            3Dマップ
+                        </a>
+                    </li>
+                <?php } ?>
 				<li>
 					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>
@@ -355,11 +359,13 @@
                         </dd>
                     </dl>
                 </li>
-                <li>
-                    <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
-                        3Dマップ
-                    </a>
-                </li>
+                <?php if ( !empty(get_option( 'lg_config__earthViewUrl', false )) ){ ?>
+                    <li>
+                        <a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank" class="list01__text">
+                            3Dマップ
+                        </a>
+                    </li>
+                <?php } ?>
 				<li>
 					<a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
 				</li>

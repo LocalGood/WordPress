@@ -1745,7 +1745,6 @@ dl, dd, ul {
     margin: 0 0 10px 10px !important; }
 
 #gmap {
-  display: none;
   height: 300px;
   margin-bottom: 20px; }
 
@@ -1846,7 +1845,7 @@ body.single-event .event_meta {
     text-align: center; }
   .knows_map__filter_wrapper {
     position: relative;
-    display: none; }
+    display: block; }
   .knows_map__filter--text {
     margin: 0;
     border-right: 1px solid #d9d9d9; }

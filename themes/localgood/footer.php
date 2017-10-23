@@ -9,9 +9,15 @@
 				</div>
                 <ul class="footer__sns_link">
                     <li class="rss"><a href="<?php echo home_url('feed'); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/rss_btn.png" alt="rss" /></a></li>
-                    <li class="g_plus"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/gplus_btn.png" alt="google plus" /></a></li>
-                    <li class="tw_btn"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/tw_btn.png" alt="twitter" /></a></li>
-                    <li class="fb_btn"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/fb_btn.png" alt="facebook" /></a></li>
+                    <?php if ( !empty(get_option( 'lg_config__sns_gp', false )) ){ ?>
+                        <li class="g_plus"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/gplus_btn.png" alt="google plus" /></a></li>
+                    <?php } ?>
+                    <?php if ( !empty(get_option( 'lg_config__sns_tw', false )) ){ ?>
+                        <li class="tw_btn"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/tw_btn.png" alt="twitter" /></a></li>
+                    <?php } ?>
+                    <?php if ( !empty(get_option( 'lg_config__sns_fb', false )) ){ ?>
+                        <li class="fb_btn"><a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/fb_btn.png" alt="facebook" /></a></li>
+                    <?php } ?>
                 </ul>
                 <a class="footer__integration_site" href="<?php echo esc_attr( get_option( 'lg_config__integration_url', false ) ); ?>/">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>

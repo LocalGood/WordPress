@@ -120,21 +120,27 @@
                  <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon01.png" alt="">
                </a>
            </li>
-            <li>
-                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank">
-                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank">
-                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank">
-                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon04.png" alt="">
-                </a>
-            </li>
+            <?php if ( !empty(get_option( 'lg_config__sns_gp', false )) ){ ?>
+                <li>
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.png" alt="">
+                    </a>
+                </li>
+            <?php } ?>
+            <?php if ( !empty(get_option( 'lg_config__sns_tw', false )) ){ ?>
+                <li>
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.png" alt="">
+                    </a>
+                </li>
+            <?php } ?>
+            <?php if ( !empty(get_option( 'lg_config__sns_fb', false )) ){ ?>
+                <li>
+                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon04.png" alt="">
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
         <div class="link">
             <span>
