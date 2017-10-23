@@ -86,6 +86,10 @@ h3 {
    display: none;
 }
 
+.hce_section .recommended_size {
+   display: block;
+}
+
 .hce_navigation li {
    padding: 3px;
 }
@@ -116,4 +120,8 @@ dd {
    margin-left: 14em;
    border-left:3px solid #00a0d2;
    padding: 5px;
+}
+
+.rcmnd_img_size {
+
 }

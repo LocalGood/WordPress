@@ -17,7 +17,8 @@ function render_home_content_editor() {
 	<div id="hceSect1" class="hce_section">
 		<h3>メインビジュアル</h3>
 		<dl>
-			<dt>メインロゴ</dt>
+			<dt>メインロゴ<span class="recommended_size">（推奨画像サイズ：1190px x 279px）</span>
+            </dt>
 			<dd>
 				<img src="<?php echo get_option( 'lg_config__main_logo' ); ?>" class="media-preview media-preview_main_logo">
 				<input type="text" name="lg_config__main_logo"
@@ -25,7 +26,7 @@ function render_home_content_editor() {
 				<button class="select-media button" data-media-target="main_logo">画像を追加</button>
 				<button class="remove-image button" data-target="main_logo">画像を削除</button>
 			</dd>
-			<dt>トップページ背景</dt>
+			<dt>トップページ背景<span class="recommended_size">（推奨画像サイズ：3000px x 2000px）</span></dt>
 			<dd>
 				<img src="<?php echo get_option( 'lg_config__home_wallpaper' ); ?>" class="media-preview media-preview_home_wallpaper">
 				<input type="text" name="lg_config__home_wallpaper"
