@@ -140,6 +140,31 @@ function _lgc_regenerate_apikeys_json() {
 		$result['images']['favicon'] = get_option( 'lg_config__favicon' );
 	}
 
+	// sns
+	if ( ! empty( get_option( 'lg_config__sns_fb' ) ) ) {
+		$result['snslinks']['facebook'] = get_option( 'lg_config__sns_fb' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__sns_tw' ) ) ) {
+		$result['snslinks']['twitter'] = get_option( 'lg_config__sns_tw' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__sns_gp' ) ) ) {
+		$result['snslinks']['googleplus'] = get_option( 'lg_config__sns_gp' );
+	}
+
+	// other
+	if ( ! empty( get_option( 'lg_config__earthViewUrl' ) ) ) {
+		$result['other']['earthviewurl'] = get_option( 'lg_config__earthViewUrl' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__twHash' ) ) ) {
+		$result['other']['twitterhash'] = get_option( 'lg_config__twHash' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__analyticsId' ) ) ) {
+		$result['other']['analyticsid'] = get_option( 'lg_config__analyticsId' );
+	}
 
 	add_filter( 'lgcongif_apikey_json', $result );
 
