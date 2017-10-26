@@ -286,9 +286,9 @@ function get_single_post() {
 				?>
 			<?php else: ?>
 			<div class="single_head_info_area">
-				<?php endif; ?>
 				<?php echo get_term_atag( $post->post_type ); ?>
 			</div>
+			<?php endif; ?>
 
 			<?php
 			if ( ! is_singular( array( 'data', 'subject', 'skills', 'tweet' ) ) ):
@@ -1207,8 +1207,17 @@ function knows_map_bar() { ?>
 						</div>
 					</div>
 				<?php endif; ?>
+                <?php
+                $has_param = $_SERVER['QUERY_STRING'];
+                if ( is_page( array('lgnews','lgplayer') ) && !empty($has_param) ):
+                ?>
+                    <a href="<?php echo home_url( '/' . $post->post_name . '/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
+                <?php elseif ( is_post_type_archive( 'data' ) && !empty($has_param) ): ?>
+                    <a href="<?php echo home_url( '/data/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
+                <?php elseif ( is_archive( 'subject' ) && !empty($has_param) ): ?>
+                    <a href="<?php echo home_url( '/subject/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
+                <?php endif; ?>
 				<?php if ( isset( $_GET['theme'] ) && is_array( $_GET['theme'] ) ): ?>
-					<a href="<?php echo home_url( '/lgnews/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
 					<div class="select_themes_bar">
 						<ul class="clearfix">
 							<?php
@@ -1225,8 +1234,6 @@ function knows_map_bar() { ?>
 							?>
 						</ul>
 					</div>
-				<?php elseif ( is_page( 'lgnews' )): ?>
-					<a href="<?php echo home_url( '/lgnews/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
 				<?php endif; ?>
 				<input type="hidden" name="paged" value="1"/>
 			</form>
@@ -1248,6 +1255,13 @@ function knows_map_bar() { ?>
 						   class="knows_map__filter--button knows_map__filter--inp_btn" value="検索"></form></li>
 				<li><a href="" class="knows_map__filter--link" id="filterSearch"><span class="icon">+</span>詳細検索</a>
 				</li>
+                <li>
+                    <?php
+                    $hasParam = $_SERVER['QUERY_STRING'];
+                    if ( is_post_type_archive( 'event' ) && !(empty($hasParam))): ?>
+                        <a href="<?php echo home_url( '/event/' ); ?>" class="knows_map__filter--reset_button">検索条件をリセット</a>
+                    <?php endif; ?>
+                </li>
 			</ul>
 			<ul class="knows_map__filter--right  knowsMapFilter">
 				<li class="knows_map__filter--text">絞り込み</li>
