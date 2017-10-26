@@ -54,7 +54,7 @@ else:
         <div class="article_area">
             <?php
 			$args = array(
-				'post_type' => 'subject'
+				'post_type' => array('subject', 'tweet')
 			);
 			$subject_posts = new WP_Query($args);
             if ($subject_posts->have_posts()):
