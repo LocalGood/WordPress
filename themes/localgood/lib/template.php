@@ -1214,8 +1214,6 @@ function knows_map_bar() { ?>
                     <a href="<?php echo home_url( '/' . $post->post_name . '/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
                 <?php elseif ( is_post_type_archive( 'data' ) && !empty($has_param) ): ?>
                     <a href="<?php echo home_url( '/data/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
-                <?php elseif ( is_archive( 'subject' ) && !empty($has_param) ): ?>
-                    <a href="<?php echo home_url( '/subject/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
                 <?php endif; ?>
 				<?php if ( isset( $_GET['theme'] ) && is_array( $_GET['theme'] ) ): ?>
 					<div class="select_themes_bar">

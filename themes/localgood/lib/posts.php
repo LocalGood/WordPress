@@ -42,7 +42,7 @@ function change_loop_condition( $query )
     }
 
     if (is_post_type_archive( 'subject' )) {
-        $query->set( 'post_type', array( 'tweet', 'subject' ) );
+        $query->set( 'post_type', array( 'subject', 'tweet' ) );
         $query->set( 'posts_per_page', 18 );
         if (isset( $_GET['theme'] ) && is_array( $_GET['theme'] )) {
             $query->set( 'tax_query', array(
