@@ -84,7 +84,7 @@ function omniconfig_admin_init() {
 		'endpoint' => array(
 			'wp_ajax'    => admin_url( 'admin-ajax.php' ),
 			'wp_home'    => home_url(),
-			'goteo_home' => LG_GOTEO_BASE_URL,
+			'goteo_home' => LG_BASE_URL_GT,
 		),
 		'action'   => array(
 			'add_new_bannerset'       => 'lgc_add_new_bannerset',

@@ -153,7 +153,32 @@ function _lgc_regenerate_apikeys_json() {
 		$result['snslinks']['googleplus'] = get_option( 'lg_config__sns_gp' );
 	}
 
+	// meta data
+	if ( ! empty( get_bloginfo('description') ) ) {
+		$result['meta']['description'] = get_bloginfo('description');
+	}
+
+	if ( ! empty( get_bloginfo( 'name' ) ) ) {
+		$result['meta']['appName']['name'] = get_bloginfo( 'name' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__appName_kana' ) ) ) {
+		$result['meta']['appName']['kana'] = get_option( 'lg_config__appName_kana' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__appName_kanji' ) ) ) {
+		$result['meta']['appName']['kanji'] = get_option( 'lg_config__appName_kanji' );
+	}
+
+	if ( ! empty( get_option( 'lg_config__appName_es' ) ) ) {
+		$result['meta']['appName']['es'] = get_option( 'lg_config__appName_es' );
+	}
+
 	// other
+	if ( ! empty( get_option( 'lg_config__integration_url' ) ) ) {
+		$result['other']['integrationurl'] = get_option( 'lg_config__integration_url' );
+	}
+
 	if ( ! empty( get_option( 'lg_config__earthViewUrl' ) ) ) {
 		$result['other']['earthviewurl'] = get_option( 'lg_config__earthViewUrl' );
 	}
@@ -165,6 +190,8 @@ function _lgc_regenerate_apikeys_json() {
 	if ( ! empty( get_option( 'lg_config__analyticsId' ) ) ) {
 		$result['other']['analyticsid'] = get_option( 'lg_config__analyticsId' );
 	}
+
+
 
 	add_filter( 'lgcongif_apikey_json', $result );
 

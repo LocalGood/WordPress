@@ -90,19 +90,21 @@ elseif(DEVICE == 'pc'):
     remove_action('wp_head', 'rel_canonical');
     wp_head();
 
-    if(!strpos($_SERVER['SERVER_NAME'], 'il3c')):
-        ?>
+	$google_analytics_id = getenv('LG_GOOGLE_ANALYTICS_WP');
+    if(!strpos($_SERVER['SERVER_NAME'], 'il3c') && $google_analytics_id):
+echo <<<EOD
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', '<?php echo esc_attr( get_option( 'lg_config__analyticsId', false ) ); ?>', 'localgood.jp');
+            ga('create', '{$google_analytics_id}', 'localgood.jp');
             ga('send', 'pageview');
-
         </script>
-    <?php endif; ?>
+EOD;
+	endif;
+	?>
 
 </head>
 <body <?php lg_body_class(); ?>>
