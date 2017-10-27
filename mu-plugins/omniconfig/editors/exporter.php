@@ -187,12 +187,6 @@ function _lgc_regenerate_apikeys_json() {
 		$result['other']['twitterhash'] = get_option( 'lg_config__twHash' );
 	}
 
-	if ( ! empty( get_option( 'lg_config__analyticsId' ) ) ) {
-		$result['other']['analyticsid'] = get_option( 'lg_config__analyticsId' );
-	}
-
-
-
 	add_filter( 'lgcongif_apikey_json', $result );
 
 	ob_start();

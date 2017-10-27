@@ -49,10 +49,6 @@ function render_definition_editor( $display = false ) {
 					'id'    => 'tw_hash',
 					'label' => 'Twitetr ハッシュタグ',
 				),
-				'lg_config__analyticsId'     => array(
-					'id'    => 'google_analytics',
-					'label' => 'Google Analytics ID',
-				),
 				'lg_config__integration_url' => array(
 					'id'    => 'integration_url',
 					'label' => '総合TOP',
