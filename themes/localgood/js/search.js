@@ -146,12 +146,6 @@ $(function () {
     $(this).closest('form').submit()
   })
 
-  $('.select_theme button').on('click', function (e) {
-    e.preventDefault()
-    $(this).toggleClass('on')
-    $(this).prev().click()
-  })
-
   $('.togglePin').on('change', function (e) {
     removeMarkers()
     var selector = []

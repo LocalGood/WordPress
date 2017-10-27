@@ -59,9 +59,7 @@ function addScripts() {
 			wp_enqueue_script( 'single.js', get_template_directory_uri() . '/js/single.js' );
 		}
 
-        // urlが /subject のときにもis_post_type_archive('subject')がtrueにならない場合がある。
-        // pre_get_postsでpost_typeを変更していることが原因のよう。ので、is_post_type_archive('tweet')も使用する
-		if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_archive( 'subject' ) || is_post_type_archive( 'tweet' ) || is_post_type_archive( 'event' ) || is_category() || is_page( 'lgnews' ) ) {
+		if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_archive( 'event' ) || is_category() || is_page( 'lgnews' ) ) {
 			wp_enqueue_script( 'search.js', get_template_directory_uri() . '/js/search.js' );
 		}
 	}
