@@ -466,7 +466,7 @@ function save_subject_session() {
 }
 
 function get_tree_themes() {
-	$themes      = get_terms( 'project_theme' );
+	$themes      = get_terms( 'project_theme' , array( 'hide_empty' => false ));
 	$tree_themes = array();
 	//親の抽出
 	foreach ( $themes as $t ) {

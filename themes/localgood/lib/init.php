@@ -1,4 +1,18 @@
 <?php
+// session
+add_action('init', 'myStartSession', 1);
+add_action('wp_logout', 'myEndSession');
+add_action('wp_login', 'myEndSession');
+
+function myStartSession() {
+        if(!session_id()) {
+                session_start();
+            }
+}
+
+function myEndSession() {
+        session_destroy();
+}
 
 if(isset($_GET['scss'])){
     require_once __DIR__ . '/../vendor/autoload.php';

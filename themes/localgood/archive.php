@@ -53,15 +53,10 @@ else:
         ?>
         <div class="article_area">
             <?php
-			$args = array(
-				'post_type' => 'subject'
-			);
-			$subject_posts = new WP_Query($args);
-            if ($subject_posts->have_posts()):
-                while ($subject_posts->have_posts()): $subject_posts->the_post();
+            if(have_posts()):
+                while (have_posts()): the_post();
                     article_box();
                 endwhile;
-                wp_reset_postdata();
             endif;
             ?>
         </div>
@@ -74,7 +69,7 @@ else:
         </div>
         <div class="c-pager c-clearfix">
             <div class="c-pager_container">
-                <?php paging($subject_posts); ?>
+                <?php paging(); ?>
             </div>
         </div>
     </div><!-- .c-contents_wrapper -->

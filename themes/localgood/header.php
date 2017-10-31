@@ -179,7 +179,6 @@ EOD;
                     <?php if ( !empty(get_option( 'lg_config__earthViewUrl', false )) ){ ?>
                         <li <?php if (is_page('earth_view')) {
                             echo $a;
-                            var_dump(get_option( 'lg_config__earthViewUrl', false ));
                         } ?>><a href="<?php echo esc_attr( get_option( 'lg_config__earthViewUrl', false ) ); ?>" target="_blank">3Dマップ</a>
                         </li>
                     <?php } ?>

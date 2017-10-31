@@ -58,6 +58,7 @@ function addScripts() {
 		if ( is_single() ) {
 			wp_enqueue_script( 'single.js', get_template_directory_uri() . '/js/single.js' );
 		}
+
 		if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_archive( 'event' ) || is_category() || is_page( 'lgnews' ) ) {
 			wp_enqueue_script( 'search.js', get_template_directory_uri() . '/js/search.js' );
 		}
