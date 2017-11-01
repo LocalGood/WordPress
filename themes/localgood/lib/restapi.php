@@ -119,6 +119,10 @@ function get_subjects( WP_REST_Request $request ) {
 					break;
 			}
 
+			if ( ( $_latlng[0] === 0 || $_latlng[1] === 0 ) && ! empty( $_meta['lgLatitude'] ) && ! empty( $_meta['lgLongitude'] ) ) {
+				$_latlng = array($_meta['lgLatitude'], $_meta['lgLongitude']);
+			}
+
 			$_tmp = array();
 			array_push( $return_array, array(
 				$subjects->post->post_title,
