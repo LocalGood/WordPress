@@ -44,15 +44,14 @@ get_header(); ?>
 						echo $feature_html;
 					}
 
-					query_posts( post_archives_args( $post_not ) );
-					if ( have_posts() ):
-						?>
-						<h2 class="c-group_title01">
-                            <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
-							<?php the_title(); ?>
-						</h2>
-						<div class="list_pic_wrapper">
-							<div class="list_pic">
+					query_posts( post_archives_args( $post_not ) ); ?>
+                    <h2 class="c-group_title01">
+                        <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                        <?php the_title(); ?>
+                    </h2>
+                    <div class="list_pic_wrapper">
+                        <div class="list_pic">
+		        			<?php if ( have_posts() ): ?>
 								<div class="list_pic_layout">
 									<?php
 									while ( have_posts() ): the_post();
@@ -69,9 +68,11 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-							</div><!--.list_pic-->
-						</div><!--.list_pic_wrapper-->
-					<?php endif; ?>
+                            <?php else: ?>
+                                <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+        					<?php endif; ?>
+                        </div><!--.list_pic-->
+                    </div><!--.list_pic_wrapper-->
 					<?php
 					wp_reset_query();
 					if ( is_page( 'lgplayer' ) ) {

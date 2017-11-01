@@ -83,7 +83,7 @@ html {
   margin: 0;
   line-height: 1.6em;
   color: #454545;
-  font-family: "NotoSansCJKjp", 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif; }
+  font-family: "NotoSansCJKjp", 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif; }
 
 body * {
   font-weight: 500; }
@@ -167,7 +167,7 @@ img {
         margin-right: 0; }
     .c-pager .tablenav .current {
       color: #fff;
-      background-color: #255b7f; }
+      background-color: #7f2525; }
 
 /*---------- titles ----------*/
 .c-title_cmn {
@@ -175,12 +175,12 @@ img {
   text-align: center; }
 
 .c-title01 {
-  color: #255b7f;
+  color: #7f2525;
   font-size: 45px;
   line-height: 66px; }
 
 .c-title02 {
-  color: #009acb;
+  color: #cb0079;
   font-size: 36px;
   line-height: 54px; }
 
@@ -189,7 +189,7 @@ img {
   font-size: 36px; }
 
 .c-title04 {
-  color: #255b7f;
+  color: #7f2525;
   font-size: 30px; }
 
 .c-title05 {
@@ -324,7 +324,7 @@ img {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9; }
 
 .c-event_status {
@@ -423,7 +423,7 @@ img {
       background: url("../images/knows_tab_icon04_off.png") no-repeat left 50%; }
     .knows_tab ul li.active a, .knows_tab ul li:hover a {
       color: #fff;
-      background-color: #009acb;
+      background-color: #cb0079;
       transition: background-color 0.2s ease; }
       .knows_tab ul li.active a:before, .knows_tab ul li:hover a:before {
         content: '';
@@ -434,7 +434,7 @@ img {
         width: 0;
         height: 0;
         border: 10px solid transparent;
-        border-top: 10px solid #009acb;
+        border-top: 10px solid #cb0079;
         margin-left: -8px; }
     .knows_tab ul li.active:nth-child(1n) span, .knows_tab ul li:hover:nth-child(1n) span {
       background-image: url("../images/knows_tab_icon01_on.png"); }
@@ -532,7 +532,7 @@ img {
     .knows_map__bar .knows_map__refine > .select_themes_bar {
       display: block; }
   .knows_map__bar__reset_button {
-    color: #009acb;
+    color: #cb0079;
     font-size: 12px;
     text-decoration: underline; }
 
@@ -577,7 +577,7 @@ img {
       border-radius: 3px; }
   .knows_map__filter .checkbox:checked + .parts::before {
     color: #454545;
-    background: #255b7f; }
+    background: #7f2525; }
   .knows_map__filter .checkbox:checked + .parts::after {
     content: '';
     display: block;
@@ -633,9 +633,9 @@ img {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: #255b7f; }
+    background: #7f2525; }
   .knows_map__filter--link {
-    color: #009acb; }
+    color: #cb0079; }
     .knows_map__filter--link .icon {
       display: inline-block;
       width: 15px;
@@ -643,7 +643,7 @@ img {
       margin: 0 5px 0 0;
       text-align: center;
       line-height: 15px;
-      border: 1px solid #009acb;
+      border: 1px solid #cb0079;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%; }
@@ -662,6 +662,11 @@ img {
     color: #009480;
     background: url("../images/pin_icon_event.png") no-repeat left;
     margin: 0; }
+  .knows_map__filter--reset_button {
+    color: #cb0079;
+    font-size: 12px;
+    margin-left: 20px;
+    text-decoration: underline; }
 
 /*--------------------------------------------------
   .map_button_bar
@@ -670,7 +675,7 @@ img {
   display: none; }
   .news_theme__pop_wrapper.view {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     z-index: 5;
@@ -730,7 +735,7 @@ img {
       font-size: 14px;
       line-height: 34px;
       border-radius: 4px;
-      background-color: #255b7f; }
+      background-color: #7f2525; }
     .news_theme__pop_wrapper .news_theme li.choice {
       opacity: 1; }
     .news_theme__pop_wrapper .news_theme .news_theme__buttons {
@@ -755,7 +760,7 @@ img {
       padding: 8px 20px;
       color: #fff;
       border-radius: 4px;
-      background-color: #255b7f; }
+      background-color: #7f2525; }
       .news_theme__pop_wrapper .news_theme button.select {
         opacity: 1; }
     .news_theme__pop_wrapper .news_theme .news_theme__buttons__cancel {
@@ -784,7 +789,7 @@ img {
       line-height: 60px;
       text-align: center;
       border-radius: 8px;
-      background-color: #009480; }
+      background-color: #889400; }
 
 .select_themes_bar {
   margin-top: 10px;
@@ -806,7 +811,7 @@ img {
     font-size: 14px;
     line-height: 34px;
     border-radius: 4px;
-    background-color: #255b7f;
+    background-color: #7f2525;
     margin-bottom: 10px; }
     .select_themes_bar li:last-child {
       margin-right: 0; }
@@ -856,7 +861,7 @@ img {
     padding: 8px 20px;
     color: #fff;
     border-radius: 4px;
-    background-color: #255b7f;
+    background-color: #7f2525;
     margin-bottom: 5px;
     cursor: pointer; }
     .select_theme button.select {
@@ -891,7 +896,7 @@ img {
     color: #fff;
     font-size: 16px;
     border-radius: 4px;
-    background-color: #255b7f; }
+    background-color: #7f2525; }
 
 .post_finish {
   margin: 0 0 20px;
@@ -918,7 +923,7 @@ img {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9; }
 
 .fix_button {
@@ -965,7 +970,7 @@ img {
   text-align: center;
   line-height: 90px;
   border-radius: 8px;
-  background-color: #009480;
+  background-color: #889400;
   box-shadow: 0 1px 0 0 #d9d9d9; }
 
 .see_subject_button {
@@ -1054,7 +1059,7 @@ img {
     padding-top: 20px;
     text-align: right; }
     .writer_prof__texts .writer_prof__archives_link a {
-      color: #255b7f;
+      color: #7f2525;
       font-size: 12px;
       line-height: 2; }
   .writer_prof__texts .article_box__sns {
@@ -1195,11 +1200,12 @@ img {
   font-size: 13px;
   line-height: 1; }
   .single__tags a {
-    color: #009acb; }
+    color: #cb0079; }
 .single__post_body * {
-  color: #454545; }
+  color: #454545;
+  word-break: break-all; }
   .single__post_body * .place_link {
-    color: #009acb;
+    color: #cb0079;
     padding: 0 20px 0 0;
     background: url("../images/flag_icon.png") no-repeat right; }
 .single__information {
@@ -1230,6 +1236,9 @@ body.single .c-social_bookmark {
 
 body.single .single__title_area .c-social_bookmark {
   border-top: 1px solid #d9d9d9; }
+
+.tweet-single_wrapper .single_contents_box .single_contents_box__inner {
+  word-break: break-all; }
 
 /*--------------------------------------------------
   .event_search
@@ -1309,7 +1318,7 @@ body.single .single__title_area .c-social_bookmark {
     text-align: center;
     line-height: 43px;
     color: #FFF;
-    background: #009480;
+    background: #889400;
     cursor: pointer; }
   .event_search__left {
     padding: 0 0 0 40px;
@@ -1399,7 +1408,7 @@ body.single .single__title_area .c-social_bookmark {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: #009480; }
+    background: #889400; }
     .event_search__button[disabled='disabled'] {
       cursor: default;
       background: #454545; }
@@ -1435,7 +1444,7 @@ body.single .single__title_area .c-social_bookmark {
       z-index: 0; }
       .event_search_tabs li.active {
         top: 1px;
-        border-top: solid 2px #009480;
+        border-top: solid 2px #889400;
         border-bottom: none;
         z-index: 10; }
       .event_search_tabs li a {
@@ -1641,7 +1650,7 @@ body.single .single__title_area .c-social_bookmark {
     font-weight: bold;
     margin: 0 0 10px 0; }
   .common_single_parts_info--link {
-    color: #009acb;
+    color: #cb0079;
     font-size: 12px; }
   .common_single_parts_info--description {
     color: #454545;
@@ -1759,6 +1768,8 @@ body.single .single__title_area .c-social_bookmark {
     line-height: 1.25;
     max-height: 40px;
     overflow: hidden; }
+    .article_box__title h2 a {
+      font-weight: bold; }
   .article_box__excerpt {
     margin: 0;
     font-size: 13px;
@@ -1836,5 +1847,16 @@ body.single .single__title_area .c-social_bookmark {
 .single_skills--thumbnail {
   float: left;
   margin: 0 10px 0 0; }
+
+/*--------------------------------------------------
+  common search results
+--------------------------------------------------*/
+.articles__no_post {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 0 0 #d9d9d9;
+  padding: 50px 20px;
+  margin-bottom: 26px;
+  text-align: center; }
 
 /*# sourceMappingURL=commons.css.map */

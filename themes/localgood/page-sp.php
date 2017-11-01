@@ -2,6 +2,7 @@
     get_template_part('header', 'sp');
 ?>
     <div class="underlayer_wrapper page_sp_php">
+        <?php breadcrumbs(); ?>
         <div class="inner">
             <div class="underlayer_title_area">
                 <?php if(have_posts()): the_post(); ?>

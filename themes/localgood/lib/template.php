@@ -237,7 +237,9 @@ function get_single_post() {
 	if ( DEVICE == 'pc' ):
 		?>
 
-		<p class="single__postdate"><?php the_time( 'Y.m.d' ); ?></p>
+        <?php if ( !is_singular( array( 'subject', 'tweet' ) ) ): ?>
+    		<p class="single__postdate"><?php the_time( 'Y.m.d' ); ?></p>
+        <?php endif; ?>
 		<div class="single__title_area">
 			<?php if ( $is_tweet ): ?>
 				<span class="c-subj_tw">tw</span>
@@ -452,15 +454,25 @@ function article_box() {
 				<div class="thumbnail">
 					<?php if ( get_post_type() == 'subject' || get_post_type() == 'tweet' || is_singular( 'subject' ) ): ?>
 					<?php else: ?>
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $thumb ); ?></a>
+                        <?php if ( empty( $subject_user_meta['name'] ) ): ?>
+    						<?php the_post_thumbnail( $thumb ); ?>
+                        <?php else: ?>
+                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $thumb ); ?></a>
+                        <?php endif; ?>
 					<?php endif; ?>
 				</div>
 				<div class="post_text-area">
-					<h2 class="title"><a
-							href="<?php the_permalink(); ?>">
-							<img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
-							<?php echo shorten( get_the_title(), '34' ); ?></a></h2>
-
+					<h2 class="title">
+                        <?php if ( empty( lg_post_excerpt() ) ): ?>
+                            <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                            <?php echo shorten( get_the_title(), '34' ); ?>
+                        <?php else: ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                                <?php echo shorten( get_the_title(), '34' ); ?>
+                            </a>
+                        <?php endif; ?>
+                    </h2>
 					<?php echo get_term_atag( get_post_type() ); ?>
 					<?php
 					if ( $subj_types ):
@@ -509,7 +521,15 @@ function article_box() {
 				<?php endif; ?>
 				<div class="article_box__texts">
 					<div class="article_box__title">
-						<h2><?php echo shorten( get_the_title(), '34' ); ?></h2>
+						<h2>
+                            <?php if ( empty( lg_post_excerpt() ) ): ?>
+                                <?php echo shorten( get_the_title(), '34' ); ?>
+                            <?php else: ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php echo shorten( get_the_title(), '34' ); ?>
+                                </a>
+                            <?php endif; ?>
+                        </h2>
 					</div>
 					<div class="article_box__description">
 						<a href="<?php the_permalink(); ?>">
@@ -1072,7 +1092,7 @@ function knows_head_tab( $post = null ) {
 			<li class="<?php if ( is_page( 'lgplayer' ) || in_category( array( 'local_good_player', 'voice' ) ) ) {
 				echo $current;
 			} ?>"><a href="<?php echo home_url( '/lgplayer/' ); ?>"><span>人/団体</span></a></li>
-			<li class="<?php if ( strpos( $path, '/subject/' ) !== false ) {
+			<li class="<?php if ( strpos( $path, '/subject/' ) !== false || is_singular('tweet') ) {
 				echo $current;
 			} ?>"><a href="<?php echo home_url( '/subject/' ); ?>"><span>みんなの声</span></a></li>
 		</ul>
@@ -1214,6 +1234,8 @@ function knows_map_bar() { ?>
                     <a href="<?php echo home_url( '/' . $post->post_name . '/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
                 <?php elseif ( is_post_type_archive( 'data' ) && !empty($has_param) ): ?>
                     <a href="<?php echo home_url( '/data/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
+                <?php elseif ( is_post_type_archive( 'subject' ) && !empty($has_param) ): ?>
+                    <a href="<?php echo home_url( '/subject/' ); ?>" class="knows_map__bar__reset_button">検索条件をリセット</a>
                 <?php endif; ?>
 				<?php if ( isset( $_GET['theme'] ) && is_array( $_GET['theme'] ) ): ?>
 					<div class="select_themes_bar">

@@ -13,9 +13,10 @@
                     if (have_posts()):
                         while (have_posts()): the_post();
                             article_box();
-                        endwhile;
-                    endif;
-                    ?>
+                        endwhile; ?>
+                    <?php else: ?>
+                        <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+                    <?php endif; ?>
                     <div class="pager" style="clear: both">
                         <div class="pager_container">
                             <?php

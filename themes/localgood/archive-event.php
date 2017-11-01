@@ -43,11 +43,11 @@ else:
 			<?php
 
 			if ( 'place' !== $search_mode ) :
-				$event_query = new WP_Query( get_event_args($search_mode, $post_not) );
-				if ( $event_query->have_posts() ) :?>
-					<section class="event c-clearfix">
-						<h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >イベント</h2>
-						<div class="article_box__wrapper">
+				$event_query = new WP_Query( get_event_args($search_mode, $post_not) ); ?>
+                <section class="event c-clearfix">
+                    <h2 class="c-group_title01"><img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >イベント</h2>
+                    <div class="article_box__wrapper">
+        				<?php if ( $event_query->have_posts() ) :?>
 							<?php
 							while ( $event_query->have_posts() ) :
 								$event_query->the_post();
@@ -63,10 +63,12 @@ else:
 									</div>
 								</div>
 							<?php endif; ?>
-						</div>
-					</section>
-					<?php
-				endif;
+                        <?php else: ?>
+                            <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+                        <?php endif;?>
+                    </div>
+                </section>
+				<?php
 			endif;
 			?>
 			<?php if ( $paged <= 1 && 'event' !== $search_mode ) :
