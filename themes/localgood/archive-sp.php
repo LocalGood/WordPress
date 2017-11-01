@@ -26,10 +26,12 @@
             <div class="list_pic_layout">
                 <?php
                 if(have_posts()):
-                while (have_posts()): the_post();
-                    article_box();
-                endwhile;
-                endif;
+                    while (have_posts()): the_post();
+                        article_box();
+                    endwhile;
+                else: ?>
+                    <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+                <?php endif;
                 ?>
             </div>
 

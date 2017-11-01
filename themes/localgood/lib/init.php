@@ -5,13 +5,13 @@ add_action('wp_logout', 'myEndSession');
 add_action('wp_login', 'myEndSession');
 
 function myStartSession() {
-        if(!session_id()) {
-                session_start();
-            }
+    if(!session_id()) {
+        session_start();
+    }
 }
 
 function myEndSession() {
-        session_destroy();
+    session_destroy();
 }
 
 if(isset($_GET['scss'])){

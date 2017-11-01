@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 	<div class="underlayer_wrapper">
 		<?php include( 's-post_nav.php' ); ?>
+        <?php breadcrumbs(); ?>
 		<?php if ( have_posts() ): the_post();
 			global $post, $cfs;
 			$event_type = get_the_terms( $post->ID, 'event_type' );

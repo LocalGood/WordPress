@@ -1,5 +1,6 @@
 <?php
 global $post;
+$path    = $_SERVER['REQUEST_URI'];
 if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_archive() || is_page( 'lgnews' ) ): ?>
 	<ul class="underlayer_link_list">
 		<li <?php if ( is_page( 'lgnews' ) ) : ?>class="active"<?php endif; ?>>
@@ -43,7 +44,7 @@ if ( is_page( 'lgplayer' ) || is_post_type_archive( 'data' ) || is_post_type_arc
 				</div>
 			</a>
 		</li>
-		<li <?php if ( is_post_type_archive( 'tweet' ) ) : ?>class="active"<?php endif; ?>>
+		<li <?php if ( strpos( $path, '/subject/' ) !== false ) : ?>class="active"<?php endif; ?>>
 			<a href="/subject/">
 				<img
 					src="<?php bloginfo( 'template_directory' ); ?>/images/sm/s-data-top-icon04<?php if ( is_post_type_archive( 'tweet' ) ) : ?>-on<?php endif; ?>.png"

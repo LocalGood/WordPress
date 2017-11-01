@@ -1,5 +1,6 @@
 <?php get_header(); ?>
     <div class="underlayer_wrapper <?php if (is_singular( 'tweet' )): ?>tweet-single_wrapper<?php endif; ?>">
+        <?php breadcrumbs(); ?>
         <?php include( 's-post_nav.php' ); ?>
         <?php
         if (have_posts()): the_post();
@@ -7,16 +8,28 @@
             <div class="contents_wrapper<?php if (in_category( 'news' )) : ?> single_news<?php endif; ?>">
                 <div class="inner">
 
-                    <div class="single_contents_box">
-                        <div class="inner">
-                            <?php
-                            if (is_singular( 'tweet' )) {
-                                the_content();
-                            } else {
-                                get_single_post();
-                            }
-                            ?>
+                    <?php if (is_singular( 'tweet' )) { ?>
+                        <div class="underlayer_title_area">
+                            <h2 class="common_underlayer_title-h2">
+                                <img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">
+                                みんなの声
+                            </h2>
+                            <div class="common_underlayer_title-h2__sub_title">
+                                地域について寄せられた声の一覧です。
+                            </div>
                         </div>
+                    <?php } ?>
+
+                    <div class="single_contents_box">
+                        <?php if (is_singular( 'tweet' )) { ?>
+                            <div class="single_contents_box__inner">
+                                <?php the_content(); ?>
+                            </div>
+                        <?php } else { ?>
+                            <div class="inner">
+                            <?php get_single_post(); ?>
+                            </div>
+                        <?php } ?>
                         <div class="side_block gmap">
                             <?php
                             $data_lonlat = get_post_lonlat_attr();

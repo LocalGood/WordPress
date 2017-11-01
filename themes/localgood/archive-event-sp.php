@@ -36,17 +36,15 @@ get_header(); ?>
 			<div id="gmap" style="height:300px;overflow: auto"></div>
 		</div>
 		<div class="list_pic_wrapper">
-			<?php if ( 'place' !== $search_mode ) :
-				$event_query = new WP_Query( get_event_args( $search_mode, $post_not ) );
-				if ( $event_query->have_posts() ) :
-					?>
-					<h3 class="c-group_title01">
-                        <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
-                        イベント
-                    </h3>
-					<div class="list_pic">
-						<div class="list_pic_layout">
-							<?php
+			<?php if ( 'place' !== $search_mode ) : ?>
+                <h3 class="c-group_title01">
+                    <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
+                    イベント
+                </h3>
+                <div class="list_pic">
+                    <div class="list_pic_layout">
+                        <?php $event_query = new WP_Query( get_event_args( $search_mode, $post_not ) );
+                        if ( $event_query->have_posts() ) :
 							while ( $event_query->have_posts() ) : $event_query->the_post();
 								global $post;
 								if ( isset( $_GET['searchFrom'] ) && 'place' === $_GET['searchFrom'] ) {
@@ -65,10 +63,12 @@ get_header(); ?>
 							</div>
 							<?php wp_reset_postdata(); ?>
 							<div style="clear: both"></div>
-						</div>
-					</div><!--.list_pic-->
-					<?php
-				endif;
+                        <?php else: ?>
+                            <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+                        <?php endif; ?>
+                    </div>
+                </div><!--.list_pic-->
+                <?php
 			endif; ?>
 
 			<?php if ( 'event' !== $search_mode ) : ?>
@@ -85,14 +85,15 @@ get_header(); ?>
 							while ( $place_query->have_posts() ) : $place_query->the_post();
 								global $post;
 								place_box();
-							endwhile;
-						endif;
-						?>
+							endwhile; ?>
+                        <?php else: ?>
+                            <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+						<?php endif; ?>
 						<?php wp_reset_postdata(); ?>
 						<div style="clear: both"></div>
 					</div>
 				</div><!--.list_pic-->
-			<?php endif; ?>
+            <?php endif; ?>
 			<?php if ( $feature_posts && ! $search_mode ) : ?>
 				<div class="list_pic">
 					<div class="list_pic_layout">

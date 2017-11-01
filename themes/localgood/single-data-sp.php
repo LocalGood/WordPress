@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <div class="underlayer_wrapper single_data">
+<?php breadcrumbs(); ?>
 <?php include('s-post_nav.php');?>
 
 <?php
@@ -34,16 +35,11 @@ if (have_posts()): the_post();
             ?>
             <div class="single_contents_box">
                 <div class="inner">
-                    <?php the_content();?>
+                    <?php get_single_post(); ?>
                 </div>
             </div><!-- .single_contents_box -->
 
         </div><!-- .inner -->
-
-        <div class="common_single_parts_info">
-            <h2 class="common_single_parts_info__title">ライター紹介</h2>
-            <?php writer_prof(); ?>
-        </div>
 
         <a href="/data/" class="return_news_list">
             データ一覧へ戻る

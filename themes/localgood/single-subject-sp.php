@@ -4,6 +4,7 @@
 if (have_posts()): the_post();
     ?>
     <div class="contents_wrapper underlayer_wrapper tweet-single_wrapper">
+        <?php breadcrumbs(); ?>
         <div class="inner">
 
             <div class="underlayer_title_area">

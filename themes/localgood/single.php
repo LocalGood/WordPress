@@ -16,10 +16,14 @@ else:
         $cat                       = get_the_category();
         $page_value['title']       = $cat[0]->name;
         $page_value['description'] = $cat[0]->description;
-        ?>
-        <div class="c-page_title_wrapper">
-            <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?php echo $page_value['title']; ?></h2>
-        </div>
+
+        if ( is_singular( 'tweet' ) ): ?>
+            <?php knows_head_tab(); ?>
+        <?php else: ?>
+            <div class="c-page_title_wrapper">
+                <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>"><?php echo $page_value['title']; ?></h2>
+            </div>
+        <?php endif; ?>
 
         <div class="single_contents_box">
 
@@ -41,8 +45,11 @@ else:
         </div><!-- .single_contents_box -->
 
         <?php writer_prof(); ?>
-
-        <a class="c-back_button" href="<?php echo home_url('/lgnews/'); ?>">ニュース一覧へ戻る</a>
+        <?php if ( is_singular( array( 'subject', 'tweet' ) ) ): ?>
+            <a class="c-back_button" href="<?php echo home_url('/subject/'); ?>">みんなの声へ戻る</a>
+        <?php else: ?>
+            <a class="c-back_button" href="<?php echo home_url('/lgnews/'); ?>">ニュース一覧へ戻る</a>
+        <?php endif; ?>
         <?php related_posts(); ?>
     <?php endif; ?>
 

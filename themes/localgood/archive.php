@@ -57,7 +57,9 @@ else:
                 while (have_posts()): the_post();
                     article_box();
                 endwhile;
-            endif;
+            else: ?>
+                <p class="articles__no_post">検索条件に合致する投稿がありませんでした。</p>
+            <?php endif;
             ?>
         </div>
         <div class="subject_post_box">
