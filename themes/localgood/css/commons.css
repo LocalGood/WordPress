@@ -488,7 +488,8 @@ img {
     .knows_map__bar .knows_map__refine form {
       margin-bottom: 10px; }
     .knows_map__bar .knows_map__refine .knows_map__refine__parts {
-      display: inline-block; }
+      display: inline-block;
+      max-width: 96px; }
     .knows_map__bar .knows_map__refine .knows_map__refine__parts:first-child {
       margin-right: 5px; }
       .knows_map__bar .knows_map__refine .knows_map__refine__parts:first-child label {
