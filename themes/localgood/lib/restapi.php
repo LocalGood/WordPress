@@ -97,7 +97,7 @@ function get_subjects( WP_REST_Request $request ) {
 					if ( ! empty( $_meta['sbLatLng'] ) && ( strpos( $_meta['sbLatLng'][0], ',' ) > 0 ) ) {
 						$_latlng = explode( ',', $_meta['sbLatLng'][0] );
 					}
-					$_content = wpautop( $subjects->post->post_excerpt );
+					$_content = wpautop( $subjects->post->post_content );
 					$_thumb   = get_the_post_thumbnail( $subjects->post->ID, 'archive-thumbnails' );
 					$_id      = $subjects->post->post_type;
 					break;
