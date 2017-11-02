@@ -39,7 +39,7 @@
     <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
 <?php else: ?>
     <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
+	<meta property="og:image" content="<?php echo get_option('lg_config__main_logo'); ?>" />
 <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
     <meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>" />

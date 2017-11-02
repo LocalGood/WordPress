@@ -136,6 +136,10 @@ function _lgc_regenerate_apikeys_json() {
 		$result['images']['header_logo_2'] = get_option( 'lg_config__header_logo_2' );
 	}
 
+	if ( ! empty( get_option( 'lg_config__main_logo' ) ) ) {
+		$result['images']['main_logo'] = get_option( 'lg_config__main_logo' );
+	}
+
 	if ( ! empty( get_option( 'lg_config__favicon' ) ) ) {
 		$result['images']['favicon'] = get_option( 'lg_config__favicon' );
 	}
