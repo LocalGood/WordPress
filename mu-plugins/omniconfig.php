@@ -92,7 +92,6 @@ function omniconfig_admin_init() {
 			'regenerate_footer_html'  => 'lgc_regenerate_footer_html',
 			'regenerate_apikeys_json' => 'lgc_regenerate_apikeys_json',
 			'regenerate_palette_scss' => 'lgc_regenerate_palette_scss',
-			'check_default_pages'     => 'lgc_check_default_pages',
 			'remove_default_page'     => 'lgc_remove_default_page',
 			'add_default_page'        => 'lgc_add_default_page',
 		),

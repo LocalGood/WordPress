@@ -143,15 +143,3 @@ add_action( 'wp_ajax_lgc_add_default_page', function () use ( $default_pages ) {
 
 	wp_die();
 } );
-
-/**
- * 固定ページの状態チェック
- */
-add_action( 'wp_ajax_lgc_check_default_pages', function () use ( $default_pages ) {
-
-
-
-
-	wp_die();
-} );
-
