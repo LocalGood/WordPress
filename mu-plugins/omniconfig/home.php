@@ -64,6 +64,7 @@ if ( 'update' === $postdata['mode'] ) {
 			<li><a href="#banner">バナー設定</a></li>
 			<li><a href="#color">カラー設定</a></li>
 			<li><a href="#apisetting">その他の設定</a></li>
+			<li><a href="#defaultcontents">初期ページ管理</a></li>
 			<li><a href="#fileExport">エクスポート</a></li>
 		</ul>
 
@@ -100,6 +101,11 @@ if ( 'update' === $postdata['mode'] ) {
 			<h3>その他</h3>
 			<?php render_definition_editor( 'other' ); ?>
 
+		</section>
+
+		<section id="defaultcontents" class="config_section">
+			<h2>初期ページ管理</h2>
+			<?php render_iip_editor(); ?>
 		</section>
 
 		<section id="fileExport" class="config_section">
