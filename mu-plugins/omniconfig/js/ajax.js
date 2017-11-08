@@ -170,7 +170,7 @@ jQuery(document).ready(function ($) {
           alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
         }
       })
-      .fail(function(xhr, textStatus, errorThrown) {
+      .fail(function (xhr, textStatus, errorThrown) {
         alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
       })
       .always(function () {
@@ -203,7 +203,7 @@ jQuery(document).ready(function ($) {
           alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
         }
       })
-      .fail(function(xhr, textStatus, errorThrown) {
+      .fail(function (xhr, textStatus, errorThrown) {
         alert('エラーが発生しました。(code : ' + xhr.status + ' -> ' + textStatus + ')');
       })
       .always(function () {
@@ -214,5 +214,61 @@ jQuery(document).ready(function ($) {
 
   });
 
+
+  $('.remove_default_page').click(function (e) {
+    e.preventDefault();
+
+    var postData = {
+      'action': LGJSCONFIG.action.remove_default_page,
+      'target': $(this).data('target')
+    };
+
+    if (confirm('実行してもよろしいですか？')) {
+      $.ajax({
+        type: 'POST',
+        url: LGJSCONFIG.endpoint.wp_ajax,
+        data: postData,
+        beforeSend: function () {
+          $('#omniconfigMsgBox').fadeIn(500);
+        }
+      })
+        .done(function (res) {
+          alert(res);
+        })
+        .always(function () {
+          setTimeout(function () {
+            $('#omniconfigMsgBox').fadeOut(500);
+          }, 500);
+        });
+    }
+  });
+
+  $('.add_default_page').click(function (e) {
+    e.preventDefault();
+
+    var postData = {
+      'action': LGJSCONFIG.action.add_default_page,
+      'template': $(this).data('template')
+    };
+
+    if (confirm('実行してもよろしいですか？')) {
+      $.ajax({
+        type: 'POST',
+        url: LGJSCONFIG.endpoint.wp_ajax,
+        data: postData,
+        beforeSend: function () {
+          $('#omniconfigMsgBox').fadeIn(500);
+        }
+      })
+        .done(function (res) {
+          alert(res);
+        })
+        .always(function () {
+          setTimeout(function () {
+            $('#omniconfigMsgBox').fadeOut(500);
+          }, 500);
+        });
+    }
+  });
 
 });

@@ -125,3 +125,44 @@ dd {
 .rcmnd_img_size {
 
 }
+
+
+
+
+.default_page_manager th {
+   padding: 5px;
+   vertical-align: top;
+   border-bottom: 1px solid #999;
+}
+
+.default_page_manager .slug {
+   display: block;
+   text-align: center;
+   font-size: 12px;
+}
+
+.default_page_manager td {
+   padding: 5px;
+}
+
+.default_page_manager td .slug {
+   text-align: left;
+}
+
+.default_page_manager .status .exist {
+   color: #7d7d7d;
+}
+.default_page_manager .status .not_exist {
+   color: #ff666d;
+}
+
+.default_page_manager .title .no_title {
+   color: #7d7d7d;
+}
+
+.default_page_manager .func {
+   text-align: right;
+}
+
+.default_page_manager {
+}
