@@ -28,15 +28,16 @@ elseif(DEVICE == 'pc'):
     if(is_single()):
         setup_postdata($post);
         $eyecatch = wp_get_attachment_image_src( get_post_thumbnail_id(), 'single-thumbnail' );
-        if($eyecatch): ?>
+        if($eyecatch):
+			?>
             <meta property="og:image" content="<?php echo $eyecatch[0]; ?>"/>
-        <?php else: ?>
+        <?php  else: ?>
             <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
         <?php endif; ?>
         <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
     <?php else: ?>
         <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
-        <meta property="og:image" content="<?php echo get_option('lg_config__main_logo'); ?>" />
+        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
     <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
     <meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>" />
@@ -80,21 +81,19 @@ elseif(DEVICE == 'pc'):
     remove_action('wp_head', 'rel_canonical');
     wp_head();
 
-	$google_analytics_id = getenv('LG_GOOGLE_ANALYTICS_WP');
-    if(!strpos($_SERVER['SERVER_NAME'], 'il3c') && $google_analytics_id):
-echo <<<EOD
+    if(!strpos($_SERVER['SERVER_NAME'], 'il3c')):
+        ?>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', '{$google_analytics_id}', 'localgood.jp');
+            ga('create', '<?php echo esc_attr( get_option( 'lg_config__analyticsId', false ) ); ?>', 'localgood.jp');
             ga('send', 'pageview');
+
         </script>
-EOD;
-	endif;
-	?>
+    <?php endif; ?>
 
 </head>
 <body <?php lg_body_class(); ?>>
