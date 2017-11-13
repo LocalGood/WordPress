@@ -29,17 +29,8 @@ elseif(DEVICE == 'pc'):
         setup_postdata($post);
         $eyecatch = wp_get_attachment_image_src( get_post_thumbnail_id(), 'single-thumbnail' );
         if($eyecatch):
-            $_imgurl = '';
-
-            $_fn_array = explode('/',$eyecatch[0]);
-            $_fn_array[ count($_fn_array) - 1 ] = urlencode($_fn_array[ count($_fn_array) - 1 ]);
-            for ($i = 0 ; $i < count($_fn_array); $i++ ){
-                $_imgurl .= $_fn_array[$i];
-                if ($i != ( count($_fn_array) - 1))
-                    $_imgurl .= '/';
-            };
-            ?>
-            <meta property="og:image" content="<?php echo $_imgurl ?>"/>
+			?>
+            <meta property="og:image" content="<?php echo $eyecatch[0]; ?>"/>
         <?php  else: ?>
             <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
         <?php endif; ?>
