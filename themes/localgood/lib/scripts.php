@@ -4,10 +4,10 @@ function addScripts() {
 	if ( ! is_admin() ) {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'jquery.bxslider.js', get_template_directory_uri() . '/js/jquery.bxslider.js' );
-		wp_enqueue_style( 'normarize.css', get_template_directory_uri() . '/css/normarize.css' );
+		wp_enqueue_style( 'normarize.css', get_template_directory_uri() . '/lib_css/normarize.css' );
 		wp_enqueue_style( 'commons.css', get_template_directory_uri() . '/css/commons.css' );
 		wp_enqueue_style( 'styles.css', get_template_directory_uri() . '/css/styles.css' );
-		wp_enqueue_style( 'bxslider.css', get_template_directory_uri() . '/css/jquery.bxslider.css',
+		wp_enqueue_style( 'bxslider.css', get_template_directory_uri() . '/lib_css/jquery.bxslider.css',
 			array( 'normarize.css' ) );
 		wp_enqueue_script( 'GoogleMap.js', '//maps.googleapis.com/maps/api/js?key=' . get_option( 'lg_config__apikey_googlemap' ) );
 		wp_enqueue_script( 'common.js', get_template_directory_uri() . '/js/common.js' );
