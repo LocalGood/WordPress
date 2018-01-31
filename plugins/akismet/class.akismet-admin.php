@@ -696,7 +696,7 @@ class Akismet_Admin {
 		$debug[ 'WORDPRESS_VERSION' ]   = $GLOBALS['wp_version'];
 		$debug[ 'AKISMET_VERSION' ]     = AKISMET_VERSION;
 		$debug[ 'AKISMET__PLUGIN_DIR' ] = AKISMET__PLUGIN_DIR;
-		$debug[ 'LG_BASE_URL_GT' ]            = site_url();
+		$debug[ 'SITE_URL' ]            = site_url();
 		$debug[ 'HOME_URL' ]            = home_url();
 		
 		$servers = get_option('akismet_available_servers');

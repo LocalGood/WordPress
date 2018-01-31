@@ -84,16 +84,14 @@ function omniconfig_admin_init() {
 		'endpoint' => array(
 			'wp_ajax'    => admin_url( 'admin-ajax.php' ),
 			'wp_home'    => home_url(),
-			'goteo_home' => LG_BASE_URL_GT,
+			'goteo_home' => LG_GOTEO_BASE_URL,
 		),
-		'action' => array(
+		'action'   => array(
 			'add_new_bannerset'       => 'lgc_add_new_bannerset',
 			'remove_config_post'      => 'lgc_remove_configpost',
 			'regenerate_footer_html'  => 'lgc_regenerate_footer_html',
 			'regenerate_apikeys_json' => 'lgc_regenerate_apikeys_json',
 			'regenerate_palette_scss' => 'lgc_regenerate_palette_scss',
-			'remove_default_page'     => 'lgc_remove_default_page',
-			'add_default_page'        => 'lgc_add_default_page',
 		),
 	) );
 
@@ -114,4 +112,5 @@ require_once( 'omniconfig/editors/key-editor.php' );
 require_once( 'omniconfig/editors/map-coordinate.php' );
 require_once( 'omniconfig/editors/exporter.php' );
 require_once( 'omniconfig/editors/definition-editor.php' );
-require_once( 'omniconfig/editors/iip-editor.php' );
+
+require_once( 'omniconfig/editors/subject-editor.php' );

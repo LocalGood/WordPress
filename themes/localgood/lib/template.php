@@ -463,16 +463,23 @@ function article_box() {
 				</div>
 				<div class="post_text-area">
 					<h2 class="title">
-                        <?php if ( empty( lg_post_excerpt() ) ): ?>
-                            <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
-                            <?php echo shorten( get_the_title(), '34' ); ?>
-                        <?php else: ?>
                             <a href="<?php the_permalink(); ?>">
-                                <img src="<?php echo get_option( 'lg_config__group_ttl_prefix' ); ?>" >
-                                <?php echo shorten( get_the_title(), '34' ); ?>
+	                            <?php echo shorten( lg_post_excerpt(), '46' ); ?>
                             </a>
-                        <?php endif; ?>
                     </h2>
+					<?php if($is_subject || $is_tweet): ?>
+					<div class="article_box__category">
+						<?php
+						$themes = wp_get_post_terms($post->ID, 'project_theme');
+						if (0 < count($themes)) : ?>
+							<ul class="category_list">
+								<?php foreach ($themes as $pj_theme) : ?>
+									<li class="category_list--item"><?php echo $pj_theme->name;?></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
 					<?php echo get_term_atag( get_post_type() ); ?>
 					<?php
 					if ( $subj_types ):
@@ -492,7 +499,7 @@ function article_box() {
 							<div class="post_info">
 								<p class="username">
 									<?php if ( empty( $subject_user_meta['name'] ) ): ?>
-										匿名
+										地域の仲間
 									<?php else: ?>
 										<a href="<?php echo $subject_user_meta['link']; ?>"
 										   target="_blank"><?php echo $subject_user_meta['name']; ?></a>
@@ -522,20 +529,24 @@ function article_box() {
 				<div class="article_box__texts">
 					<div class="article_box__title">
 						<h2>
-                            <?php if ( empty( lg_post_excerpt() ) ): ?>
-                                <?php echo shorten( get_the_title(), '34' ); ?>
-                            <?php else: ?>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php echo shorten( get_the_title(), '34' ); ?>
-                                </a>
-                            <?php endif; ?>
+							<a href="<?php the_permalink(); ?>">
+								<p class=""><?php echo shorten(lg_post_excerpt(), '46'); ?></p>
+							</a>
                         </h2>
 					</div>
-					<div class="article_box__description">
-						<a href="<?php the_permalink(); ?>">
-							<p class="article_box__excerpt"><?php echo lg_post_excerpt(); ?></p>
-						</a>
+					<?php if($is_subject || $is_tweet): ?>
+					<div class="article_box__category">
+						<?php
+							$themes = wp_get_post_terms($post->ID, 'project_theme');
+							if (0 < count($themes)) : ?>
+						<ul class="category_list">
+							<?php foreach ($themes as $pj_theme) : ?>
+								<li class="category_list--item"><?php echo $pj_theme->name;?></li>
+							<?php endforeach; ?>
+						</ul>
+						<?php endif; ?>
 					</div>
+					<?php endif; ?>
 					<div class="article_box__area">
 						<?php
 						echo get_term_atag( $post->post_type ); ?>
@@ -554,7 +565,7 @@ function article_box() {
 							<div class="c-post_info">
 								<p class="c-username">
 									<?php if ( empty( $subject_user_meta['name'] ) ): ?>
-										匿名
+										地域の仲間
 									<?php else: ?>
 										<a href="<?php echo $subject_user_meta['link']; ?>"
 										   target="_blank"><?php echo $subject_user_meta['name']; ?></a>
@@ -701,10 +712,10 @@ function place_box( $post = null ) {
 		global $post;
 	}
 	$place_subtitle = ( "" !== ( get_post_meta( $post->ID, 'place_sub_title', true ) ) ) ? get_post_meta( $post->ID, 'place_sub_title', true ) : false;
-
+	$acf_place_data = get_field( 'place_geo' );
 	$place_latlng = array(
-		'latitude'  => get_post_meta( $post->ID, 'place_latitude', true ),
-		'longitude' => get_post_meta( $post->ID, 'place_longitude', true ),
+		'latitude'  => (isset($acf_place_data['lat'])) ? $acf_place_data['lat'] : get_post_meta( $post->ID, 'place_latitude', true ),
+		'longitude' => (isset($acf_place_data['lng'])) ? $acf_place_data['lng'] :get_post_meta( $post->ID, 'place_longitude', true ),
 	);
 	if ( ! empty( $place_latlng['latitude'] ) && ! empty( $place_latlng['longitude'] ) ) {
 		$location = "data-lat=\"{$place_latlng['latitude']}\" data-long=\"{$place_latlng['longitude']}\"";
@@ -1103,9 +1114,16 @@ function knows_head_tab( $post = null ) {
 function knows_map_bar() { ?>
 
 	<div class="knows_map__bar c-clearfix">
+		<?php if(is_post_type_archive( array( 'subject', 'tweet', 'event' ))) : ?>
 		<div class="knows_map__toggle_button close">
 			<span>地図を閉じる</span>
 		</div>
+		<?php else : ?>
+		<div class="knows_map__toggle_button">
+			<span>地図を開く</span>
+		</div>
+		<?php endif; ?>
+
 		<?php
 		global $post;
 		if ( "sp" === DEVICE && 'event' === $post->post_type ) : ?>
@@ -1177,9 +1195,32 @@ function knows_map_bar() { ?>
 									$search_theme = $_GET['theme'];
 								}
 								$tree_themes = get_tree_themes();
-								foreach ( $tree_themes as $t ):
 
-									?>
+								echo '<div class="pickup_category">';
+								foreach ($tree_themes['pickup'] as $t): ?>
+									<section class="select_theme">
+											<ul class="select_theme__list clearfix">
+													<li>
+														<input type="checkbox" name="theme[]"
+															   value="<?php echo $t->slug; ?>" <?php if ( $search_theme && in_array( $t->slug,
+																$search_theme )
+														) {
+															echo 'checked="checked"';
+														} ?> />
+														<button <?php if ( $search_theme && in_array( $t->slug,
+																$search_theme )
+														) {
+															echo 'class="select"';
+														} ?> ><?php echo $t->name; ?></button>
+													</li>
+											</ul>
+									</section>
+
+								<?php
+								endforeach;
+								echo '</div>';
+
+								foreach ( $tree_themes as $t ): ?>
 									<section class="select_theme">
 										<h3 class="select_theme__title"><input type="checkbox" name="theme[]"
 												<?php if ( $search_theme && in_array( $t['parent']->slug,
@@ -1537,7 +1578,7 @@ function generate_share_message( $echo = true ) {
 	if ( is_singular() && ( $is_tweet || $is_subject ) ? true : false ) {
 		$cf                = get_post_custom( $post->ID );
 		$subject_user_meta = get_subject_user_meta( $is_tweet, $cf );
-		$author_name       = ( empty( $subject_user_meta['name'] ) ) ? '匿名' : $subject_user_meta['name'];
+		$author_name       = ( empty( $subject_user_meta['name'] ) ) ? '地域の仲間' : $subject_user_meta['name'];
 		$wp_title          = $author_name . ' - ' . $subject_user_meta['postdate'] . ' - ';
 	} else {
 		$wp_title = wp_title( '-', false, 'right' );

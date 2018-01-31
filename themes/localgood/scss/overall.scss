@@ -235,6 +235,21 @@
   padding: 30px 0;
   text-align: center;
   @include white_box();
+  .about_delete{
+    font-size: 13px;
+    width: 500px;
+    margin: 40px auto 0 auto;
+    color: #666;
+    padding: .5em;
+    border: 1px solid #ccc;
+    p{
+      margin: 0 15px 10px 15px;
+      text-align: center;
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
 }
 
 .subject_post_box__title {
@@ -253,9 +268,9 @@
 
 .subject_post_box__submit_button {
   display: block;
-  width: 152px;
+  width: 274px;
   height: 55px;
-  margin: 0 auto;
+  margin: 30px auto 0;
   color: #fff;
   font-size: 18px;
   line-height: 55px;
@@ -384,6 +399,9 @@ body.page.authors {
   body.submit_subject
 --------------------------------------------------*/
 body.submit_subject {
+  .required{
+    color: red;
+  }
 
   .template_panel__wrapper {
     display: none;
@@ -486,6 +504,37 @@ body.submit_subject {
     }
   }
 
+  .submit_subject__address_search{
+    margin: 0 0 20px 0;
+    input{
+      width: 80%;
+      height: 39px;
+      padding: 0 10px;
+      margin: 0 20px 0 0;
+      line-height: 39px;
+      border: solid 1px #d9d9d9;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      outline: none;
+    }
+    button{
+      width: calc(20% - 50px);
+      height: 39px;
+      padding: 0;
+      line-height: 39px;
+      cursor: pointer;
+      border: solid 1px #d9d9d9;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      background: none;
+    }
+  }
+
   .submit_subject__caution {
     margin: 0 0 30px;
     padding-left: 20px;
@@ -499,6 +548,10 @@ body.submit_subject {
     padding: 70px 84px;
     background-color: #fff;
     box-shadow: 0 2px 4px 0 $grayCol01;
+  }
+
+  .submit_subject__required_desc{
+    margin: 0 0 30px 0;
   }
 
   .form_block {
@@ -640,6 +693,10 @@ body.search-results {
   //display: none;
   height: 400px;
   margin-bottom: 20px;
+
+  &.default-close {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------

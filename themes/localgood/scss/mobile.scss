@@ -112,7 +112,7 @@ a{
   .nav_logo{
     float: left;
     img{
-      width: 35%;
+      width: 80%;
     }
   }
 
@@ -603,16 +603,74 @@ dl, dd, ul{
     background-size: cover;
 
     &__updates{
-      width: 256px;
-      color: $grayCol03;
-      font-size: 10px;
-      padding: 10px;
-      margin: 20px auto;
-      text-align: left;
-      background: #FFF;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+      width: 90%;
+      margin: 50px auto 10px;
+      .item{
+        width: 100%;
+        color: #222;
+        font-size: 0;
+        padding: 20px 19px;
+        margin: 0 0 19px 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: rgba(255,255,255,0.9);
+        .image{
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          margin: 0 10px 0 0;
+          text-align: center;
+          vertical-align: top;
+          overflow: hidden;
+          img{
+            width: auto;
+            height: 100%;
+            margin: 0;
+          }
+        }
+        .text{
+          display: inline-block;
+          width: calc(100% - 60px - 10px);
+          font-size: 1rem;
+          text-align: left;
+          .date{
+            color: #828282;
+          }
+          .category{
+            padding: 0 0 0 20px;
+            &.voice{
+              background: url('../images/icon_voice_g.png') no-repeat left/auto 70%;
+            }
+            &.event{
+              background: url('../images/icon_event_g.png') no-repeat left/auto 70%;
+            }
+            &.data{
+              background: url('../images/icon_data_g.png') no-repeat left/auto 70%;
+            }
+            &.organization{
+              background: url('../images/icon_organization_g.png') no-repeat left/auto 70%;
+            }
+            &.news{
+              background: url('../images/icon_news_g.png') no-repeat left/auto 70%;
+            }
+          }
+          .title{
+            font-size: 14px;
+            margin: 0;
+            a{
+              color: #222;
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      &__link{
+        color: #FFF;
+        font-size: 30px;
+      }
+
       h3{
         font-size: 13px;
         font-weight: bold;
@@ -623,19 +681,19 @@ dl, dd, ul{
       }
     }
 
-    img{
-      width: 80% !important;
-      margin-top: 30vh;
+    & > img{
+      width: 90%;
+      margin-top: 10vh;
     }
 
     a{
-      bottom: 5vh;
+      bottom: 3.5vh;
       left: 0;
       display: block;
       width: 100%;
       text-align: center;
-      img{
-        width: 30% !important;
+      & > img{
+        width: 15%;
       }
     }
 
@@ -1852,11 +1910,19 @@ dl, dd, ul{
 }
 
 .submit_subjects_link{
-  margin-bottom: 15px;
+  margin: 0;
   padding: 19px 0 20px;
   text-align: center;
-  box-shadow: 0 1px 0 0 $grayCol01;
+  box-shadow: none;
   background: #FFF;
+  .month_title{
+    padding: 0 10px;
+    .title{
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
   h3{
     color: $grayCol03;
     font-size: 14px;
@@ -1872,16 +1938,34 @@ dl, dd, ul{
 
   a{
     display: block;
-    width: 138px;
+    width: 200px;
     color: #FFF;
     font-size: 12px;
     padding: 9px 0 11px;
-    margin: 14px auto 0;
+    margin: 14px auto 20px;
     text-align: center;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     background: $subCol02;
+  }
+
+  .about_delete{
+    margin: 5vw;
+    padding: .5em;
+    color: #666;
+    border: 1px solid #ccc;
+
+    p{
+      margin: 0;
+      text-align: center;
+    }
+    & > a{
+      color: #222;
+      margin: 0 auto;
+      text-decoration: underline;
+      background: none;
+    }
   }
 }
 
@@ -1933,6 +2017,14 @@ dl, dd, ul{
 
 /* 内容入力 */
 .submit_subject{
+  .required{
+    color: red;
+  }
+
+  .list_pic__required_desc{
+    margin: 0 0 30px 0;
+  }
+
   .form_block{
     button.submit{
       width: 48%;
@@ -2034,9 +2126,40 @@ dl, dd, ul{
       background: #FFF !important;
     }
 
+    .submit_subject__address_search{
+      margin: 0 0 20px 0;
+      input{
+        width: 70%;
+        height: 39px;
+        padding: 0 10px;
+        margin: 0 10px 0 0;
+        line-height: 39px;
+        border: solid 1px #d9d9d9;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        outline: none;
+      }
+      button{
+        width: calc(30% - 40px);
+        height: 39px;
+        padding: 0;
+        line-height: 39px;
+        cursor: pointer;
+        border: solid 1px #d9d9d9;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background: none;
+      }
+    }
+
     #subject_content{
       width: 98%;
-      min-height: 253px;
+      min-height: 120px;
       border: solid 1px $grayCol01;
       background-color: $baseCol;
     }
@@ -2364,6 +2487,10 @@ dl, dd, ul{
   //display: none;
   height: 300px;
   margin-bottom: 20px;
+
+  &.default-close {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------

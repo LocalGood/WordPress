@@ -65,6 +65,34 @@ $(function () {
             marker.setPosition(_latlng);
           }
         });
+
+        $('#address_search_exec').on('click', function(e) {
+          e.preventDefault();
+          var usr_input_address = $('#address_search_input').val();
+          if (usr_input_address !== '') {
+            if (marker !== null) {
+              marker.setMap(null);
+            }
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+              'address': usr_input_address
+            }, function ( results, status ) {
+              if ( status == 'OK' ) {
+                map.setCenter(results[0].geometry.location);
+                marker = setMarker(map, parseFloat(results[0].geometry.location.lat), parseFloat(results[0].geometry.location.lng), true);
+                marker.setPosition(results[0].geometry.location);
+                setLatlngtoInput(results[0].geometry.location, 'input#loc_position_lat', 'input#loc_position_lng');
+              }
+            })
+          }
+        });
+
+        $('#map_pin_clear').on('click', function(e){
+          e.preventDefault();
+          marker.setMap(null);
+          marker = null;
+          $('input#loc_position_lat, input#loc_position_lng').removeAttr('value');
+        })
       })
 
 
@@ -139,5 +167,5 @@ $(function () {
         e.preventDefault();
         $('#subject_content').text($(this).text());
         $('#template_panel__wrapper').removeClass('view');
-    })
+    });
 });

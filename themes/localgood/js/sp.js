@@ -3,7 +3,7 @@ $(function () {
     var mainHeight = $('.key_visual').height();
     $('.main_nav').css({"display":"none"});
     $(window).scroll(function(){
-        var windowHeight = $('body').scrollTop();
+        var windowHeight = $(window).scrollTop();
         if(windowHeight > mainHeight){
             $('.main_nav').slideDown('slow').css({"position":"fixed","top":"0","left":"0","z-index":"99999"});
         }else{

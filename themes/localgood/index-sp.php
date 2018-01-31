@@ -5,15 +5,117 @@
 		 style="background-image:url(<?php echo esc_attr( get_option( 'lg_config__home_wallpaper' ) ); ?>);">
 		<?php if ( get_option( 'lg_config__main_logo', false ) ) : ?>
 			<img src="<?php echo get_option( 'lg_config__main_logo' ); ?>"
-			     alt="<?php bloginfo( 'name' ); ?>">
+			     alt="<?php bloginfo( 'name' ); ?>"
+				 class="key_visual__img">
 		<?php else : ?><?php bloginfo( 'name' ); ?>
 		<?php endif; ?>
-		<?php if (get_option('home_updates',false)): ?>
-			<div class="key_visual__updates">
-				<h3>更新情報</h3>
-				<?php echo wpautop( get_option( 'home_updates' ) ); ?>
-			</div>
-		<?php endif; ?>
+
+		<div class="key_visual__updates">
+			<?php
+			$home_latest_contents = explode( ',', get_option( 'lg_config__top_page_contents' ) );
+
+			$latest_posts = array_merge(
+				get_posts( array(
+					'post_type'      => 'post',
+					'posts_per_page' => 3,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+					'category_name'  => 'news,localgood_player,voice',
+				) ),
+				get_posts( array(
+					'post_type'      => array( 'event', 'data','subject','tweet' ),
+					'posts_per_page' => 3,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+				) )
+			);
+
+			usort( $latest_posts, function ( $a, $b ) {
+				return strtotime( $a->post_date ) > strtotime( $b->post_date ) ? - 1 : 1;
+			} );
+
+			for ( $i = 0; $i < 3; $i ++ ) :
+				$post_title = ( 'tweet' === $latest_posts[ $i ]->post_type || 'subject' === $latest_posts[ $i ]->post_type ) ?
+					shorten( $latest_posts[ $i ]->post_content, 30 ) :
+					shorten( $latest_posts[ $i ]->post_title, 30 );
+
+				$post_date = date( 'Y.m.d', strtotime( $latest_posts[ $i ]->post_date ) );
+				$post_url  = get_permalink( $latest_posts[ $i ]->ID );
+				$thumbnail = ( has_post_thumbnail( $latest_posts[ $i ]->ID ) ) ?
+					wp_get_attachment_image_src( get_post_thumbnail_id( $latest_posts[ $i ]->ID ), 'thumbnail', false )[0] :
+					get_stylesheet_directory_uri() . '/images/lg-noimage-sp.jpg';
+
+				if ( 'post' === $latest_posts[ $i ]->post_type ) {
+					$cats = wp_get_post_categories( $latest_posts[ $i ]->ID );
+					switch ( $cats[0]->slug ) {
+						case 'news':
+							$cat_cfg = array(
+								'icon' => 'news',
+								'label' => 'ニュース',
+							);
+							break;
+						case 'local_good_player' || 'voice':
+							$cat_cfg = array(
+								'icon' => 'organization',
+								'label' => '人/団体',
+							);
+							break;
+						default:
+							$cat_cfg = array(
+								'icon' => '',
+								'label' => '',
+							);
+							break;
+					}
+				} else {
+					switch ( $latest_posts[ $i ]->post_type ) {
+						case 'event':
+							$cat_cfg = array(
+								'icon' => 'event',
+								'label' => 'みんなの拠点/イベント',
+							);
+							break;
+						case 'data':
+							$cat_cfg = array(
+								'icon' => 'data',
+								'label' => 'データ',
+							);
+							break;
+						case 'tweet' || 'subject':
+							$cat_cfg = array(
+								'icon' => 'voice',
+								'label' => 'みんなの声',
+							);
+							break;
+						default:
+							$cat_cfg = array(
+								'icon' => '',
+								'label' => '',
+							);
+							break;
+					}
+				} // End if().
+				?>
+				<div class="item">
+					<div class="image">
+						<a href="<?php echo $post_url;?>">
+							<img src="<?php echo esc_attr( $thumbnail ); ?>" alt="<?php echo esc_attr( $post_title ); ?>">
+						</a>
+					</div>
+					<div class="text">
+						<div class="c-clearfix">
+							<span class="date"><?php echo $post_date; ?></span>
+							<span class="category <?php echo esc_attr( $cat_cfg['icon'] ); ?>"><?php echo $cat_cfg['label']; ?></span>
+						</div>
+						<h2 class="title">
+							<a href="<?php echo $post_url;?>">
+								<?php echo $post_title; ?>
+							</a>
+						</h2>
+					</div>
+				</div>
+			<?php endfor; ?>
+		</div>
 
 		<div class="nav_menu-button pa">
 			<span></span>

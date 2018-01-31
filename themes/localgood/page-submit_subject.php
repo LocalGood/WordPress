@@ -40,6 +40,11 @@ else:
             </ul><!-- /.submit_subject_navi -->
 
             <section class="submit_subject__form_area">
+				<div class="submit_subject__required_desc">
+					<span class="required">※</span>
+					このマークの付いた項目は必須項目です。
+				</div>
+
 
                 <?php
                 if ($status == 'input') :
@@ -53,7 +58,7 @@ else:
                     ?>
                     <section class="form_block">
 
-                        <h2 class="form_block__title">テーマを選択</h2>
+                        <h2 class="form_block__title">テーマを選択<span class="required">※</span></h2>
                         <p class="form_block__title_sup">
                             一覧から選択してください。
                         </p>
@@ -61,6 +66,30 @@ else:
                         <div class="select_theme__wrapper stw_01">
                             <?php
                             $tree_themes = get_tree_themes();
+                            echo '<div class="pickup_category">';
+                            foreach ($tree_themes['pickup'] as $t): ?>
+								<section class="select_theme">
+									<ul class="select_theme__list clearfix">
+										<li>
+											<input type="checkbox" name="theme[]"
+												   value="<?php echo $t->slug; ?>" <?php if ( $search_theme && in_array( $t->slug,
+						                            $search_theme )
+				                            ) {
+					                            echo 'checked="checked"';
+				                            } ?> />
+											<button <?php if ( $search_theme && in_array( $t->slug,
+						                            $search_theme )
+				                            ) {
+					                            echo 'class="select"';
+				                            } ?> ><?php echo $t->name; ?></button>
+										</li>
+									</ul>
+								</section>
+
+                            <?php
+                            endforeach;
+                            echo '</div>';
+
                             foreach ($tree_themes as $t):
                                 ?>
                                 <section class="select_theme">
@@ -86,7 +115,7 @@ else:
                     </section>
 
                     <section class="form_block">
-                        <h2 class="form_block__title">内容を記入</h2>
+                        <h2 class="form_block__title">内容を記入<span class="required">※</span></h2>
                         <p class="form_block__title_sup <?php echo $notice_class; ?>">
                             課題の内容や発生場所を入力してください。
                         </p>
@@ -98,6 +127,11 @@ else:
 
                     <section class="form_block">
                         <h2 class="form_block__title">ピンを立てる</h2>
+						<div class="submit_subject__address_search">
+							<input id="address_search_input" class="form_block__address_search_input" placeholder="施設名・住所から検索するにはここに入力します">
+							<button type="submit" id="address_search_exec" class="form_block__address_search_exec">検索する</button>
+							<p><a href="javascript:void(0);" id="map_pin_clear">ピンを削除</a></p>
+						</div>
                         <p class="form_block__title_sup">
                             課題の発生場所や関係のある場所にピンを立ててください。<br/>
                             (地図をクリックするとピンが立ちますので、ドラッグして任意の場所に移動してください。)
@@ -150,8 +184,7 @@ else:
                             ?>
                         </div>
                     </div>
-                    <?php
-                    ?>
+                    <?php if ( '' !== $_confirm['loc_position_lat'] && '' !== $_confirm['loc_position_lng'] ) : ?>
                     <div class="form_block">
                         <p class="form_block__title">ピン</p>
                         <div id="preview_gmap"
@@ -160,6 +193,7 @@ else:
                         </div>
                     </div>
                     <?php
+					endif;
                 elseif ($status == 'submit') :
                     $subject = $_SESSION['subject'];
                     $subject_id = save_subject( $subject );

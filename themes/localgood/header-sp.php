@@ -39,7 +39,7 @@
     <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
 <?php else: ?>
     <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
-	<meta property="og:image" content="<?php echo get_option('lg_config__main_logo'); ?>" />
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
 <?php endif; ?>
     <meta property="og:type" content="<?php if (is_home()):?>website<?php else: ?>article<?php endif; ?>" />
     <meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>" />
@@ -55,7 +55,7 @@
 		if (is_singular() && ($is_tweet || $is_subject) ? true : false) {
 			$cf = get_post_custom( $post->ID );
 			$subject_user_meta = get_subject_user_meta( $is_tweet, $cf );
-			$author_name = (empty($subject_user_meta['name'])) ? '匿名' : $subject_user_meta['name'];
+			$author_name = (empty($subject_user_meta['name'])) ? '地域の仲間' : $subject_user_meta['name'];
 
 			echo $author_name . ' - ' .$subject_user_meta['postdate'].' | ';
 
@@ -125,6 +125,13 @@
             </div>
             <nav class="main_nav__link-list">
                 <ul class="list01">
+	                <?php if(is_home()):?>
+						<li>
+							<a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
+								あなたの声を投稿する
+							</a>
+						</li>
+	                <?php endif;?>
                     <li class="list_open">
                         <div class="list01__text">
                             地域を知る
@@ -207,6 +214,13 @@
 
         <nav class="main_nav__link-list">
             <ul class="list01">
+	            <?php if(is_home()):?>
+					<li>
+						<a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
+							あなたの声を投稿する
+						</a>
+					</li>
+	            <?php endif;?>
                 <li class="list_open">
                     <div class="list01__text">
                         地域を知る
@@ -235,6 +249,7 @@
                                 人/団体
                             </a>
                         </dd>
+						<?php if(!is_home()):?>
                         <dt>
                             みんなの声
                         </dt>
@@ -248,6 +263,7 @@
                                 あなたの声を投稿する
                             </a>
                         </dd>
+						<?php endif;?>
                     </dl>
                 </li>
                 <li class="list_open">

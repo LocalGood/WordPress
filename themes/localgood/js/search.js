@@ -31,16 +31,16 @@ var lonlatList = {
   'seibu': [35.44507164054968, 139.5125600099564],
 }
 
-function mapInit (data) {
+function mapInit (coordinate) {
   var area = location.href.split('?').pop().replace('project_area=', '')
   var zoom = 10
   if (area in lonlatList) {
     latlng = lonlatList[area]
-    zoom = parseFloat(data.googlemaps.default_zoom_level)
+    zoom = 13
   }
   var myOptions = {
     zoom: zoom,
-    center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
+    center: new google.maps.LatLng(coordinate.latitude, coordinate.longitude),
 
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -112,12 +112,12 @@ function removeMarkers () {
 }
 
 $(function () {
-  if (!$('#gmap').html()) {
+  console.log($('#gmap').hasClass('default-close'));
+  if (!$('#gmap').hasClass('default-close')) {
     $.getJSON('/wp-json/api/v1/apikeys',function(data){
-      mapInit(data)
+      mapInit(data.googlemaps.coordinate)
       $('.event_box, .place_box, .article_box').each(parseMarkers)
     })
-
   }
   $('.knows_map__toggle_button').click(function () {
     var span = $(this).find('span')
@@ -127,7 +127,18 @@ $(function () {
     if (text == openText) {
       span.text(closeText)
       $(this).toggleClass('close')
-      $('#gmap').show()
+
+      if ($('#gmap').html() !== '') {
+        $('#gmap').show()
+      } else {
+        $('#gmap').show()
+        console.log('initialize map');
+        $.getJSON('/wp-json/api/v1/apikeys',function(data){
+          mapInit(data.googlemaps.coordinate)
+          $('.event_box, .place_box, .article_box').each(parseMarkers)
+        })
+      }
+
       if (getDeviceType() === 'pc') {
         $('.knowsMapFilter').css('display', 'flex')
       } else {
@@ -144,6 +155,12 @@ $(function () {
   
   $('#f_news_area, #f_event_type').on('change', function (e) {
     $(this).closest('form').submit()
+  })
+
+  $('.select_theme button').on('click', function (e) {
+    e.preventDefault()
+    $(this).toggleClass('on')
+    $(this).prev().click()
   })
 
   $('.togglePin').on('change', function (e) {

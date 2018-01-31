@@ -20,7 +20,7 @@ function create_custom_taxonomies(){
         'show_ui' => true,
         'hierarchical' => true,
     );
-    register_taxonomy('project_theme', array('post', 'project', 'data', 'subject', 'event', 'place'), $args);
+    register_taxonomy('project_theme', array('post', 'project', 'data', 'subject', 'event', 'place', 'tweet'), $args);
 
     $args = array(
         'label' => 'エリア',

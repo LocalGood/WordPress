@@ -6,13 +6,38 @@
             <h3>
                 あなたの声を投稿しましょう
             </h3>
+			<a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
+				あなたの声を投稿しましょう
+			</a>
             <div class="common_underlayer_title-h2__sub_title text">
-                あなたの身の回りの良い所や気になっていることを教えてください。
-                <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
-                    投稿する
-                </a>
+				<div class="month_title">
+					<p><?php echo wpautop(get_option( 'lg_config__tweet_guide_contents' )); ?></p>
+				</div>
             </div>
         </div><!-- /.submit_subjects_link -->
+		<div class="subject_counter">
+		    <?php
+		    $l30d        = new WP_Query( array(
+			    'post_type' => array(
+				    'tweet',
+				    'subject',
+			    ),
+			    'date_query' => array(
+				    array(
+					    'after'    => '-30 day',
+				    ),
+				    'inclusive' => true,
+			    ),
+		    ) );
+		    $latest_30d  = $l30d->found_posts;
+		    $total_posts = $wp_query->found_posts;
+		    wp_reset_postdata();
+
+		    echo '<p>最近の投稿：<span class="num">' . $latest_30d . '</span>件</p>';
+		    echo '<p>全ての投稿：<span class="num">' . $total_posts . '</span>件</p>';
+
+		    ?>
+		</div>
     </div>
 
     <div class="knows_map_bar_padding">
@@ -36,17 +61,23 @@
             </div>
 
             <div class="underlayer_title_area">
-                <div class="submit_subjects_link">
-                    <h3>
-                        あなたの声を投稿しましょう
-                    </h3>
-                    <div class="common_underlayer_title-h2__sub_title text">
-                        あなたの身の回りの良い所や気になっていることを教えてください。
-                        <a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
-                            投稿する
-                        </a>
-                    </div>
-                </div><!-- /.submit_subjects_link -->
+				<div class="submit_subjects_link">
+					<h3>
+						あなたの声を投稿しましょう
+					</h3>
+					<div class="common_underlayer_title-h2__sub_title text">
+						<a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
+							あなたの声を投稿しましょう
+						</a>
+					</div>
+
+					<div class="about_delete">
+						<p>誤って投稿してしまった、不適切な投稿がある、<br>
+							などで投稿の削除を リクエストされる場合は<br>
+							以下のお問合せページからメールにてご連絡ください。</p>
+						<a href="<?php bloginfo('url');?>/contact/">お問合せページ</a>
+					</div>
+				</div><!-- /.submit_subjects_link -->
             </div>
 
             <div class="pager">

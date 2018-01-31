@@ -1,6 +1,28 @@
 jQuery(document).ready(function ($) {
   $('#configSection').tabs();
 
+  $('#activeList, #inactiveList').sortable({
+    connectWith: '.top_page_contents',
+    dropOnEmpty: true,
+    receive: function( event, ui ) {
+      if ($('#activeList').children('li').length > 3) {
+        $('#inactiveList').sortable('cancel');
+        $('#activeList').addClass('over');
+        $('#tpc_item_over_msg').fadeIn(200);
+      } else {
+        $('#activeList').removeClass('over');
+        $('#tpc_item_over_msg').fadeOut(200);
+      }
+    },
+    update: function( event, ui ) {
+      var tmp = [];
+      $('#activeList').children('li').each(function(){
+        tmp.push($(this).attr('id'));
+      });
+      $('#activeItems').val(tmp.join(','));
+    }
+  }).disableSelection();
+
   $('.color-picker').spectrum({
     preferredFormat: "hex",
     showSelectionPalette: true,

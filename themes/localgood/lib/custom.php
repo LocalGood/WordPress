@@ -466,26 +466,39 @@ function save_subject_session() {
 }
 
 function get_tree_themes() {
-	$themes      = get_terms( 'project_theme' , array( 'hide_empty' => false ));
+	$themes      = get_terms( 'project_theme', array( 'hide_empty' => false ) );
 	$tree_themes = array();
+	$pickup_terms = array();
 	//親の抽出
 	foreach ( $themes as $t ) {
-		if ( $t->parent == '0' ) {
-			$tree_themes[ $t->term_id ]['parent'] = $t;
+		if (!get_field( 'pickup_flg', $t )) {
+			if ( $t->parent == '0' ) {
+				$tree_themes[ $t->term_id ]['parent'] = $t;
+			}
 		}
+
 	}
 	foreach ( $tree_themes as $k => $parent ) {
 		foreach ( $themes as $t ) {
-			if ( $t->parent == $k ) {
-				if ( isset( $tree_themes[ $k ]['children'] ) ) {
-					$tree_themes[ $k ]['children'][] = $t;
-				} else {
-					$tree_themes[ $k ]['children'] = array( $t );
+			if (!get_field( 'pickup_flg', $t )) {
+				if ( $t->parent == $k ) {
+					if ( isset( $tree_themes[ $k ]['children'] ) ) {
+						$tree_themes[ $k ]['children'][] = $t;
+					} else {
+						$tree_themes[ $k ]['children'] = array( $t );
+					}
 				}
 			}
 		}
 	}
 
+	foreach ( $themes as $t ) {
+		if ( get_field( 'pickup_flg', $t ) ) {
+			$pickup_terms[] = $t;
+		}
+	}
+
+	$tree_themes['pickup'] = $pickup_terms;
 	return $tree_themes;
 }
 
@@ -552,19 +565,31 @@ function get_post_lonlat_attr() {
 	$lat = null;
 	$long = null;
 	if ( $post->post_type === 'event' ) {
-		$lat  = $cfs->get( 'event_latitude' );
-		$long = $cfs->get( 'event_longitude' );
-		if(!$lat || !$long){
-			$place_id  = $cfs->get( 'place_id' );
-			if($place_id && !empty( $place_id[0] )){
+		$acf_place_data = get_field( 'place_geo' );
+		if ( isset( $acf_place_data['lat'] ) && isset( $acf_place_data['lng'] ) ) {
+			$lat  = $acf_place_data['lat'];
+			$long = $acf_place_data['lng'];
+		} else {
+			$lat  = $cfs->get( 'place_latitude' );
+			$long = $cfs->get( 'place_longitude' );
+		}
+		if ( ! $lat || ! $long ) {
+			$place_id = $cfs->get( 'place_id' );
+			if ( $place_id && ! empty( $place_id[0] ) ) {
 				$head_place_id = $place_id[0];
-				$lat = get_post_meta( $head_place_id , 'place_latitude', true );
-				$long = get_post_meta( $head_place_id , 'place_longitude', true );
+				$lat           = get_post_meta( $head_place_id, 'place_latitude', true );
+				$long          = get_post_meta( $head_place_id, 'place_longitude', true );
 			}
 		}
 	} else if ( $post->post_type === 'place' ) {
-		$lat  = $cfs->get( 'place_latitude' );
-		$long = $cfs->get( 'place_longitude' );
+		$acf_place_data = get_field( 'place_geo' );
+		if ( isset( $acf_place_data['lat'] ) && isset( $acf_place_data['lng'] ) ) {
+			$lat  = $acf_place_data['lat'];
+			$long = $acf_place_data['lng'];
+		} else {
+			$lat  = $cfs->get( 'place_latitude' );
+			$long = $cfs->get( 'place_longitude' );
+		}
 	}
 	if ( empty( $lat ) && empty( $long ) ) {
 		$lat  = $cfs->get( 'lgLatitude' );

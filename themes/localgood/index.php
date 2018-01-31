@@ -18,6 +18,7 @@ else:
 		<div class="header__right">
 			<nav class="header__right__nav">
 				<ul id="gnav" class="header__right__nav__gnav">
+					<li><a href="<?php echo home_url( '/subject/' ); ?>">あなたの声を投稿する</a></li>
 					<?php $a = 'class="active"'; ?>
 					<li <?php if ( is_category() || is_singular( 'post' ) || is_tag() || is_page( 'lgnews' ) ) {
 						echo $a;
@@ -34,13 +35,13 @@ else:
 									} ?>><span><a href="<?php echo home_url( '/data/' ); ?>">データ</a></span></li>
 									<li><span><a href="<?php echo home_url( '/lgplayer/' ); ?>">人/団体</a></span></li>
 								</ul>
-								<span class="header__right__snav__second_title">みんなの声</span>
-								<ul>
-									<li><span><a href="<?php echo home_url( '/subject/' ); ?>">投稿一覧</a></span></li>
-									<li><span><a
-												href="<?php echo home_url( '/submit_subject/' ); ?>">あなたの声を投稿する</a></span>
-									</li>
-								</ul>
+<!--								<span class="header__right__snav__second_title">みんなの声</span>-->
+<!--								<ul>-->
+<!--									<li><span><a href="--><?php //echo home_url( '/subject/' ); ?><!--">投稿一覧</a></span></li>-->
+<!--									<li><span><a-->
+<!--												href="--><?php //echo home_url( '/submit_subject/' ); ?><!--">あなたの声を投稿する</a></span>-->
+<!--									</li>-->
+<!--								</ul>-->
 							</div>
 						</div>
 					</li>
@@ -87,13 +88,112 @@ else:
 			<?php else : ?><?php bloginfo( 'name' ); ?>
 			<?php endif; ?>
 		</h2>
-		<?php if (get_option('home_updates',false)): ?>
 		<div class="key_visual__updates">
-			<h3>更新情報</h3>
-			<?php echo wpautop( get_option( 'home_updates' ) ); ?>
+			<?php
+			$home_latest_contents = explode( ',', get_option( 'lg_config__top_page_contents' ) );
+
+			$latest_posts = array_merge(
+				get_posts( array(
+						'post_type'      => 'post',
+						'posts_per_page' => 3,
+						'orderby'        => 'date',
+						'order'          => 'DESC',
+						'category_name'  => 'news,localgood_player,voice',
+				) ),
+				get_posts( array(
+					'post_type'      => array( 'event', 'data','subject','tweet' ),
+					'posts_per_page' => 3,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+				) )
+			);
+
+			usort( $latest_posts, function ( $a, $b ) {
+				return strtotime( $a->post_date ) > strtotime( $b->post_date ) ? - 1 : 1;
+			} );
+
+			for ( $i = 0; $i < 3; $i ++ ) :
+				$post_title = ( 'tweet' === $latest_posts[ $i ]->post_type || 'subject' === $latest_posts[ $i ]->post_type ) ?
+					shorten( $latest_posts[ $i ]->post_content, 36 ) :
+					shorten( $latest_posts[ $i ]->post_title, 36 );
+
+				$post_date = date( 'Y.m.d', strtotime( $latest_posts[ $i ]->post_date ) );
+				$post_url  = get_permalink( $latest_posts[ $i ]->ID );
+				$thumbnail = ( has_post_thumbnail( $latest_posts[ $i ]->ID ) ) ?
+					wp_get_attachment_image_src( get_post_thumbnail_id( $latest_posts[ $i ]->ID ), 'medium', false )[0] :
+					get_stylesheet_directory_uri() . '/images/lg-noimage-pc.jpg';
+
+				if ( 'post' === $latest_posts[ $i ]->post_type ) {
+					$cats = wp_get_post_categories( $latest_posts[ $i ]->ID );
+					switch ( $cats[0]->slug ) {
+						case 'news':
+							$cat_cfg = array(
+								'icon' => 'news',
+								'label' => 'ニュース',
+							);
+							break;
+						case 'local_good_player' || 'voice':
+							$cat_cfg = array(
+								'icon' => 'organization',
+								'label' => '人/団体',
+							);
+							break;
+						default:
+							$cat_cfg = array(
+								'icon' => '',
+								'label' => '',
+							);
+							break;
+					}
+				} else {
+					switch ( $latest_posts[ $i ]->post_type ) {
+						case 'event':
+							$cat_cfg = array(
+								'icon' => 'event',
+								'label' => 'みんなの拠点/イベント',
+							);
+							break;
+						case 'data':
+							$cat_cfg = array(
+								'icon' => 'data',
+								'label' => 'データ',
+							);
+							break;
+						case 'tweet' || 'subject':
+							$cat_cfg = array(
+								'icon' => 'voice',
+								'label' => 'みんなの声',
+							);
+							break;
+						default:
+							$cat_cfg = array(
+								'icon' => '',
+								'label' => '',
+							);
+							break;
+					}
+				} // End if().
+				?>
+				<div class="item">
+					<div class="image">
+						<a href="<?php echo $post_url;?>">
+							<img src="<?php echo esc_attr( $thumbnail ); ?>" alt="<?php echo esc_attr( $post_title ); ?>">
+						</a>
+					</div>
+					<div class="text">
+						<div class="c-clearfix">
+							<span class="date"><?php echo $post_date; ?></span>
+							<span class="category <?php echo esc_attr( $cat_cfg['icon'] ); ?>"><?php echo $cat_cfg['label']; ?></span>
+						</div>
+						<h2 class="title">
+							<a href="<?php echo $post_url;?>">
+								<?php echo $post_title; ?>
+							</a>
+						</h2>
+					</div>
+				</div>
+				<?php endfor; ?>
 		</div>
-		<?php endif; ?>
-		<a class="key_visual__down_button c-link01" href="#contents">詳しくはこちら</a>
 	</div>
 
 	<div id="contents" class="contents">

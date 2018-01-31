@@ -41,6 +41,10 @@ get_template_part( 'header', 'sp' );
             <div class="list_pic_wrapper">
                 <div class="list_pic">
                     <div class="list_pic_layout">
+                        <div class="list_pic__required_desc">
+                            <span class="required">※</span>
+                            このマークの付いた項目は必須項目です。
+                        </div>
                         <div class="content">
                             <div class="inner">
                                 <?php
@@ -59,7 +63,7 @@ get_template_part( 'header', 'sp' );
                                     ?>
                                     <div class="form_block">
                                         <h2 class="subject_title01">
-                                            テーマを選択
+                                            テーマを選択<span class="required">※</span>
                                         </h2>
                                         <p class="cap">
                                             一覧から選択してください。
@@ -67,6 +71,26 @@ get_template_part( 'header', 'sp' );
                                         <div class="select_theme">
                                             <?php
                                             $tree_themes = get_tree_themes();
+                                            echo '<div class="pickup_category">';
+                                            foreach ($tree_themes['pickup'] as $t): ?>
+											<div class="select_theme__wrapper">
+												<input type="checkbox" name="theme[]"
+													   value="<?php echo $t->slug; ?>" <?php if ( $search_theme && in_array( $t->slug,
+														$search_theme )
+												) {
+													echo 'checked="checked"';
+												} ?> />
+												<button <?php if ( $search_theme && in_array( $t->slug,
+														$search_theme )
+												) {
+													echo 'class="select"';
+												} ?> ><?php echo $t->name; ?></button>
+											</div>
+
+                                            <?php
+                                            endforeach;
+                                            echo '</div>';
+
                                             foreach ($tree_themes as $t):
                                                 ?>
                                                 <div class="select_theme__wrapper">
@@ -92,7 +116,7 @@ get_template_part( 'header', 'sp' );
                                     </div>
                                     <div class="form_block">
                                         <h2 class="subject_title01">
-                                            内容を記入
+                                            内容を記入<span class="required">※</span>
                                         </h2>
                                         <p class="cap <?php echo $notice_class; ?>">
                                             課題の内容や発生場所を入力してください。
@@ -109,6 +133,11 @@ get_template_part( 'header', 'sp' );
                                         <h2 class="subject_title01">
                                             ピンを立てる
                                         </h2>
+                                        <div class="submit_subject__address_search">
+                                            <input id="address_search_input" class="form_block__address_search_input" placeholder="施設名・住所から検索するにはここに入力します">
+                                            <button id="address_search_exec" class="form_block__address_search_exec">検索する</button>
+                                            <p><a href="javascript:void(0);" id="map_pin_clear">ピンを削除</a></p>
+                                        </div>
                                         <p class="cap">
                                             課題の発生場所や関係のある場所にピンを立ててください。<br/>
                                             (地図をクリックするとピンが立ちますので、ドラッグして任意の場所に移動してください。)
@@ -135,14 +164,14 @@ get_template_part( 'header', 'sp' );
                                             ?>
                                         </div>
                                     </div>
+                                    <?php if ( '' !== $_confirm['loc_position_lat'] && '' !== $_confirm['loc_position_lng'] ) : ?>
                                     <div class="form_block">
                                         <p class="cap">ピン</p>
                                         <div id="preview_gmap"
                                              data-lonlat="<?php echo $_confirm['loc_position_lat'] ?>,<?php echo $_confirm['loc_position_lng'] ?>">
                                         </div>
                                     </div>
-                                    <?php
-                                    ?>
+                                    <?php endif; ?>
                                     <div class="form_block clearfix">
                                             <span class="button">
                                                 <button class="submit" type="submit" name="stage"

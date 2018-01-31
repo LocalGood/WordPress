@@ -22,7 +22,7 @@ else:
         </div>
 
         <?php knows_map_bar(); ?>
-        <div id="gmap" ></div>
+        <div id="gmap" class="default-close"></div>
         <?php
         $post_not = array();
         $feature_html = '';

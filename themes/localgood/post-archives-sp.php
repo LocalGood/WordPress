@@ -13,7 +13,7 @@ get_header(); ?>
 			<div class="contents_wrapper02">
 
 				<?php knows_map_bar(); ?>
-				<div id="gmap"></div>
+				<div id="gmap" class="default-close"></div>
 
 				<div class="category_list">
 					<?php

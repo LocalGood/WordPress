@@ -29,8 +29,17 @@ elseif(DEVICE == 'pc'):
         setup_postdata($post);
         $eyecatch = wp_get_attachment_image_src( get_post_thumbnail_id(), 'single-thumbnail' );
         if($eyecatch):
-			?>
-            <meta property="og:image" content="<?php echo $eyecatch[0]; ?>"/>
+            $_imgurl = '';
+
+            $_fn_array = explode('/',$eyecatch[0]);
+            $_fn_array[ count($_fn_array) - 1 ] = urlencode($_fn_array[ count($_fn_array) - 1 ]);
+            for ($i = 0 ; $i < count($_fn_array); $i++ ){
+                $_imgurl .= $_fn_array[$i];
+                if ($i != ( count($_fn_array) - 1))
+                    $_imgurl .= '/';
+            };
+            ?>
+            <meta property="og:image" content="<?php echo $_imgurl ?>"/>
         <?php  else: ?>
             <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png" />
         <?php endif; ?>
@@ -53,7 +62,7 @@ elseif(DEVICE == 'pc'):
         if (is_singular() && ($is_tweet || $is_subject) ? true : false) {
 			$cf = get_post_custom( $post->ID );
             $subject_user_meta = get_subject_user_meta( $is_tweet, $cf );
-            $author_name = (empty($subject_user_meta['name'])) ? '匿名' : $subject_user_meta['name'];
+            $author_name = (empty($subject_user_meta['name'])) ? '地域の仲間' : $subject_user_meta['name'];
 
             echo $author_name . ' - ' .$subject_user_meta['postdate'].' | ';
 

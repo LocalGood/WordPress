@@ -991,6 +991,25 @@ img {
   }
 }
 
+
+.pickup_category {
+  .select_theme {
+    .select_theme__list {
+      li {
+        float: none;
+        margin: 0;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+
+
 .post_finish {
   margin: 0 0 20px;
   color: $grayCol03;
@@ -1839,7 +1858,6 @@ body.single .single__title_area .c-social_bookmark {
       font-size: 16px;
       font-weight: bold;
       line-height: 1.25;
-      max-height: 40px;
       overflow: hidden;
       a {
         font-weight: bold;
@@ -1954,4 +1972,86 @@ body.single .single__title_area .c-social_bookmark {
   margin-bottom: 26px;
   text-align: center;
 }
+
+/*--------------------------------------------------------------
+  .post-type-archive-subject みんなの声
+-------------------------------------------------------------- */
+.post-type-archive-subject{
+  .article_box__title{
+    margin: 0 0 15px 0;
+    h2{
+      margin: 0;
+    }
+    p{
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+  .category_list{
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    &--item{
+      display: inline-block;
+      margin: 0 10px 10px 0;
+      a{
+        display: block;
+        padding: 0 10px;
+        border: 1px solid #828282;
+        color: #828282;
+        font-size: 10px;
+      }
+    }
+  }
+  .subject_post_box{
+    padding: 0;
+    margin: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    &__text{
+      margin: 0;
+    }
+    .month_title{
+      margin: 20px 0 45px 0;
+    }
+    .title{
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+  }
+  .c-page_title_wrapper{
+    margin: 0;
+    box-shadow: none;
+  }
+  .subject_counter{
+    font-weight: bold;
+    height: 70px;
+    color: #FFF;
+    margin: 0 0 26px 0;
+    line-height: 70px;
+    text-align: center;
+    background: #828282;
+    p{
+      display: inline-block;
+      margin: 0 25px;
+    }
+    .num{
+      font-size: 20px;
+    }
+  }
+  .subject_post_box{
+    padding: 30px 0;
+    .subject_post_box__submit_button{
+      margin: 0 auto 20px;
+    }
+    .month_title{
+      margin: 30px 0 0 0;
+    }
+  }
+}
+
 

@@ -163,3 +163,4 @@
 </div><!--.container-->
 </body>
 </html>
+<?php global $template; echo $template; ?>

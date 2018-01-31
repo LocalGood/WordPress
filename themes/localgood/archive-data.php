@@ -17,7 +17,7 @@ else:
         </div>
 
         <?php knows_map_bar(); ?>
-        <div id="gmap" ></div>
+        <div id="gmap" class="default-close"></div>
 
         <div class="article_area">
             <div class="article_box__wrapper">
