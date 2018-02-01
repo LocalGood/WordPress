@@ -102,4 +102,21 @@ $(function () {
     $(this).prev().click()
   })
 
+  $('.knows_map__toggle_button').click(function () {
+    var span = $(this).find('span')
+    var text = span.text()
+    var openText = '地図を開く'
+    var closeText = '地図を閉じる'
+    if (text == openText) {
+      span.text(closeText)
+      $(this).toggleClass('close')
+      $('#gmap').show()
+    } else {
+      span.text(openText)
+      $(this).toggleClass('close')
+      $('#gmap').hide()
+      $('.knowsMapFilter').css('display', 'none')
+    }
+  })
+
 })

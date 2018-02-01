@@ -474,8 +474,12 @@ function article_box() {
 						if (0 < count($themes)) : ?>
 							<ul class="category_list">
 								<?php foreach ($themes as $pj_theme) : ?>
-									<li class="category_list--item"><?php echo $pj_theme->name;?></li>
-								<?php endforeach; ?>
+                                    <li class="category_list--item">
+                                        <a href="<?php echo home_url("/subject"); ?>/?theme[]=<?php echo urlencode($pj_theme->slug);?>">
+                                            <?php echo $pj_theme->name;?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
 							</ul>
 						<?php endif; ?>
 					</div>
@@ -541,7 +545,11 @@ function article_box() {
 							if (0 < count($themes)) : ?>
 						<ul class="category_list">
 							<?php foreach ($themes as $pj_theme) : ?>
-								<li class="category_list--item"><?php echo $pj_theme->name;?></li>
+                                <li class="category_list--item">
+                                    <a href="<?php echo home_url("/subject"); ?>/?theme[]=<?php echo urlencode($pj_theme->slug);?>">
+                                        <?php echo $pj_theme->name;?>
+                                    </a>
+                                </li>
 							<?php endforeach; ?>
 						</ul>
 						<?php endif; ?>

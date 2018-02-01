@@ -1989,9 +1989,10 @@ body.single .single__title_area .c-social_bookmark {
     }
   }
   .category_list{
-    font-size: 0;
     padding: 0;
     margin: 0;
+    max-height:65px;
+    overflow-y: scroll;
     list-style: none;
     &--item{
       display: inline-block;
