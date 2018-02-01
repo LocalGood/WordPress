@@ -46,7 +46,7 @@
 					get_stylesheet_directory_uri() . '/images/lg-noimage-sp.jpg';
 
 				if ( 'post' === $latest_posts[ $i ]->post_type ) {
-					$cats = wp_get_post_categories( $latest_posts[ $i ]->ID );
+					$cats = get_the_category( $latest_posts[ $i ]->ID );
 					switch ( $cats[0]->slug ) {
 						case 'news':
 							$cat_cfg = array(
