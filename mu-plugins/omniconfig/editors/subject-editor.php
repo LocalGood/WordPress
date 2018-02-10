@@ -25,7 +25,6 @@ add_action( 'admin_menu', function () {
 		echo '<div class="wrap">';
 		echo '<h1>みんなの声の設定</h1>';
 		echo '<hr>';
-		echo '<p>（TODO:ガイダンス考える）</p>';
 
 		echo '<form method="post">';
 		wp_editor( $tweet_guide_contents, 'tweet_guide_contents_editor', array(
