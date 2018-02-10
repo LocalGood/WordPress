@@ -25,7 +25,6 @@
             $_imgurl = '';
 
             $_fn_array = explode('/',$eyecatch[0]);
-            $_fn_array[ count($_fn_array) - 1 ] = urlencode($_fn_array[ count($_fn_array) - 1 ]);
             for ($i = 0 ; $i < count($_fn_array); $i++ ){
                 $_imgurl .= $_fn_array[$i];
                 if ($i != ( count($_fn_array) - 1))

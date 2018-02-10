@@ -463,9 +463,13 @@ function article_box() {
 				</div>
 				<div class="post_text-area">
 					<h2 class="title">
-                            <a href="<?php the_permalink(); ?>">
-	                            <?php echo shorten( lg_post_excerpt(), '46' ); ?>
-                            </a>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if ( get_post_type() == 'subject' || get_post_type() == 'tweet' || is_singular( 'subject' ) ): ?>
+                                <?php echo shorten( lg_post_excerpt(), '46' ); ?>
+                            <?php else: ?>
+                                <?php the_title(); ?>
+                            <?php endif; ?>
+                        </a>
                     </h2>
 					<?php if($is_subject || $is_tweet): ?>
 					<div class="article_box__category">
@@ -534,7 +538,11 @@ function article_box() {
 					<div class="article_box__title">
 						<h2>
 							<a href="<?php the_permalink(); ?>">
-								<p class=""><?php echo shorten(lg_post_excerpt(), '46'); ?></p>
+                                <?php if ( get_post_type() == 'subject' || get_post_type() == 'tweet' || is_singular( 'subject' ) ): ?>
+                                    <?php echo shorten( lg_post_excerpt(), '46' ); ?>
+                                <?php else: ?>
+                                    <?php the_title(); ?>
+                                <?php endif; ?>
 							</a>
                         </h2>
 					</div>
