@@ -3,7 +3,6 @@ var map;
 var markers = [];
 
 function mapInit(data) {
-    var zoom = 15;
     var myOptions = {
         zoom: parseFloat(data.googlemaps.default_zoom_level),
         center: new google.maps.LatLng(parseFloat(data.googlemaps.coordinate.latitude), parseFloat(data.googlemaps.coordinate.longitude)),
@@ -64,3 +63,10 @@ $.getJSON('/wp-json/api/v1/apikeys', function (data) {
   google.maps.event.trigger($('#gmap')[0], 'resize');
 })
 
+$(function(){
+  var exp = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+  $('.commentBody').each(function(){
+    $(this).html($(this).html().replace(exp,"<a href='$1' target='_blank'>$1</a>"));
+  })
+
+})

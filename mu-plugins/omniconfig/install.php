@@ -58,3 +58,9 @@ foreach ( $lg_config_taxonomy_terms as $term ) {
 	wp_insert_term( $term['term'], $term['taxonomy'], $term['arguments'] );
 }
 
+// omniconfig用 query_vars の登録
+add_filter( 'query_vars', function ( $vars ) {
+	$vars[] = 'action';
+
+	return $vars;
+} );

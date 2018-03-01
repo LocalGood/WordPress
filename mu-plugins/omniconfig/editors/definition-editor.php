@@ -25,6 +25,10 @@ function render_definition_editor( $display = false ) {
 					'id'    => 'appname_es',
 					'label' => '英語表記（半角小文字）',
 				),
+				'lg_config__lgLike_label' => array(
+					'id'    => 'lg_like_label',
+					'label' => '共感ボタンの呼び方',
+				),
 			),
 			'sns'   => array(
 				'lg_config__sns_fb' => array(

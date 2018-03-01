@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 <div class="underlayer_wrapper">
-    <?php include( "s-post_nav.php" ); ?>
+    <?php include("s-post_nav.php"); ?>
     <div>
 
         <?php knows_map_bar(); ?>
-		<div id="gmap" class="default-close"></div>
+        <div id="gmap" class="default-close"></div>
 
         <div class="list_pic_wrapper">
             <div class="list_pic">
@@ -31,5 +31,5 @@
     </div>
 </div>
 <?php
-get_template_part( 'footer', 'sp' );
+get_template_part('footer', 'sp');
 ?>

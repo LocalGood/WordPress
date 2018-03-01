@@ -73,7 +73,7 @@ function paging( $query = false, $options = array() ) {
 		) ) );
 	} else {
 		echo paginate_links( array_merge( $pagenate_links_cfg_base, array(
-			'mid_size' => ( isset( $options['mid_size'] ) ) ? isset( $options['mid_size'] ) : 2,
+			'mid_size' => ( isset( $options['mid_size'] ) ) ? isset( $options['mid_size'] ) : 1,
 		) ) );
 	}
 	echo '</div>';

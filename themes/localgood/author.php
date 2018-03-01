@@ -6,8 +6,7 @@ $args = array(
 	'posts_per_page' => 9,
 );
 
-?>
-<?php if ( DEVICE == 'sp' ) : ?>
+if ( DEVICE == 'sp' ) : ?>
 	<div class="underlayer_wrapper author_post">
 		<div class="inner two_column_wrapper">
 			<div class="key_topic_box two_left">
@@ -46,7 +45,6 @@ $args = array(
 		</div>
 	</div><!-- /.underlayer_wrapper -->
 <?php else : ?>
-
 	<div class="c-contents_wrapper c-w1096 author_single">
 		<?php breadcrumbs(); ?>
 		<?php

@@ -6,7 +6,7 @@
         <ul>
             <li>
                 <a href="<?php echo home_url('about'); ?>">
-	                <?php bloginfo('name'); ?>について
+                    <?php bloginfo('name'); ?>について
                 </a>
             </li>
             <li>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo esc_attr( get_option( 'lg_config__integration_url', false ) ); ?>/riyou_kiyaku_menu">
+                <a href="<?php echo esc_attr(get_option('lg_config__integration_url', false)); ?>/riyou_kiyaku_menu">
                     利用規約
                 </a>
             </li>
@@ -95,48 +95,48 @@
         </div>
         <ul>
             <li>
-                <a href="<?php echo esc_attr( get_option( 'lg_config__goteo_baseurl', false ) ); ?>/discover">
+                <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
             <li>
                 <a href="<?php echo home_url('/challenge/'); ?>">
-					プロジェクトを立ち上げる
+                    プロジェクトを立ち上げる
                 </a>
             </li>
         </ul>
     </section>
-    
+
     <section class="footer_bottom">
         <div class="footer_logo">
             <a href="/">
-                <img src="<?php echo esc_attr( get_option( 'lg_config__footer_logo' ) ); ?>"
-                     alt="<?php bloginfo( 'name' ); ?>ロゴ">
+                <img src="<?php echo esc_attr(get_option('lg_config__footer_logo')); ?>"
+                     alt="<?php bloginfo('name'); ?>ロゴ">
             </a>
         </div>
         <ul class="sns-area">
-           <li>
-               <a href="<?php echo home_url('/feed'); ?>" target="_blank">
-                 <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon01.png" alt="">
-               </a>
-           </li>
-            <?php if ( !empty(get_option( 'lg_config__sns_gp', false )) ){ ?>
+            <li>
+                <a href="<?php echo home_url('/feed'); ?>" target="_blank">
+                    <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon01.png" alt="">
+                </a>
+            </li>
+            <?php if (!empty(get_option('lg_config__sns_gp', false))) { ?>
                 <li>
-                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_gp', false ) ); ?>" target="_blank">
+                    <a href="<?php echo esc_attr(get_option('lg_config__sns_gp', false)); ?>" target="_blank">
                         <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon02.png" alt="">
                     </a>
                 </li>
             <?php } ?>
-            <?php if ( !empty(get_option( 'lg_config__sns_tw', false )) ){ ?>
+            <?php if (!empty(get_option('lg_config__sns_tw', false))) { ?>
                 <li>
-                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_tw', false ) ); ?>" target="_blank">
+                    <a href="<?php echo esc_attr(get_option('lg_config__sns_tw', false)); ?>" target="_blank">
                         <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon03.png" alt="">
                     </a>
                 </li>
             <?php } ?>
-            <?php if ( !empty(get_option( 'lg_config__sns_fb', false )) ){ ?>
+            <?php if (!empty(get_option('lg_config__sns_fb', false))) { ?>
                 <li>
-                    <a href="<?php echo esc_attr( get_option( 'lg_config__sns_fb', false ) ); ?>" target="_blank">
+                    <a href="<?php echo esc_attr(get_option('lg_config__sns_fb', false)); ?>" target="_blank">
                         <img src="<?php bloginfo('template_directory'); ?>/images/sm/s-footer-sns-icon04.png" alt="">
                     </a>
                 </li>

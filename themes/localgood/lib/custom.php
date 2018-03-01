@@ -56,20 +56,20 @@ function get_term_atag( $posttype, $single = true ) {
 	$taxonomies = array();
 	switch ( $posttype ) {
 		case 'post':
-			$taxonomies = array('project_area', 'category', 'project_theme');
+			$taxonomies = array( 'project_area', 'category', 'project_theme' );
 			break;
 		case 'data':
-			$taxonomies = array('data_type', 'project_theme');
+			$taxonomies = array( 'data_type', 'project_theme' );
 			break;
 		case 'event':
-			$taxonomies = array('event_type', 'project_area', 'project_theme');
+			$taxonomies = array( 'event_type', 'project_area', 'project_theme' );
 			break;
 		case 'place':
-			$taxonomies = array('project_spot', 'project_area', 'project_theme');
+			$taxonomies = array( 'project_spot', 'project_area', 'project_theme' );
 			break;
 	}
 
-	foreach($taxonomies as $tax){
+	foreach ( $taxonomies as $tax ) {
 		$term = get_the_terms( $post->ID, $tax );
 		if ( ! empty( $term ) ) {
 			if ( is_singular() ) {
@@ -395,7 +395,7 @@ function shorten( $text, $width = null ) {
 
 
 function localgood_option_page_content() {
-	$opt_name = 'event_participants';
+	$opt_name  = 'event_participants';
 	$opt_name2 = 'home_updates';
 	if ( isset( $_POST['event_participants_hidden'] ) == 'Y' ) {
 		update_option( $opt_name, $_POST[ $opt_name ] );
@@ -466,12 +466,12 @@ function save_subject_session() {
 }
 
 function get_tree_themes() {
-	$themes      = get_terms( 'project_theme', array( 'hide_empty' => false ) );
-	$tree_themes = array();
+	$themes       = get_terms( 'project_theme', array( 'hide_empty' => false ) );
+	$tree_themes  = array();
 	$pickup_terms = array();
 	//親の抽出
 	foreach ( $themes as $t ) {
-		if (!get_field( 'pickup_flg', $t )) {
+		if ( ! get_field( 'pickup_flg', $t ) ) {
 			if ( $t->parent == '0' ) {
 				$tree_themes[ $t->term_id ]['parent'] = $t;
 			}
@@ -480,7 +480,7 @@ function get_tree_themes() {
 	}
 	foreach ( $tree_themes as $k => $parent ) {
 		foreach ( $themes as $t ) {
-			if (!get_field( 'pickup_flg', $t )) {
+			if ( ! get_field( 'pickup_flg', $t ) ) {
 				if ( $t->parent == $k ) {
 					if ( isset( $tree_themes[ $k ]['children'] ) ) {
 						$tree_themes[ $k ]['children'][] = $t;
@@ -499,6 +499,7 @@ function get_tree_themes() {
 	}
 
 	$tree_themes['pickup'] = $pickup_terms;
+
 	return $tree_themes;
 }
 
@@ -562,7 +563,7 @@ function post_archives_args( $post_not ) {
 
 function get_post_lonlat_attr() {
 	global $post, $cfs;
-	$lat = null;
+	$lat  = null;
 	$long = null;
 	if ( $post->post_type === 'event' ) {
 		$acf_place_data = get_field( 'place_geo' );
@@ -628,15 +629,81 @@ function get_post_meta_attr() {
 	return $data_meta;
 }
 
-function save_subject( $subject ) {
+function save_subject( $subject, $file_obj ) {
+	$errors    = 0;
+	$error_msg = array();
+
 	$arr_data = array(
 		'post_title'   => '課題 No-#' . time(),
 		'post_content' => htmlspecialchars( $subject['subject_content'] ),
 		'post_status'  => 'publish',
-		'post_type'    => 'subject'
+		'post_type'    => 'subject',
 	);
 
-	return wp_insert_post( $arr_data );
+	if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) {
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once( ABSPATH . 'wp-admin/includes/media.php' );
+	}
+
+	if ( isset( $file_obj ) && ! empty( $file_obj['photo']['tmp_name'] ) ) {
+		if ( ! isset( $file_obj['photo']['error'] ) || ! is_int( $file_obj['photo']['error'] ) ) {
+			$errors ++;
+			$error_msg[] = 'パラメータが不正です';
+		}
+
+		// $_FILE のエラーハンドリング
+		switch ( $file_obj['photo']['error'] ) {
+			case UPLOAD_ERR_OK: // OK
+				break;
+			case UPLOAD_ERR_INI_SIZE:  // php.ini定義の最大サイズ超過
+			case UPLOAD_ERR_FORM_SIZE: // フォーム定義の最大サイズ超過 (設定した場合のみ)
+				$errors ++;
+				$error_msg[] = 'ファイルサイズが大きすぎます';
+				break;
+			default:
+				$errors ++;
+				$error_msg[] = 'その他のエラーが発生しました';
+		}
+
+
+		// file type check
+		$filetype_test      = wp_check_filetype_and_ext( $file_obj['photo']['tmp_name'], $file_obj['photo']['name'] );
+		$safe_mimetype_list = array(
+			'image/png',
+			'image/jpg',
+			'image/jpeg',
+			'image/gif',
+		);
+
+		if ( false !== $filetype_test['proper_filename'] ) {
+			$errors ++;
+			$error_msg[] = 'ファイル形式が不正です';
+		} elseif ( false === array_search( $filetype_test['type'], $safe_mimetype_list, true ) ) {
+			$errors ++;
+			$error_msg[] = '許可されていないファイル形式です';
+		}
+
+		if ( 0 === $errors ) {
+			$new_post_id = wp_insert_post( $arr_data );
+			// メディアを投稿に紐づけ
+			media_handle_upload( 'photo', $new_post_id );
+
+			return $new_post_id;
+		} else {
+			echo 'ファイルアップロードに失敗しました。';
+			echo '<ul>';
+			foreach ( $error_msg as $msg ) {
+				echo "<li>$msg</li>";
+			}
+			echo '</ul>';
+
+			return false;
+		}
+	} else {
+		$new_post_id = wp_insert_post( $arr_data );
+		return $new_post_id;
+	}// End if().
 }
 
 
@@ -680,7 +747,7 @@ function subject_validation_check() {
 
 function subject_step_status() {
 	if ( ! empty( $_POST['stage'] ) && ( $_POST['stage'] == 'confirm' )
-		 && ! empty( $_POST['subject_content'] )
+	     && ! empty( $_POST['subject_content'] )
 	) {
 		$status = 'confirm';
 	} elseif ( ! empty( $_POST['stage'] ) && ( $_POST['stage'] == 'submit' ) ) {
@@ -709,7 +776,7 @@ function get_subject_user_meta( $is_tweet, $cf = array(), $avatar_size = 40 ) {
 			$name      = '';
 			$avatar    = '<img alt="" src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=' . $avatar_size . '" class="avatar avatar photo avatar-default" >';
 		} else {
-			$user_link = get_author_posts_url(get_the_author_meta( 'ID' ));
+			$user_link = get_author_posts_url( get_the_author_meta( 'ID' ) );
 			$name      = get_the_author_meta( 'display_name' );
 			$avatar    = get_avatar( get_the_author_meta( 'ID' ), $avatar_size );
 		}
@@ -746,6 +813,7 @@ add_action( 'admin_head-edit-tags.php', function () {
 // タクソノミー「テーマ」の th「カウント」を「表示」に変更
 add_filter( 'manage_edit-project_theme_columns', function ( $columns ) {
 	$columns['posts'] = '表示';
+
 	return $columns;
 } );
 
@@ -764,3 +832,9 @@ add_filter( 'query_vars', function ( $vars ) {
 
 	return $vars;
 } );
+
+// 分割されたページの、２ページめ以降かどうかをチェック
+function is_paged_multipage() {
+	global $multipage;
+	return ($multipage && get_query_var( 'page' ) > 0) ? true : false;
+}

@@ -8,8 +8,10 @@
 /*
 Plugin Name: OMNICONFIG-LG
 Author: #7
-Version: 0.7.0
+Version: 1.1.0
 */
+
+require_once( 'omniconfig/class-lg.php' );
 
 add_action( 'init', function () {
 	/**
@@ -31,7 +33,7 @@ $lgoc_settings = array(
 	),
 );
 
-define( 'OMNICONFIG_LG_VERSION', '0.7.0' );
+define( 'OMNICONFIG_LG_VERSION', '1.1.0' );
 define( 'OMNICONFIG_HOME_URL', add_query_arg( 'page', 'omniconfig', admin_url( 'admin.php' ) ) );
 
 $lgoc_labels = array(
@@ -102,6 +104,8 @@ function omniconfig_admin_init() {
 
 require_once( 'omniconfig/install.php' );
 require_once( 'omniconfig/editor-extension.php' );
+
+require_once( 'omniconfig/wp-api.php' );
 
 // Load editor modules.
 require_once( 'omniconfig/editors/homecontent-editor.php' );

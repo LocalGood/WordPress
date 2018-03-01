@@ -119,32 +119,48 @@ $(function () {
     }
 
     // Validation, Input check
-    $("button.submit[name='stage']").on('click',
-        function (e) {
+    $("#submitSubject").on('click', function () {
+      var sup_el
 
-            var _valid = true;
+      // エラーの初期化
+      var scrollTo = 0
+      $('.form_block__title_sup').removeClass('red')
+      var errors = 0
 
-            $('.invalid').remove();
+      // 上から順に見てきたときに最初のエラーの箇所にスクロールさせたいので、下から順にバリデートする
 
-            var _subject = $('textarea#subject_content');
-            var _ward = $('select#loc_wards');
+      // 内容
+      if ($('#subject_content').val() === '') {
+        sup_el = $('.form_block__title_sup.content')
+        $(sup_el).addClass('red')
+        scrollTo = $(sup_el).parents('.form_block').offset().top
+        errors ++
+      }
 
-            if (_subject.length > 0 && _ward.length > 0) {
+      // テーマ
+      // if ($('.select_theme__wrapper').find('input[type="checkbox"]:checked').length === 0) {
+      //   sup_el = $('.form_block__title_sup.theme')
+      //   $(sup_el).addClass('red')
+      //   scrollTo = $(sup_el).parents('.form_block').offset().top
+      //   errors ++
+      // }
 
-                if (_subject[0].value.length <= 0) {
-                    _subject.before('<p class="invalid">課題の内容は入力必須です</p>');
-                    _valid = false;
-                }
 
-                if (_ward.val() == '') {
-                    _ward.after('<span class="invalid inline">地域の指定は必須です</span>');
-                    _valid = false;
-                }
-            }
+      if (errors > 0) {
+        // スクロール先 = 対象要素の座標 - 位置固定ヘッダーの高さ - バッファ
+        scrollTo = scrollTo - $('#header').height() - 30
+        $('html, body').animate({
+            scrollTop: scrollTo
+          },
+          300
+        );
 
-            return _valid;
-        }
-    );
+        return false;
+      } else {
+        return true;
+      }
+
+    });
 
     //when click, display description all
     $('a.continue').click(function () {

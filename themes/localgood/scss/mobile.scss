@@ -85,13 +85,47 @@ a{
   }
 
   .c-social_bookmark{
+    display: inline-block;
+    width: 100%;
     padding: 0 10px !important;
+    margin: 11px 0 10px !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .lg_like{
+    display: block;
+    margin: 0 0 23px 10px;
+  }
+
+  .lg_comments{
+    padding: 0 8px;
+
+    &--title{
+      small{
+        display: block;
+      }
+    }
+    &--input_name{
+      display: block;
+    }
+    #form_input_name,
+    textarea{
+      width: 100%;
+    }
+    #form_input_name{
+      width: 75%;
+    }
   }
 
   .post_title{
     position: relative;
     padding: 0 10px;
     box-shadow: none;
+    #social_bookmark{
+      padding: 0!important;
+    }
   }
 
   .single__post_body {
@@ -597,7 +631,6 @@ dl, dd, ul{
     height: 100vh;
     font-size: 0 !important;
     text-align: center;
-    //background: url("../images/sm/s-main_bg.jpg") no-repeat;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
@@ -609,8 +642,8 @@ dl, dd, ul{
         width: 100%;
         color: #222;
         font-size: 0;
-        padding: 20px 19px;
-        margin: 0 0 19px 0;
+        padding: 10px;
+        margin: 0 0 10px 0;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -656,9 +689,12 @@ dl, dd, ul{
             }
           }
           .title{
+            max-height: 3em;
             font-size: 14px;
             margin: 0;
+            overflow: hidden;
             a{
+              max-height: 3em;
               color: #222;
               text-align: left;
             }
@@ -996,6 +1032,53 @@ dl, dd, ul{
   font-size: 20%;
 }
 
+.post-type-archive-subject{
+  .subject_counter{
+    p{
+      margin: 0 15px;
+    }
+  }
+  .post_info{
+    width: calc( 100% - 50px);
+  }
+  .table_layout{
+    display: table;
+    width: 100%;
+    .postdate{
+      display: table-cell;
+      width: 70px;
+      padding: 0 15px 0 0;
+    }
+    .custom_like_button{
+      display: table-cell;
+      width: calc( 100% - 85px );
+      li{
+        display: inline-block;
+        vertical-align: middle;
+        a{
+          width: auto;
+          height: auto;
+        }
+        .lg_like{
+          margin: 0;
+          color: #454545;
+          background: none;
+          &:before{
+            color: #f06292;
+            font-weight: normal;
+          }
+          &.liked{
+            &:before{
+              content: "\f004";
+              color: #f06292;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 /*========= category =========*/
 /* NEWS & Data*/
 .news_theme{
@@ -1014,6 +1097,12 @@ dl, dd, ul{
     font-size: 280%;
     text-align: right;
     margin-right: -10px;
+  }
+
+  &__pop_wrapper{
+    .news_theme__close{
+      right: 20px;
+    }
   }
   
   .select_theme__button{
@@ -1221,21 +1310,6 @@ dl, dd, ul{
     max-width: 200px;
   }
 
-  //&__heading{
-  //  @include flex;
-  //  -webkit-align-items: center;
-  //  align-items: center;
-  //
-  //  .thumbnail{
-  //    @include circle_thumbnail(60px);
-  //    margin: 0 15px 0 0;
-  //    img{
-  //      @include circle_thumbnail__image(80px, 60px);
-  //    }
-  //  }
-  //
-  //}
-
   .list_inner{
     margin-bottom: 10px;
     box-shadow: 0 1px 0 0 $grayCol01;
@@ -1348,6 +1422,7 @@ dl, dd, ul{
 /*. ページャー */
 .pager_container{
   margin: 30px 0;
+  text-align: center;
   .tablenav{
     width: 100%;
     padding: 0 10px;
@@ -1357,12 +1432,13 @@ dl, dd, ul{
     box-sizing: border-box;
     .current{
       display: inline-block;
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       color: #FFF;
-      padding: 5px 0;
+      padding: 0;
       margin-right: 5px;
       text-align: center;
+      line-height: 25px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -1372,10 +1448,11 @@ dl, dd, ul{
     .next,
     .prev{
       display: inline-block;
-      width: 30px;
-      height: 30px;
-      padding: 5px 0;
+      width: 25px;
+      height: 25px;
+      padding: 0;
       text-align: center;
+      line-height: 25px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -1388,11 +1465,14 @@ dl, dd, ul{
 
     a.page-numbers{
       display: inline-block;
-      width: 30px;
-      height: 30px;
-      padding: 5px 0;
+      width: 25px;
+      height: 25px;
+      padding: 0;
       margin-right: 5px;
       text-align: center;
+      line-height: 25px;
+      vertical-align: bottom;
+      border: 1px solid #7f2525;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -1623,6 +1703,16 @@ dl, dd, ul{
     max-width: 200px;
   }
 
+  .sns_line_wrapper{
+    margin: 20px 0 0 0;
+    zoom: 1;
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
   &__heading{
     @include flex;
     -webkit-align-items: center; /* Safari */
@@ -1737,6 +1827,7 @@ dl, dd, ul{
     box-shadow: none;
     .single_contents_box__inner{
       padding: 0 10px;
+      margin: 0 0 10px 0;
     }
 
     .author_area{
@@ -1915,6 +2006,10 @@ dl, dd, ul{
   text-align: center;
   box-shadow: none;
   background: #FFF;
+  .common_underlayer_title-h2{
+    text-align: left;
+    margin: 0 0 0 12px;
+  }
   .month_title{
     padding: 0 10px;
     .title{
@@ -1932,7 +2027,7 @@ dl, dd, ul{
 
   .text{
     color: $grayCol02;
-    font-size: 9px;
+    font-size: 1em;
     margin-top: 0 !important;
   }
 
@@ -2027,11 +2122,14 @@ dl, dd, ul{
 
   .form_block{
     button.submit{
-      width: 48%;
+      float: none;
+      display: block;
+      width: 90%;
       color: #FFF;
       font-size: 130%;
       font-weight: bold;
       padding: 15px 0 19px;
+      margin: 15px auto;
       text-align: center;
       border: none;
       box-shadow: 0 1px 0 0 $grayCol01;
@@ -2244,6 +2342,7 @@ dl, dd, ul{
 .author_post{
   .sp_wr_wrapper{
     .title{
+      width: calc( 100% - 75px);
       font-size: 18px;
       font-weight: bold;
       .link{
@@ -2462,7 +2561,7 @@ dl, dd, ul{
 
     .news_theme__inner_box{
       width: 100%;
-      min-height: 94vh;
+      height: 94vh;
       padding: 10px;
       margin: 10px 0;
       -webkit-box-sizing: border-box;
@@ -2566,9 +2665,12 @@ body.single-event {
   @include knows_map__filter(0,0,rgba(255,255,255,0.8));
   @include checkbox($mainCol01,#FFF);
   li{
-    width: calc(100% / 3);
+    width: calc( (100% - 80px ) / 2);
     padding: 10px 0;
     text-align: center;
+    &:first-child{
+      width: 80px;
+    }
   }
 
   &_wrapper{
@@ -2625,6 +2727,7 @@ body.single-event {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    background: #D9D9D9;
   }
 
   &__inp_tex{
@@ -2968,4 +3071,19 @@ body.single-event {
 --------------------------------------------------*/
 .articles__no_post {
   box-sizing: border-box;
+}
+
+.single__post_body{
+  .pagination{
+    .text{
+      margin: 0 10px 0 0;
+    }
+    a .num,
+    .num{
+      width: 30px;
+      height: 30px;
+      margin: 0 10px 0 0;
+      line-height: 30px;
+    }
+  }
 }

@@ -1,6 +1,5 @@
 <?php
 get_header(); ?>
-
 <div class="underlayer_wrapper page_sp_php earth_view">
     <div class="inner">
         <?php breadcrumbs(); ?>
@@ -21,8 +20,6 @@ get_header(); ?>
             </div>
         </div><!--.list_pic-->
     </div><!--.list_pic_wrapper-->
-
-
     <div class="list_pic_wrapper">
         <div class="list_pic">
             <div class="list_pic_layout">
@@ -35,7 +32,6 @@ get_header(); ?>
             </div><!--.list_pic-->
         </div><!--.list_pic_wrapper-->
     </div><!--.contents_wrapper-->
-
     <div class="list_pic_wrapper">
         <div class="list_pic">
             <div class="list_pic_layout">
@@ -48,7 +44,6 @@ get_header(); ?>
             </div><!--.list_pic-->
         </div><!--.list_pic_wrapper-->
     </div><!--.contents_wrapper-->
-
 <?php
     get_template_part('footer', 'sp')
 ?>
