@@ -36,7 +36,6 @@ if ( 'comment' === $op_mode ) {
 			'comment_type'         => '',
 		) );
 
-		echo $comment_id;
 
 		if ( is_int( $comment_id ) ) {
 			add_comment_meta( $comment_id, 'author_ip', $author_ip );
