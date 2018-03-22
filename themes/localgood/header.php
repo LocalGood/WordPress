@@ -24,12 +24,13 @@ elseif (DEVICE == 'pc'):
 
 	<?php
 	$opengraph = array(
-		'title' => generate_share_message( false ),
-		'url' => isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
-		'type' => ( is_home() ) ? 'website' : 'erticle',
-		'locale' => 'ja_JP',
-		'image' => get_template_directory_uri() . '/images/ogimg.png?ver=' . LG::themeinfo()->version,	// default
-		'description' => get_bloginfo( 'description' ), // default
+		'fb:app_id'      => get_option( 'lg_config__apikey_facebook', false ),
+		'og:title'       => generate_share_message( false ),
+		'og:url'         => isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
+		'og:type'        => ( is_home() ) ? 'website' : 'erticle',
+		'og:locale'      => 'ja_JP',
+		'og:image'       => get_template_directory_uri() . '/images/ogimg.png?ver=' . LG::themeinfo()->version,
+		'og:description' => get_bloginfo( 'description' ),
 	);
 
 
