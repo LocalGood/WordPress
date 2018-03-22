@@ -22,34 +22,49 @@ elseif (DEVICE == 'pc'):
     <meta name="keywords" content="<?php echo $meta_kwds; ?>"/>
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
 
-    <meta property="og:title" content="<?php generate_share_message(); ?>"/>
-    <meta property="og:url" content="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>"/>
-    <?php
-    if (is_single()):
-        setup_postdata($post);
-        $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-thumbnail');
-        if ($eyecatch):
-            $_imgurl = '';
+	<?php
+	$opengraph = array(
+		'title' => generate_share_message( false ),
+		'url' => isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
+		'type' => ( is_home() ) ? 'website' : 'erticle',
+		'locale' => 'ja_JP',
+		'image' => get_template_directory_uri() . '/images/ogimg.png?ver=' . LG::themeinfo()->version,	// default
+		'description' => get_bloginfo( 'description' ), // default
+	);
 
-            $_fn_array = explode('/', $eyecatch[0]);
-            for ($i = 0; $i < count($_fn_array); $i++) {
-                $_imgurl .= $_fn_array[$i];
-                if ($i != (count($_fn_array) - 1))
-                    $_imgurl .= '/';
-            };
-            ?>
-            <meta property="og:image" content="<?php echo $_imgurl ?>"/>
-        <?php else: ?>
-            <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png"/>
-        <?php endif; ?>
-        <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
-    <?php else: ?>
-        <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>"/>
-        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/ogimg.png"/>
-    <?php endif; ?>
-    <meta property="og:type" content="<?php if (is_home()): ?>website<?php else: ?>article<?php endif; ?>"/>
-    <meta property="fb:app_id" content="<?php echo esc_attr(get_option('lg_config__apikey_facebook', false)); ?>"/>
-    <meta property="og:locale" content="ja_JP"/>
+
+	if ( is_single() ) {
+		setup_postdata( $post );
+		$eyecatch = wp_get_attachment_image_src( get_post_thumbnail_id(), 'single-thumbnail' );
+
+		if ( $eyecatch ) {
+			$_imgurl = '';
+
+			$_fn_array = explode( '/', $eyecatch[0] );
+			for ( $i = 0; $i < count( $_fn_array ); $i ++ ) {
+				$_imgurl .= $_fn_array[ $i ];
+				if ( $i != ( count( $_fn_array ) - 1 ) ) {
+					$_imgurl .= '/';
+				}
+			};
+			$opengraph['image'] = $_imgurl;
+		} else {
+			$attached_medias_obj = get_attached_media( 'image', $post->ID );
+			foreach ( $attached_medias_obj as $id => $obj ) {
+				$_imgurl = wp_get_attachment_image_src( $obj->ID, 'medium' )[0];
+				if ( $_imgurl ) {
+					$opengraph['image'] = $_imgurl;
+				}
+			}
+		}
+
+		$opengraph['description'] = get_the_excerpt();
+	}
+
+	foreach ( $opengraph as $key => $value ) {
+		echo '<meta property="' . esc_attr( $key ) . '" content="' . esc_attr( $value ) . '">';
+	}
+	?>
 
     <title><?php
         global $page, $paged, $post;
