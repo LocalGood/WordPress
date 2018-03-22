@@ -48,13 +48,13 @@ elseif (DEVICE == 'pc'):
 					$_imgurl .= '/';
 				}
 			};
-			$opengraph['image'] = $_imgurl;
+			$opengraph['og:image'] = $_imgurl;
 		} else {
 			$attached_medias_obj = get_attached_media( 'image', $post->ID );
 			foreach ( $attached_medias_obj as $id => $obj ) {
 				$_imgurl = wp_get_attachment_image_src( $obj->ID, 'medium' )[0];
 				if ( $_imgurl ) {
-					$opengraph['image'] = $_imgurl;
+					$opengraph['og:image'] = $_imgurl;
 				}
 			}
 		}
