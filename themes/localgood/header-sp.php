@@ -20,8 +20,8 @@
 	$opengraph = array(
 		'fb:app_id'      => get_option( 'lg_config__apikey_facebook', false ),
 		'og:title'       => generate_share_message( false ),
-		'og:url'         => isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
-		'og:type'        => ( is_home() ) ? 'website' : 'erticle',
+		'og:url'         => 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
+		'og:type'        => ( is_home() ) ? 'website' : 'article',
 		'og:locale'      => 'ja_JP',
 		'og:image'       => get_template_directory_uri() . '/images/ogimg.png?ver=' . LG::themeinfo()->version,
 		'og:description' => get_bloginfo( 'description' ),
