@@ -176,9 +176,11 @@ elseif (DEVICE == 'pc'):
                                 <span class="header__right__snav__second_title">みんなの声</span>
                                 <ul>
                                     <li><span><a href="<?php echo home_url('/subject/'); ?>">投稿一覧</a></span></li>
+                                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                                     <li>
                                         <span><a href="<?php echo home_url('/submit_subject/'); ?>">あなたの声を投稿する</a></span>
                                     </li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -209,9 +211,11 @@ elseif (DEVICE == 'pc'):
                     <li>
                         <a href="<?php echo home_url('/about/'); ?>"><?php bloginfo('name'); ?>について</a>
                     </li>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <li class="gnav_goteo">
                         <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/user/login">新規登録/ログイン</a>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>

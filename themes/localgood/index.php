@@ -14,7 +14,9 @@ else:
         <div class="header__right">
             <nav class="header__right__nav">
                 <ul id="gnav" class="header__right__nav__gnav">
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <li><a href="<?php echo home_url('/subject/'); ?>">あなたの声を投稿する</a></li>
+                    <?php endif; ?>
                     <?php $a = 'class="active"'; ?>
                     <li <?php if (is_category() || is_singular('post') || is_tag() || is_page('lgnews')) {
                         echo $a;
@@ -60,9 +62,11 @@ else:
                     <li>
                         <a href="<?php echo home_url('/about/'); ?>"><?php bloginfo('name'); ?>について</a>
                     </li>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <li class="gnav_goteo">
                         <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/user/login">新規登録/ログイン</a>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>

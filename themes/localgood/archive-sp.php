@@ -7,6 +7,7 @@
 				<img src="<?php echo get_option('lg_config__page_ttl_prefix'); ?>">
 				みんなの声
 			</h2>
+            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
             <h3>
                 あなたの声を投稿しましょう
             </h3>
@@ -18,6 +19,7 @@
                     <p><?php echo wpautop(get_option('lg_config__tweet_guide_contents')); ?></p>
                 </div>
             </div>
+            <?php endif; ?>
         </div><!-- /.submit_subjects_link -->
         <div class="subject_counter">
             <?php
@@ -66,6 +68,7 @@
 
             <div class="underlayer_title_area">
                 <div class="submit_subjects_link">
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <h3>
                         あなたの声を投稿しましょう
                     </h3>
@@ -74,6 +77,7 @@
                             あなたの声を投稿しましょう
                         </a>
                     </div>
+                    <?php endif; ?>
 
                     <div class="about_delete">
                         <p>誤って投稿してしまった、不適切な投稿がある、<br>

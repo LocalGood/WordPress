@@ -152,12 +152,14 @@
             </div>
             <nav class="main_nav__link-list">
                 <ul class="list01">
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <?php if (is_home()): ?>
                         <li>
                             <a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
                                 あなたの声を投稿する
                             </a>
                         </li>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <li class="list_open">
                         <div class="list01__text">
@@ -195,11 +197,13 @@
                                     投稿一覧
                                 </a>
                             </dd>
+                            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                             <dd>
                                 <a href="<?php echo home_url('/submit_subject/'); ?>">
                                     あなたの声を投稿する
                                 </a>
                             </dd>
+                            <?php endif; ?>
                         </dl>
                     </li>
                     <li class="list_open">
@@ -231,24 +235,28 @@
                     <li>
                         <a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
                     </li>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                     <li>
                         <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/user/login"
                            class="list01__text">
                             新規登録/ログイン
                         </a>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </nav>
 
         <nav class="main_nav__link-list">
             <ul class="list01">
+                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                 <?php if (is_home()): ?>
                     <li>
                         <a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
                             あなたの声を投稿する
                         </a>
                     </li>
+                <?php endif; ?>
                 <?php endif; ?>
                 <li class="list_open">
                     <div class="list01__text">
@@ -287,11 +295,13 @@
                                     投稿一覧
                                 </a>
                             </dd>
+                            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                             <dd>
                                 <a href="<?php echo home_url('/submit_subject/'); ?>">
                                     あなたの声を投稿する
                                 </a>
                             </dd>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </dl>
                 </li>
@@ -324,12 +334,14 @@
                 <li>
                     <a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
                 </li>
+                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                 <li>
                     <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/user/login"
                        class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
+                <?php endif; ?>
             </ul>
         </nav>
     <?php else: ?>
@@ -381,11 +393,13 @@
                                 投稿一覧
                             </a>
                         </dd>
+                        <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                         <dd>
                             <a href="<?php echo home_url('/submit_subject/'); ?>">
                                 あなたの声を投稿する
                             </a>
                         </dd>
+                        <?php endif; ?>
                     </dl>
                 </li>
                 <li class="list_open">
@@ -417,12 +431,14 @@
                 <li>
                     <a href="/about/" class="list01__text"><?php bloginfo('name'); ?>について</a>
                 </li>
+                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                 <li>
                     <a href="<?php echo esc_attr(get_option('lg_config__goteo_baseurl', false)); ?>/login"
                        class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
+                <?php endif; ?>
             </ul>
         </nav>
     </nav>
