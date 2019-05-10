@@ -20,7 +20,9 @@ elseif (DEVICE == 'pc'):
     ));
     ?>
     <meta name="keywords" content="<?php echo $meta_kwds; ?>"/>
-    <meta name="description" content="<?php bloginfo('description'); ?>"/>
+    <?php if (!is_single()): ?>
+        <meta name="description" content="<?php bloginfo( 'description' ); ?>"/>
+    <?php endif; ?>
 
 	<?php
 	$opengraph = array(
@@ -59,13 +61,15 @@ elseif (DEVICE == 'pc'):
 			}
 		}
 
-		$opengraph['description'] = get_the_excerpt();
+		$opengraph['og:description'] = get_the_excerpt();
+        echo '<meta name="description" content="' . get_the_excerpt() . '"/>';
 	}
 
 	foreach ( $opengraph as $key => $value ) {
 		echo '<meta property="' . esc_attr( $key ) . '" content="' . esc_attr( $value ) . '">';
 	}
 	?>
+    <meta name="twitter:card" content="summary" />
 
     <title><?php
         global $page, $paged, $post;

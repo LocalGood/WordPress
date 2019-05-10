@@ -13,7 +13,10 @@
     ));
     ?>
     <meta name="keywords" content="<?php echo $meta_kwds; ?>"/>
-    <meta name="description" content="<?php bloginfo('description'); ?>"/>
+    <?php if (!is_single()): ?>
+        <meta name="description" content="<?php bloginfo( 'description' ); ?>"/>
+    <?php endif; ?>
+
 	<meta property="fb:app_id" content="<?php echo esc_attr( get_option( 'lg_config__apikey_facebook', false ) ); ?>"/>
 
 	<?php
@@ -53,13 +56,15 @@
 			}
 		}
 
-		$opengraph['description'] = get_the_excerpt();
+		$opengraph['og:description'] = get_the_excerpt();
+        echo '<meta name="description" content="' . get_the_excerpt() . '"/>';
 	}
 
 	foreach ( $opengraph as $key => $value ) {
 		echo '<meta property="' . esc_attr( $key ) . '" content="' . esc_attr( $value ) . '">';
 	}
 	?>
+    <meta name="twitter:card" content="summary" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title><?php
