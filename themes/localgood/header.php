@@ -180,7 +180,7 @@ elseif (DEVICE == 'pc'):
                                 <span class="header__right__snav__second_title">みんなの声</span>
                                 <ul>
                                     <li><span><a href="<?php echo home_url('/subject/'); ?>">投稿一覧</a></span></li>
-                                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                                    <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                                     <li>
                                         <span><a href="<?php echo home_url('/submit_subject/'); ?>">あなたの声を投稿する</a></span>
                                     </li>

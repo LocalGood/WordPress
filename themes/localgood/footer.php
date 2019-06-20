@@ -47,7 +47,7 @@
                     <span class="footer__upper__third_title">みんなの声</span>
                     <ul>
                         <li><a href="<?php echo home_url('subject'); ?>">投稿一覧</a></li>
-                        <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                        <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                         <li><a href="<?php echo home_url('submit_subject'); ?>">あなたの声を投稿する</a></li>
                         <?php endif; ?>
                     </ul>

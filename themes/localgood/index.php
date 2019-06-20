@@ -14,7 +14,7 @@ else:
         <div class="header__right">
             <nav class="header__right__nav">
                 <ul id="gnav" class="header__right__nav__gnav">
-                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                     <li><a href="<?php echo home_url('/subject/'); ?>">あなたの声を投稿する</a></li>
                     <?php endif; ?>
                     <?php $a = 'class="active"'; ?>

@@ -7,7 +7,7 @@
 				<img src="<?php echo get_option('lg_config__page_ttl_prefix'); ?>">
 				みんなの声
 			</h2>
-            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
             <h3>
                 あなたの声を投稿しましょう
             </h3>
@@ -68,7 +68,7 @@
 
             <div class="underlayer_title_area">
                 <div class="submit_subjects_link">
-                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                     <h3>
                         あなたの声を投稿しましょう
                     </h3>

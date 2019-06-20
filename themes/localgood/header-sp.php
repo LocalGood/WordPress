@@ -157,7 +157,7 @@
             </div>
             <nav class="main_nav__link-list">
                 <ul class="list01">
-                    <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                    <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                     <?php if (is_home()): ?>
                         <li>
                             <a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
@@ -202,7 +202,7 @@
                                     投稿一覧
                                 </a>
                             </dd>
-                            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                             <dd>
                                 <a href="<?php echo home_url('/submit_subject/'); ?>">
                                     あなたの声を投稿する
@@ -254,7 +254,7 @@
 
         <nav class="main_nav__link-list">
             <ul class="list01">
-                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                 <?php if (is_home()): ?>
                     <li>
                         <a href="<?php echo home_url('/subject/'); ?>" class="list01__text">
@@ -300,7 +300,7 @@
                                     投稿一覧
                                 </a>
                             </dd>
-                            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                             <dd>
                                 <a href="<?php echo home_url('/submit_subject/'); ?>">
                                     あなたの声を投稿する
@@ -398,7 +398,7 @@
                                 投稿一覧
                             </a>
                         </dd>
-                        <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                        <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                         <dd>
                             <a href="<?php echo home_url('/submit_subject/'); ?>">
                                 あなたの声を投稿する
