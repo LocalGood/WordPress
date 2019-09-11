@@ -13,7 +13,7 @@ else:
 
         <div class="c-page_title_wrapper">
             <h2 class="c-page_title c-title05"><img src="<?php echo get_option( 'lg_config__page_ttl_prefix' ); ?>">みんなの声</h2>
-            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
+            <?php /* if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
 			<a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
 				あなたの声を投稿しましょう
 			</a>
@@ -23,7 +23,7 @@ else:
 					<div class="subject_post_box__text"><?php echo wpautop(get_option( 'lg_config__tweet_guide_contents' )); ?></div>
 				</div>
 			</div>
-            <?php endif; ?>
+            <?php endif; */ ?>
         </div>
 		<div class="subject_counter">
 		    <?php
@@ -87,11 +87,11 @@ else:
             ?>
         </div>
         <div class="subject_post_box">
-            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
+            <?php /* if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
 			<a class="subject_post_box__submit_button" href="<?php echo home_url( '/submit_subject/' ); ?>">
 				あなたの声を投稿しましょう
 			</a>
-            <?php endif; ?>
+            <?php endif; */ ?>
 			<div class="about_delete">
 				<p>誤って投稿してしまった、不適切な投稿がある、などで投稿の削除を<br>
 					リクエストされる場合は以下のお問合せページからメールにてご連絡ください。</p>
